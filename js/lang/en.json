@@ -1,0 +1,116 @@
+{
+  "header": {
+    "link1": "Services",
+    "link2": "Portfolio",
+    "link3": "Reviews",
+    "link4": "Contacts",
+    "link5": "Shall we begin?",
+    "title": "– more than just a web studio!",
+    "subtitle": "We create not just websites, but effective tools for business. KSIBE is your partner in the world of digital transformation.",
+    "btn": "Discuss the project",
+    "btnMobile": "LET'S TALK ABOUT YOUR IDEA"
+  },
+  "skills": {
+    "title": "REASONS WHY YOU CAN TRUST US WITH YOUR PROJECT",
+    "title1": "A digital ecosystem, not just a website",
+    "subtitle1": "For us, every project is more than a website — it’s a tool designed to help your business grow. We make sure your site is not only visually appealing but truly effective.",
+    "title2": "We understand your business and support its growth",
+    "subtitle2": "Our task is not only to build a website, but to help you achieve your business goals. We analyze your audience and implement changes that bring real value.",
+    "title3": "Innovative solutions instead of template-based projects",
+    "subtitle3": "Instead of standard patterns, we use modern technologies and approaches to create websites that stand out from competitors and deliver results.",
+    "title4": "Technologies chosen for speed and security",
+    "subtitle4": "We work with advanced technologies like Next.js, React, and Strapi to ensure high performance and strong security for your projects."
+  },
+  "product": {
+    "title": "DEVELOPMENT THAT ACCELERATES YOUR BUSINESS",
+
+    "product1": "PWA / Web App",
+    "discription1": "A modern web application that looks and feels like a mobile app. Fast, convenient, and can work offline. A perfect choice when you need “an app-like experience without extra cost.”",
+
+    "product2": "Websites of any complexity",
+    "discription2": "From simple landing pages to complex multi-level websites. For a brand, small business, or company — we build with precision, speed, and focus on results.",
+
+    "product3": "Online Store / eCommerce",
+    "discription3": "A convenient online store with cart, payments, and modern design. Built to sell effectively and stay stable even under high traffic.",
+
+    "product4": "Corporate Website",
+    "discription4": "A stylish and solid website for your company. Showcases your brand, team, services — everything your clients need to see professionalism at first glance.",
+
+    "product5": "Client dashboards, CRM, internal systems",
+    "discription5": "We create convenient tools for business operations: personal dashboards, management systems, service panels. Thoughtful and easy to use.",
+
+    "product6": "Integrations & custom solutions",
+    "discription6": "We integrate payments, CRMs, automation, APIs — everything you need for smooth operations and growth. Flexible for your business tasks.",
+
+    "product7": "Any other idea",
+    "discription7": "Even if your idea is something unusual — let’s discuss it. Whatever you have in mind, we’re ready to build it.",
+
+    "btn": "Learn more"
+  },
+  "leader": {
+    "titleSection": "We help businesses grow faster",
+
+    "title1": "DIGITAL TRANSFORMATION",
+    "discription1": "We help businesses adapt to the digital era: automation, analytics, innovation.",
+
+    "title2": "BRAND DEVELOPMENT",
+    "discription2": "We craft a unique style that sets you apart from competitors.",
+
+    "title3": "CLIENT CONNECTION",
+    "discription3": "We create websites that not only look great but speak your client’s language.",
+
+    "title4": "GROWTH WITHOUT EXTRA EFFORT",
+    "discription4": "We automate processes so you can focus only on what matters most.",
+
+    "title5": "BUSINESS THAT NEVER STOPS",
+    "discription5": "We ensure stable work of your website, ads, and services 24/7."
+  },
+  "portfolio": {
+    "titleSection": "Our work — real results",
+    "title1": "Head Barbershop",
+    "descr1": "Premium barbershop",
+    "title2": "Babies Alliance",
+    "descr2": "Children's charity",
+    "color": "#030303",
+    "link": "Case study",
+    "allCases": "View all cases"
+  },
+  "numbers": {
+    "emodji1": "🔥",
+    "title1": "200%",
+    "descr1": "increase in visits after the website launch.",
+
+    "emodji2": "🔍",
+    "title2": "40%",
+    "descr2": "higher Google rankings within 3 months.",
+
+    "emodji3": "🚀",
+    "title3": "320%",
+    "descr3": "increase in inquiries after the redesign!",
+
+    "emodji4": "⚡",
+    "title4": "250%",
+    "descr4": "conversion growth after optimization!",
+
+    "emodji5": "📊",
+    "title5": "100%",
+    "descr5": "positive feedback after improvements!"
+  },
+  "contact": {
+    "titleSection": "Shall we create something unique together?",
+    "descr": "Fill out the form and our specialist will contact you! Or reach out to us directly:",
+
+    "titleMail": "Please fill out this short brief",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "site": "Website (if any)",
+    "message": "Which service are you interested in?",
+    "file": "Attach a file",
+    "btn": "Send",
+    "license": "By clicking “Send”, you agree to the Personal Data Processing Policy."
+  },
+  "footer": {
+    "title": "We create POWERFUL tools for your business that deliver real results!"
+  }
+}

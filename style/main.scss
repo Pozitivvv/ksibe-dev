@@ -1,0 +1,74 @@
+.container {
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+/* ---------------------------
+   RESET + MODERN NORMALIZE
+---------------------------- */
+
+/* 1. Убираем отступы и включаем border-box */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2. Исправление масштабирования на мобильных */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* 3. Базовые значения для body */
+body {
+  line-height: 1.5;
+}
+
+/* 4. Убираем стили у изображений */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 5. Наследование шрифтов в формах */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Ссылки без подчёркивания по умолчанию */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 8. Списки без точек */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 9. Заголовки без лишних стилей браузера */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* 10. Таблицы нормализованные */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

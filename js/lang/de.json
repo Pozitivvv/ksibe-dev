@@ -1,0 +1,114 @@
+{
+  "header": {
+    "link1": "Leistungen",
+    "link2": "Portfolio",
+    "link3": "Bewertungen",
+    "link4": "Kontakt",
+    "link5": "Starten wir gemeinsam?",
+    "title": "– mehr als nur eine Webagentur!",
+    "subtitle": "Wir erstellen nicht einfach Websites, sondern effektive Werkzeuge für Ihr Business. KSIBE – Ihr Partner in der digitalen Transformation.",
+    "btn": "Projekt besprechen",
+    "btnMobile": "LASSEN SIE UNS ÜBER IHRE IDEE SPRECHEN"
+  },
+  "skills": {
+    "title": "WARUM SIE UNS IHR PROJEKT ANVERTRAUEN SOLLTEN",
+    "title1": "Digitaler Raum statt nur einer Website",
+    "subtitle1": "Jedes Projekt ist für uns mehr als eine Website – es ist ein Werkzeug zur Weiterentwicklung Ihres Unternehmens. Wir sorgen dafür, dass Ihr Auftritt nicht nur schön, sondern auch wirkungsvoll ist.",
+    "title2": "Wir verstehen Ihr Business – und unterstützen Ihr Wachstum",
+    "subtitle2": "Unser Ziel ist es nicht nur, eine Website zu erstellen, sondern Ihnen zu helfen, Ihre Geschäftsziele zu erreichen. Deshalb analysieren wir Ihre Zielgruppe und setzen Verbesserungen um, die echte Ergebnisse bringen.",
+    "title3": "Innovative Lösungen statt Standardvorlagen",
+    "subtitle3": "Anstelle von typischen Mustern nutzen wir moderne Technologien und Ansätze, um Websites zu entwickeln, die sich von der Konkurrenz abheben und messbare Resultate liefern.",
+    "title4": "Die richtigen Technologien für eine schnelle und sichere Website",
+    "subtitle4": "Wir arbeiten mit modernen Tools wie Next.js, React und Strapi, um hohe Leistung und zuverlässige Sicherheit zu gewährleisten."
+  },
+  "product": {
+    "title": "ENTWICKLUNG, DIE IHR BUSINESS BESCHLEUNIGT",
+
+    "product1": "PWA / Web-App",
+    "discription1": "Eine moderne Web-App, die wie eine mobile Anwendung aussieht und funktioniert. Schnell, komfortabel und sogar offline nutzbar. Perfekt, wenn man „App-Feeling ohne hohe Kosten“ möchte.",
+
+    "product2": "Websites jeder Komplexität",
+    "discription2": "Von einfachen Seiten bis hin zu komplexen, mehrstufigen Projekten. Für Marken, kleine Unternehmen oder Firmen – wir liefern sauber, schnell und ergebnisorientiert.",
+
+    "product3": "Onlineshop / E-Commerce",
+    "discription3": "Ein nutzerfreundlicher Shop mit Warenkorb, Zahlungssystemen und modernem Design. Wir entwickeln Lösungen, die wirklich verkaufen und auch unter Last stabil bleiben.",
+
+    "product4": "Unternehmenswebsite",
+    "discription4": "Eine stilvolle und professionelle Website für Ihr Unternehmen. Präsentiert Marke, Team und Leistungen – damit Kunden Ihre Professionalität sofort erkennen.",
+
+    "product5": "Kundenbereiche, CRM, interne Systeme",
+    "discription5": "Wir entwickeln praktische Tools für Ihren Arbeitsalltag: Kundenbereiche, Verwaltungssysteme, Service-Panels. Durchdacht und einfach zu bedienen.",
+
+    "product6": "Integrationen & individuelle Lösungen",
+    "discription6": "Wir integrieren Zahlungen, CRM, Automatisierungen, APIs – alles, was Ihren Arbeitsablauf vereinfacht und Wachstum ermöglicht. Flexibel und an Ihre Anforderungen angepasst.",
+
+    "product7": "Jede andere Idee",
+    "discription7": "Auch etwas Ungewöhnliches? Sprechen wir darüber. Alles, was Ihnen in den Sinn kommt – wir setzen es um.",
+
+    "btn": "Mehr erfahren"
+  },
+  "leader": {
+    "titleSection": "Wir helfen Unternehmen, schneller zu wachsen",
+
+    "title1": "DIGITALE TRANSFORMATION",
+    "discription1": "Wir unterstützen Unternehmen bei der Anpassung an das digitale Zeitalter: Automatisierung, Analytik, Innovation.",
+
+    "title2": "MARKENENTWICKLUNG",
+    "discription2": "Wir schaffen einen einzigartigen Stil, der Sie von der Konkurrenz abhebt.",
+
+    "title3": "KUNDENKOMMUNIKATION",
+    "discription3": "Wir entwickeln Websites, die nicht nur gut aussehen, sondern die Sprache Ihrer Kunden sprechen.",
+
+    "title4": "WACHSTUM OHNE EXTRA-AUFWAND",
+    "discription4": "Wir automatisieren Prozesse, damit Sie Ihre Zeit nur auf das Wesentliche richten müssen.",
+
+    "title5": "EIN BUSINESS, DAS NIE STOPPT",
+    "discription5": "Wir gewährleisten einen stabilen Betrieb Ihrer Website, Werbung und Services – rund um die Uhr."
+  },
+  "portfolio": {
+    "titleSection": "Unsere Projekte – echte Ergebnisse",
+    "title1": "Head Barbershop",
+    "descr1": "Premium-Barbershop",
+    "color": "#030303",
+    "link": "Transformations-Case",
+    "allCases": "Alle Cases ansehen"
+  },
+  "numbers": {
+    "emodji1": "🔥",
+    "title1": "200%",
+    "descr1": "mehr Besucher nach dem Website-Launch.",
+
+    "emodji2": "🔍",
+    "title2": "40%",
+    "descr2": "bessere Google-Rankings innerhalb von 3 Monaten.",
+
+    "emodji3": "🚀",
+    "title3": "320%",
+    "descr3": "mehr Anfragen nach dem Redesign!",
+
+    "emodji4": "⚡",
+    "title4": "250%",
+    "descr4": "höhere Conversion nach der Optimierung!",
+
+    "emodji5": "📊",
+    "title5": "100%",
+    "descr5": "positive Rückmeldungen nach den Verbesserungen!"
+  },
+  "contact": {
+    "titleSection": "Wollen wir gemeinsam etwas Einzigartiges schaffen?",
+    "descr": "Füllen Sie das Formular aus und unser Spezialist meldet sich bei Ihnen! Oder kontaktieren Sie uns direkt:",
+
+    "titleMail": "Bitte füllen Sie dieses kurze Briefing aus",
+    "name": "Name",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "site": "Website (falls vorhanden)",
+    "message": "Welche Leistung interessiert Sie?",
+    "file": "Datei anhängen",
+    "btn": "Senden",
+    "license": "Mit dem Klick auf „Senden“ stimmen Sie der Verarbeitung personenbezogener Daten zu."
+  },
+  "footer": {
+    "title": "Wir entwickeln LEISTUNGSSTARKE Tools für Ihr Business, die echte Ergebnisse liefern!"
+  }
+}

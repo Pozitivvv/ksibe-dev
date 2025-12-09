@@ -1,0 +1,2096 @@
+/* --- 1. Шрифты и Переменные --- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Unbounded:wght@400;700;800&display=swap");
+
+@font-face {
+  font-family: "Arkhip";
+  src: url("../fonts/Arkhip_font.otf") format("opentype"),
+    url("../fonts/Arkhip_font.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Цвета
+$color-bg-dark: #141333;
+// Градиент фона (делаем чуть глубже для контраста с шарами)
+$color-bg-gradient: radial-gradient(circle at center, #1b1a40 0%, #0c091c 100%);
+$color-accent: #595aad;
+$color-accent-light: #6b6bda;
+$color-text-white: #ffffff;
+$color-text-grey: #a0a0b8;
+
+/* --- 2. Анимации --- */
+@keyframes floatOrb {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+/* --- 3. Базовые настройки --- */
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #030208; /* Резервный цвет */
+  color: $color-text-white;
+
+  &.lock {
+    overflow: hidden;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- 4. Секция Header --- */
+.header {
+  min-height: 100vh;
+  background: #030208;
+  position: relative;
+  overflow: hidden; /* Важно: обрезает размытые края шаров */
+
+  /* --- Навигация --- */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    position: relative;
+    z-index: 100; /* Меню всегда поверх всего */
+
+    .logo {
+      font-family: "Arkhip", sans-serif;
+      font-size: 36px;
+      color: $color-accent-light; /* Чуть светлее для контраста */
+      margin: 0;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 102;
+    }
+
+    /* Бургер (Скрыт на ПК) */
+    .burger-btn {
+      display: none;
+      width: 30px;
+      height: 20px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0;
+      z-index: 102;
+
+      span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: $color-accent-light;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      &.active {
+        span:nth-child(1) {
+          transform: translateY(9px) rotate(45deg);
+        }
+        span:nth-child(2) {
+          opacity: 0;
+        }
+        span:nth-child(3) {
+          transform: translateY(-9px) rotate(-45deg);
+        }
+      }
+    }
+
+    /* Меню десктоп */
+    .nav-content {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      ul {
+        display: flex;
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li a {
+          font-family: "Inter", sans-serif;
+          font-weight: 300;
+          font-size: 15px;
+          color: $color-text-white;
+          text-decoration: none;
+          transition: color 0.2s;
+
+          &:hover {
+            color: $color-accent;
+          }
+        }
+      }
+
+      .mobile-footer {
+        display: none;
+      }
+    }
+  }
+
+  /* Кнопка в шапке (Desktop) */
+  &__btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    text-decoration: none;
+    color: $color-accent-light;
+    width: 248px;
+    height: 48px;
+    border: 1px solid $color-accent-light;
+    border-radius: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.4s ease-out;
+    flex-shrink: 0;
+
+    p {
+      margin: 0;
+      position: relative;
+      z-index: 2;
+      padding-right: 15px;
+      transition: transform 0.4s ease-out;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $color-accent-light;
+      border-radius: 38px;
+      z-index: -1;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    &:after {
+      content: "🚀";
+      position: absolute;
+      right: 20px;
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.3s ease-out 0.5s, transform 0.3s ease-out 0.5s;
+      z-index: 2;
+    }
+
+    &:hover {
+      color: white;
+      p {
+        transform: translateX(-5px);
+      }
+      &:before {
+        transform: scaleX(1);
+      }
+      &:after {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  /* --- 5. Главная Секция (Main) --- */
+  &__main {
+    margin-top: 8%;
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 60px;
+    padding-bottom: 60px;
+    position: relative; /* Контекст для шаров */
+
+    /* --- ФОНОВЫЕ ШАРЫ (Orbs) --- */
+    .background-orbs {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* Пропускаем клики */
+      z-index: 0; /* Самый нижний слой в main */
+
+      span {
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        filter: blur(10px); /* Сильное размытие */
+        opacity: 0.5;
+        animation: floatOrb 8s infinite alternate ease-in-out;
+
+        &:nth-child(1) {
+          /* Верхний шар (светлее) */
+          top: -20%;
+          left: -10%;
+          width: 600px;
+          height: 600px;
+          background: radial-gradient(
+            circle,
+            #533097 0%,
+            rgba(89, 90, 173, 0) 70%
+          );
+        }
+
+        &:nth-child(2) {
+          /* Нижний шар (темнее/синее) */
+          bottom: -10%;
+          right: -10%;
+          width: 500px;
+          height: 500px;
+          background: radial-gradient(
+            circle,
+            #1c1c62 0%,
+            rgba(57, 57, 228, 0) 70%
+          );
+          animation-delay: -4s;
+        }
+      }
+    }
+
+    /* Текст и контент - поднимаем выше шаров */
+    h1,
+    .subtitle-text,
+    button {
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+      font-family: "Unbounded", sans-serif;
+      font-weight: 800;
+      font-size: clamp(40px, 5.5vw, 96px);
+      line-height: 1.1;
+      margin: 0;
+      color: #f5f5f5;
+
+      span {
+        color: $color-accent-light; /* Или градиент, если нужно */
+        display: inline-block;
+      }
+    }
+
+    .subtitle-text {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      align-self: end;
+      font-size: 16px;
+      line-height: 1.5;
+      color: $color-text-grey;
+      margin: 0 0 40px 0;
+      max-width: 350px;
+    }
+
+    /* Кнопка Круглая (ПК) */
+    .hero-btn-desktop {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      justify-self: start;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, #7475d6 0%, #474893 100%);
+      color: white;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: "Unbounded", sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      box-shadow: 0 10px 30px rgba($color-accent, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+
+      &:before {
+        content: "↗";
+        font-size: 32px;
+        margin-bottom: 8px;
+      }
+
+      &:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 15px 40px rgba($color-accent, 0.6);
+      }
+    }
+
+    .hero-btn-mobile {
+      display: none;
+    }
+  }
+}
+
+/* --- 6. Адаптив (Mobile & Tablet) --- */
+@media (max-width: 992px) {
+  .header {
+    min-height: 100vh;
+
+    nav {
+      .burger-btn {
+        display: flex;
+      }
+
+      .nav-content {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(12, 9, 28, 0.95);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        padding: 100px 32px 40px;
+        box-sizing: border-box;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+        &.active {
+          transform: translateX(0);
+        }
+
+        ul {
+          flex-direction: column;
+          gap: 0;
+          width: 100%;
+          align-items: flex-end;
+
+          li {
+            width: 100%;
+            text-align: right;
+            border-bottom: 1px solid rgba($color-accent, 0.2);
+            padding: 20px 0;
+            a {
+              font-size: 20px;
+              font-weight: 500;
+              display: block;
+            }
+          }
+        }
+
+        .header__btn {
+          margin: 40px 0 20px 0;
+          width: 100%;
+          background: $color-accent;
+          color: white;
+          &:before,
+          &:after {
+            display: none;
+          }
+          p {
+            padding: 0;
+            transform: none;
+          }
+        }
+
+        .mobile-footer {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          width: 100%;
+          margin-top: auto;
+
+          .mobile-email {
+            color: $color-accent-light;
+            text-decoration: underline;
+          }
+
+          .lang-switch {
+            display: flex;
+            gap: 12px;
+            button {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              background: transparent;
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              color: rgba(255, 255, 255, 0.5);
+              &.active {
+                background: $color-accent;
+                color: white;
+                border-color: $color-accent;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /* Главная секция на мобильном */
+    &__main {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      row-gap: 24px;
+      padding: 60px 0 40px 0;
+      /* Центрируем шары по экрану мобилки */
+
+      .background-orbs span {
+        /* Делаем шары больше для мобилки, чтобы фон был залит цветом */
+        width: 80vw;
+        height: 80vw;
+        filter: blur(70px);
+
+        &:nth-child(1) {
+          top: -10%;
+          left: -20%;
+        }
+        &:nth-child(2) {
+          bottom: 10%;
+          right: -20%;
+        }
+      }
+
+      h1 {
+        grid-column: 1;
+        grid-row: 1;
+        font-size: 32px; /* Чуть меньше для аккуратности */
+        line-height: 1.2;
+        width: 100%;
+      }
+
+      .subtitle-text {
+        grid-column: 1;
+        grid-row: 2;
+        margin: 0;
+        max-width: 100%;
+        font-size: 15px;
+      }
+
+      .hero-btn-desktop {
+        display: none;
+      }
+
+      /* Прямоугольная кнопка как на фото */
+      .hero-btn-mobile {
+        grid-column: 1;
+        grid-row: 3;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 60px; /* Высота как на макете */
+        border: 1px solid #fff;
+        background: rgba(255, 255, 255, 0.05); /* Легкая прозрачность фона */
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        text-transform: uppercase;
+        padding: 0 20px;
+        margin-top: 30px;
+        cursor: pointer;
+        transition: background 0.3s;
+        z-index: 2;
+
+        span {
+          font-size: 22px; /* Стрелочка */
+          font-weight: 300;
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.15);
+        }
+      }
+    }
+  }
+}
+
+// skills section
+
+// === Переменные ===
+$bg-color: #030303;
+$text-white: #ffffff;
+$text-gray: #8b8b8b;
+$container-width: 1240px;
+$breakpoint-tablet: 992px;
+$breakpoint-mobile: 768px;
+
+.skills {
+  background-color: $bg-color;
+  padding: 80px 0;
+  color: $text-white;
+  font-family: "Unbounded", sans-serif;
+  overflow: hidden;
+
+  // === Контейнер ===
+  .container {
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  // === Главный заголовок (H2) ===
+  h2 {
+    font-size: 42px;
+    line-height: 1.2;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    // 1. ИЗМЕНЕНИЕ: Уменьшили отступ снизу
+    margin-bottom: 40px; // Было 40px, стало меньше
+
+    max-width: 900px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  }
+
+  // === Обертка сетки (Grid) ===
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+
+    // Важно для выравнивания начала блоков по одной линии
+    align-items: start;
+
+    @media (max-width: $breakpoint-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px 20px;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
+  // === Карточка (Item) ===
+  &__item {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    // === Заголовок карточки (H3) ===
+    h3 {
+      // 2. ИЗМЕНЕНИЕ: Убираем дефолтный верхний отступ браузера
+      margin-top: 0;
+
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 16px;
+      color: $text-white;
+
+      min-height: 84px;
+
+      @media (max-width: $breakpoint-mobile) {
+        min-height: auto;
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+    }
+
+    // === Описание (P) ===
+    p {
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 400;
+      color: $text-gray;
+      margin: 0;
+
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// Product section
+
+// === Переменные ===
+$bg-gradient: linear-gradient(135deg, #2e2d5f, #3c3b7b);
+$card-border: rgba(255, 255, 255, 0.2);
+$white: #ffffff;
+$accent-color: #6c5ce7;
+$transition-speed: 0.5s;
+
+.product {
+  background: $bg-gradient;
+  padding: 60px 0;
+  color: $white;
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+  border-radius: 90px 90px 0 0;
+
+  @media (max-width: 768px) {
+    border-radius: 40px 40px 0 0;
+    padding: 40px 0;
+  }
+
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h2 {
+    font-family: "Unbounded", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: start;
+    margin-bottom: 60px;
+
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    // 🔥 NEW: ВЕРТИКАЛЬНЫЙ МАГНИТ НА МОБИЛЬНОМ
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr; // Одна колонка
+      gap: 20px;
+
+      // Включаем прилипание по вертикали (Y)
+      // `proximity` - мягкое прилипание (не бесит пользователя)
+      // `mandatory` - жесткое прилипание (строго по центру)
+      scroll-snap-type: y proximity;
+
+      // Это нужно, чтобы скролл всей страницы учитывал эти блоки
+      // Но будьте осторожны: вертикальный snap может конфликтовать с прокруткой страницы
+      // Если будет неудобно, просто удалите scroll-snap-type здесь.
+    }
+  }
+
+  // === КАРТОЧКА (ITEM) ===
+  &__item {
+    position: relative;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    padding: 35px;
+    border: 1px solid $card-border;
+    border-radius: 20px;
+    background: transparent;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    box-sizing: border-box;
+
+    // 🔥 NEW: Настройка для мобильного
+    @media (max-width: 768px) {
+      // Говорим браузеру: "Останавливай скролл так, чтобы центр карточки был по центру экрана"
+      scroll-snap-align: center;
+      scroll-margin-top: 20px; // Отступ, чтобы не прилипало вплотную к верху
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 100px;
+      height: 100px;
+      background: $white;
+      border-radius: 50%;
+      transform: scale(0);
+      transform-origin: center;
+      transition: transform $transition-speed cubic-bezier(0.65, 0.05, 0.36, 1);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    // Срабатывает при наведении МЫШКОЙ или при классе ACTIVE (JS)
+    &:hover,
+    &.active {
+      border-color: transparent;
+      transform: translateY(-5px);
+
+      &::before {
+        transform: scale(15);
+      }
+
+      h3 {
+        color: #595aad;
+      }
+      p {
+        color: #595aad;
+      }
+
+      a {
+        color: $accent-color;
+        &::after {
+          transform: translateX(5px);
+        }
+      }
+    }
+
+    h3,
+    p,
+    a {
+      position: relative;
+      z-index: 1;
+      transition: color $transition-speed ease;
+    }
+
+    h3 {
+      margin-bottom: 15px;
+      font-family: "Inter", sans-serif;
+      font-size: 25px;
+      font-weight: 600;
+      margin-top: 0;
+      min-height: 60px;
+    }
+
+    p {
+      font-weight: 200;
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba($white, 0.8);
+      margin-bottom: 30px;
+      flex-grow: 1;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 600;
+      color: $white;
+      text-decoration: none;
+      margin-top: auto;
+
+      &::after {
+        content: "↗";
+        font-size: 18px;
+        margin-left: 10px;
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+
+  // === КНОПКА СНИЗУ ===
+  .container > a:last-child {
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 60px;
+    background: transparent;
+    border: 2px solid rgba($white, 0.5);
+    color: $white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+
+    &::before {
+      margin-right: 20px;
+    }
+    &::after {
+      content: "🚀";
+      filter: brightness(0) invert(1);
+      margin-left: 15px;
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      background: $white;
+      color: #595aad;
+      border-color: $white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      &::after {
+        filter: none;
+        transform: translateX(5px) translateY(-5px);
+      }
+    }
+    @media (max-width: 500px) {
+      width: 100%;
+    }
+  }
+}
+
+// === СЕКЦИЯ LEADER ===
+// === Переменные ===
+$bg-dark: #050511;
+$accent-color: #6c5ce7;
+$text-white: #ffffff;
+$text-gray: #d3cccc;
+
+// Цвета для шаров
+$blob-color-1: rgba(108, 92, 231, 0.4);
+$blob-color-2: rgba(46, 45, 95, 0.5);
+
+// Анимация фона (плавающие шары)
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.leader {
+  position: relative;
+  background-color: $bg-dark;
+  padding: 80px 0;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+
+  @media (max-width: 768px) {
+    padding: 50px 0;
+  }
+
+  // === 1. ЖИВОЙ ФОН ===
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+
+    .leader__blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: float 10s infinite ease-in-out;
+      opacity: 0.6;
+
+      &--1 {
+        width: 500px;
+        height: 500px;
+        background: $blob-color-1;
+        top: -100px;
+        left: -100px;
+        animation-delay: 0s;
+      }
+      &--2 {
+        width: 400px;
+        height: 400px;
+        background: $blob-color-2;
+        bottom: 10%;
+        right: -50px;
+        animation-delay: -2s;
+      }
+      &--3 {
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, $accent-color 0%, transparent 70%);
+        top: 40%;
+        left: 30%;
+        opacity: 0.2;
+        animation-delay: -5s;
+      }
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  // Анимация "Бегущего света" (Сканирование)
+  @keyframes shine {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+
+  // Анимация "Дыхание неона" (Легкое мерцание)
+  @keyframes neonPulse {
+    0%,
+    100% {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.1),
+        0 0 20px rgba($accent-color, 0.2);
+    }
+    50% {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3),
+        0 0 40px rgba($accent-color, 0.5);
+    }
+  }
+
+  h2 {
+    font-family: "Unbounded", sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 80px;
+    text-transform: uppercase;
+
+    // === ЭФФЕКТ 1: Бегущая волна (замена бегущей строке) ===
+    // Делаем градиентный фон: Белый -> Акцентный -> Белый
+    background: linear-gradient(
+      90deg,
+      $text-white 0%,
+      #8c7eff 45%,
+      // Светло-фиолетовая вспышка
+      $text-white 55%,
+      $text-white 100%
+    );
+    background-size: 200% auto; // Увеличиваем фон, чтобы двигать его
+
+    // Магия обрезки фона по тексту
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    // color: transparent; // fallback
+
+    // Запускаем бесконечную анимацию движения фона
+    animation: shine 5s linear infinite;
+
+    // === ЭФФЕКТ 2: Живое дыхание (тень) ===
+    // Добавляем поверх анимацию тени, чтобы текст "дышал"
+    // (Обратите внимание: text-shadow может конфликтовать с background-clip в некоторых браузерах,
+    // но filter: drop-shadow работает отлично)
+    filter: drop-shadow(0 0 5px rgba($accent-color, 0.3));
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  // === ЭЛЕМЕНТ СПИСКА ===
+  &__item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding-bottom: 60px;
+    box-sizing: border-box;
+
+    // Скрываем элемент для JS анимации
+    opacity: 0;
+    transform: translateY(30px);
+
+    // 🔥 НОВА ЛОГІКА:
+    // Починаємо з 0 (лінія не намальована). JS буде міняти це число на 1.
+    --line-progress: 0;
+
+    // === DESKTOP ЛОГИКА ===
+    @media (min-width: 769px) {
+      // НЕЧЕТНЫЕ (1, 3, 5) - Лінія вправо
+      &:nth-child(odd) {
+        flex-direction: row;
+        text-align: left;
+
+        .leader__content {
+          margin-left: 25px;
+          margin-right: auto;
+          max-width: 40%;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          top: 40px;
+          left: 40px;
+          width: calc(100% - 80px);
+          height: 100%;
+          border-top: 2px dashed rgba($accent-color, 0.4);
+          border-right: 2px dashed rgba($accent-color, 0.4);
+          border-radius: 0 40px 40px 0;
+
+          // 🔥 МАГІЯ CALC:
+          // Якщо прогрес 0 -> inset(0 100% 0 0) -> Сховано
+          // Якщо прогрес 1 -> inset(0 0% 0 0) -> Видно
+          clip-path: inset(0 calc((1 - var(--line-progress)) * 100%) 0 0);
+        }
+      }
+
+      // ЧЕТНЫЕ (2, 4) - Лінія вліво
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+        text-align: right;
+
+        .leader__content {
+          margin-right: 25px;
+          margin-left: auto;
+          max-width: 40%;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          top: 40px;
+          right: 40px;
+          width: calc(100% - 80px);
+          height: 100%;
+          border-top: 2px dashed rgba($accent-color, 0.4);
+          border-left: 2px dashed rgba($accent-color, 0.4);
+          border-radius: 40px 0 0 40px;
+
+          // 🔥 МАГІЯ CALC:
+          // Обрізаємо зліва (4-й параметр inset)
+          clip-path: inset(0 0 0 calc((1 - var(--line-progress)) * 100%));
+        }
+      }
+
+      &:last-child::after {
+        display: none;
+      }
+    }
+
+    // === MOBILE ЛОГИКА ===
+    @media (max-width: 768px) {
+      flex-direction: row !important;
+      align-items: flex-start;
+      text-align: left !important;
+      padding-bottom: 40px;
+
+      // Вертикальная линия
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 40px;
+        width: 2px;
+        height: 100%;
+        background: repeating-linear-gradient(
+          to bottom,
+          rgba($accent-color, 0.5) 0,
+          rgba($accent-color, 0.5) 6px,
+          transparent 6px,
+          transparent 12px
+        );
+        z-index: 0;
+        transform: translateX(-50%);
+
+        // Обрізаємо знизу (3-й параметр inset)
+        clip-path: inset(0 0 calc((1 - var(--line-progress)) * 100%) 0);
+      }
+
+      &:last-child::before {
+        display: none;
+      }
+      &::after {
+        display: none !important;
+      }
+      .leader__content {
+        margin-left: 20px;
+        padding-top: 10px;
+        max-width: 100%;
+      }
+      .leader__icon-box {
+        margin: 0;
+        z-index: 1;
+        background-color: $bg-dark;
+      }
+    }
+  }
+
+  // === ИКОНКА ===
+  &__icon-box {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    background: $bg-dark;
+    border: 1px solid rgba($accent-color, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba($accent-color, 0.2);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+
+    img {
+      width: 40px;
+      height: 40px;
+      display: block;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      border-color: $accent-color;
+      box-shadow: 0 0 40px rgba($accent-color, 0.6);
+    }
+  }
+
+  // Тексты
+  &__title {
+    color: $text-white;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
+  }
+  &__descr {
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 300;
+    color: $text-gray;
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+}
+
+// portfolio
+// === Переменные ===
+$bg-dark-page: #050511;
+$text-white: #ffffff;
+$text-gray: #b0b0b0;
+$container-width: 1240px;
+$bg-dark: #000;
+
+.portfolio {
+  padding: 50px 0;
+  background-color: $bg-dark-page;
+  font-family: "Inter", sans-serif;
+
+  .container {
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: 0 20px;
+    // Важливо для позиціювання кнопки внизу
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  // Заголовок секции
+  h2 {
+    font-family: "Unbounded", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $text-white;
+
+    // 🔥 ЗМЕНШЕНИЙ ВІДСТУП
+    margin-bottom: 30px;
+
+    text-align: left;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 0;
+
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 650px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // === КАРТОЧКА ===
+  &__item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: var(--card-bg, #1e1e1e);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  &__image-box {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+  }
+
+  &__content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__title {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50px);
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: -0.08em;
+    text-transform: capitalize;
+    color: $text-white; // Додав колір явно
+  }
+
+  &__descr {
+    font-weight: 300;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+    font-weight: 400;
+    flex-grow: 1;
+  }
+
+  // === КНОПКА (LINK В КАРТЦІ) ===
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50px;
+    color: $text-white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.08em;
+    text-transform: lowercase;
+    transition: all 0.3s ease;
+    width: fit-content;
+
+    &::after {
+      content: "↗";
+      font-size: 16px;
+      margin-left: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      background-color: $text-white;
+      color: #000;
+      border-color: $text-white;
+
+      &::after {
+        transform: translateX(3px) translateY(-3px);
+      }
+    }
+  }
+
+  // === 🔥 ОСНОВНА КНОПКА (ВИПРАВЛЕНА) ===
+  &__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    // Гарантований відступ, щоб не наїжджала
+    margin-top: 60px;
+    padding-bottom: 20px;
+
+    position: relative;
+    z-index: 5;
+    clear: both;
+  }
+
+  &__btn {
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: -0.08em;
+    text-transform: lowercase;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 70px;
+    border: 1px solid $text-white;
+    border-radius: 60px;
+    text-decoration: none;
+    color: $text-white;
+    background: transparent;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.4s ease;
+
+    // Шторка заливки
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: $text-white;
+      z-index: -1;
+      transition: width 0.4s ease-in-out;
+    }
+
+    &:hover {
+      color: $bg-dark;
+      &::before {
+        width: 100%;
+      }
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+}
+//numbers section
+// === Змінні ===
+$bg-black: #000000; // На скріншоті фон чисто чорний
+$text-white: #ffffff;
+$text-gray: #b3b3b3;
+
+.numbers {
+  padding: 0 0;
+  font-family: "Inter", sans-serif;
+  overflow: hidden; // На випадок, якщо будемо робити бігучий рядок
+
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between; // Розподіляємо по ширині
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap; // Адаптивність
+
+    @media (max-width: 992px) {
+      justify-content: center;
+      gap: 40px;
+    }
+  }
+
+  // === Окремий блок статистики ===
+  &__item {
+    display: flex;
+    flex-wrap: wrap; // Дозволяємо перенесення рядків
+    align-items: center; // Центруємо вертикально іконку і цифру
+    justify-content: center; // Центруємо горизонтально
+
+    width: 18%; // Щоб вмістити 5 елементів в ряд (100% / 5 ≈ 20%)
+    min-width: 200px; // Мінімальна ширина для мобільних
+    text-align: center;
+  }
+
+  // === Емодзі / Іконка ===
+  &__emodji {
+    font-size: 32px; // Розмір іконки
+    margin: 0;
+    margin-right: 10px; // Відступ від цифри
+    line-height: 1;
+
+    // Якщо іконки вставлені як картинки або текст, це вирівняє їх
+    display: flex;
+    align-items: center;
+  }
+
+  // === Цифра (Заголовок) ===
+  &__title {
+    font-family: "Unbounded", sans-serif; // Акцидентний шрифт
+    font-size: 40px;
+    font-weight: 700;
+    color: $text-white;
+    margin: 0;
+    line-height: 1;
+
+    // Важливо для анімації лічильника:
+    // Щоб цифри не стрибали по ширині під час відліку, можна задати min-width або font-variant-numeric
+    font-variant-numeric: tabular-nums;
+  }
+
+  // === Опис ===
+  &__descr {
+    width: 100%; // Займає всю ширину, тому переноситься на новий рядок
+    margin-top: 10px; // Відступ від цифри
+
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 400;
+    text-transform: uppercase; // Як на картинці (великі літери)
+    color: $text-gray; // Трохи сірий для контрасту
+    text-align: center;
+  }
+}
+// Ефект розмиття під час рахунку
+.numbers__title.is-counting {
+  filter: blur(4px); // Легке розмиття
+  opacity: 0.8;
+  transform: scale(1.1); // Трохи збільшується
+  transition: all 0.1s; // Дуже швидка реакція
+}
+
+// Ефект "Спалаху" коли закінчили рахувати
+@keyframes numberPop {
+  0% {
+    transform: scale(1);
+    color: #fff;
+  }
+  50% {
+    transform: scale(1.4);
+    color: $accent-color;
+    text-shadow: 0 0 20px $accent-color;
+  } // Спалах кольору
+  100% {
+    transform: scale(1);
+    color: #fff;
+  }
+}
+
+.numbers__title.done-counting {
+  animation: numberPop 0.6s ease-out forwards;
+  filter: blur(0);
+}
+
+// contact section
+// === Переменные (цвета подобраны по макету) ===
+$bg-dark-page: #2e2d5f; // Темно-синий фон секции
+$bg-card: #f3f3fa; // Светлый фон формы
+$bg-input: #ebebf5; // Фон инпутов
+$accent-btn: #595aad; // Цвет кнопки
+$text-white: #ffffff;
+$text-dark: #2e2d5f; // Темный текст заголовков в форме
+$text-placeholder: #8b8b8b;
+
+.contact {
+  padding: 80px 0 60px 0;
+  background-color: $bg-dark-page;
+  font-family: "montserrat", sans-serif;
+  color: $text-white;
+  border-radius: 0 0 60px 60px;
+
+  @media (max-width: 768px) {
+    padding: 60px 0 40px 0;
+  }
+
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+
+    // Адаптив: на планшете и ниже — в колонку
+    @media (max-width: 992px) {
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+
+  // === ЛЕВАЯ ЧАСТЬ (ТЕКСТ + КОНТАКТЫ) ===
+  &__item {
+    flex: 1; // Занимает доступное пространство
+
+    // Если это второй элемент (форма), задаем ему особые стили
+    &:last-child {
+      background-color: $bg-card;
+      padding: 40px;
+      border-radius: 30px; // Скругление карточки
+      color: $text-dark; // Текст внутри формы темный
+      max-width: 500px; // Ограничиваем ширину формы
+      width: 100%;
+
+      @media (max-width: 992px) {
+        max-width: 100%; // На мобильном на всю ширину
+        padding: 30px 20px;
+      }
+    }
+  }
+
+  // Заголовок слева
+  &__title {
+    font-family: "Unbounded", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
+  }
+
+  // Описание слева
+  &__descr {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    max-width: 400px;
+    opacity: 0.9;
+  }
+  .hidden-input {
+    display: none; // Скрываем стандартную страшную кнопку
+  }
+
+  .custom-file-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #2e2d5f; // Цвет текста
+    font-size: 14px;
+    margin-top: 10px;
+
+    img {
+      margin-right: 10px;
+      width: 20px;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  // Блок с иконкой и ссылкой
+  &__itemContact {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__img {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+    // Можно добавить фильтр, если иконки черные, чтобы сделать их белыми
+    // filter: brightness(0) invert(1);
+  }
+
+  &__link {
+    color: $text-white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  // === ПРАВАЯ ЧАСТЬ (ФОРМА) ===
+
+  // Заголовок формы
+  &__mailTitle {
+    font-family: "Unbounded", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $text-dark;
+    margin-bottom: 30px;
+    line-height: 1.3;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; // Отступы между полями
+  }
+
+  // Стили для всех инпутов и текстареа
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 1px solid transparent; // Прозрачный бордюр
+    background-color: $bg-input;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    color: $text-dark;
+    border: 1px solid #6e6b6b86;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+
+    &::placeholder {
+      color: $text-placeholder;
+    }
+
+    &:focus {
+      border-color: $accent-btn; // Подсветка при клике
+    }
+  }
+
+  textarea {
+    resize: none; // Запретить растягивать
+    height: 120px;
+  }
+
+  // Кастомный стиль для input type="file"
+  input[type="file"] {
+    background: transparent;
+    padding: 10px 0;
+    font-size: 14px;
+    color: $text-dark;
+    cursor: pointer;
+
+    // Стилизация кнопки "Выберите файл" (работает в Chrome/Safari)
+    &::file-selector-button {
+      border: none;
+      background: #e0e0e0;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-right: 10px;
+      cursor: pointer;
+      color: $text-dark;
+      transition: background 0.3s;
+
+      &:hover {
+        background: #d0d0d0;
+      }
+    }
+  }
+
+  // Кнопка отправки
+  button[type="submit"] {
+    margin-top: 10px;
+    padding: 16px;
+    background-color: $accent-btn;
+    color: $text-white;
+    font-weight: 700;
+    font-size: 14px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; // Если нужно как в дизайне кнопок портфолио
+
+    &:hover {
+      background-color: lighten($accent-btn, 5%);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+// === 3D SCENE STYLES ===
+
+// 1. Батьківська секція повинна мати relative позицію
+.contact {
+  position: relative;
+  overflow: hidden; // Щоб 3D не вилазило за межі
+
+  // 2. Існуючий контент піднімаємо вище, щоб він був доступний для кліків
+  .container {
+    position: relative;
+    z-index: 10;
+    // Важливо: pointer-events: none для контейнера, але auto для його дітей.
+    // Це дозволить клікати "крізь" пусті місця контейнера по 3D об'єкту.
+    pointer-events: none;
+
+    // Відновлюємо кліки для контенту всередині
+    .contact__wrapper {
+      pointer-events: auto;
+    }
+  }
+}
+
+// 3. Стилі для самого 3D контейнера
+#contact-3d-scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%; // Займає ліву половину екрану
+  height: 100%;
+  z-index: 5; // Нижче контенту, але вище фону
+  outline: none; // Прибираємо рамку при фокусі
+
+  // 🔥 ВАЖЛИВО: ПРИХОВУЄМО НА МОБІЛЬНИХ 🔥
+  display: none;
+
+  // Показуємо ТІЛЬКИ на великих екранах (ПК)
+  // Використовуємо той же брейкпоінт, що і у вас в CSS для планшетів (992px)
+  @media (min-width: 993px) {
+    display: block;
+  }
+}
+
+// Невелике коригування для лівої текстової частини,
+// щоб текст не наїжджав на 3D об'єкт занадто сильно
+@media (min-width: 993px) {
+  .contact__item:first-child {
+    // Можна додати трохи відступу або максимальну ширину,
+    // якщо об'єкт заважає читати текст
+    // max-width: 450px;
+  }
+}
+
+//footer section
+// --- Переменные ---
+$bg-color: #02000b;
+$accent-color: #6a6afb; // Фиолетовый
+$text-color: #ffffff;
+$text-muted: #5a5a7a; // Цвет неактивных рамок/текста
+
+footer {
+  background: linear-gradient(180deg, #030208 0%, #141333 100%);
+  padding: 40px 20px;
+  color: $text-color;
+  font-family: sans-serif; // Подставьте свой шрифт
+
+  // Flex-контейнер для всего футера
+  display: flex;
+  flex-direction: column; // Мобильная версия: вертикально
+  align-items: center;
+  gap: 30px;
+
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// === ЛЕВАЯ ЧАСТЬ ===
+.footer__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+
+  .footer__logo {
+    font-family: "Arkhip", sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: $accent-color;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .footer__title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 300px;
+    margin: 0;
+  }
+}
+
+// === ПРАВАЯ ЧАСТЬ ===
+.footer__right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+
+  .footer__socials-group {
+    display: flex;
+    gap: 15px;
+  }
+
+  .footer__social {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .footer__mail {
+    font-family: "Montserrat", sans-serif;
+    color: $text-color;
+    text-decoration: none;
+    font-size: 16px;
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}
+
+// === ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ (Стили как на скрине) ===
+.lang-switch {
+  display: flex;
+  gap: 10px; // Расстояние между кружками
+
+  button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; // Делает кнопку круглой
+    background: transparent; // Прозрачный фон
+
+    // Граница для неактивных (серый круг)
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5); // Тусклый текст
+
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    text-transform: uppercase;
+
+    &:hover {
+      border-color: $accent-color;
+      color: white;
+    }
+
+    // Активная кнопка (залитая фиолетовым)
+    &.active {
+      background-color: $accent-color;
+      border-color: $accent-color;
+      color: white;
+    }
+  }
+}
+
+// ==========================================
+// ДЕСКТОП (Широкий экран)
+// ==========================================
+@media (min-width: 992px) {
+  footer {
+    flex-direction: row; // Элементы в строку
+    justify-content: space-between; // Разносим по краям (лево/право)
+    padding: 30px 60px;
+  }
+
+  // Настройка левой части в строку
+  .footer__left {
+    flex-direction: row; // Лого и текст рядом
+    text-align: left;
+    align-items: center;
+    gap: 30px;
+
+    .footer__title {
+      max-width: 350px; // Ограничение ширины текста
+      text-align: left;
+      border-left: 1px solid rgba(255, 255, 255, 0.1); // Можно добавить разделитель как декор
+      padding-left: 20px;
+    }
+  }
+
+  // Настройка правой части в строку
+  .footer__right {
+    flex-direction: row;
+    gap: 30px; // Отступы между группами (соцсети / почта / языки)
+  }
+}
+
+// === КНОПКА "НАВЕРХ" (Стрелка) ===
+.scroll-up-btn {
+  // Базовые стили круглой кнопки (копия стилей языков)
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2); // Тонкая серая рамка
+  color: rgba(255, 255, 255, 0.5); // Цвет иконки (тусклый)
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+
+  // Центрирование иконки внутри кнопки
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // Ховер эффект
+  &:hover {
+    border-color: $accent-color;
+    color: white; // Иконка становится белой
+    background-color: $accent-color; // Можно добавить заливку при наведении, как на макете
+  }
+}
+// === ВЫПАДАЮЩИЙ СПИСОК ЯЗЫКОВ ===
+.lang-dropdown-wrapper {
+  position: relative; // Важно для позиционирования меню
+  display: inline-block;
+}
+
+// Кнопка-триггер (Текущий язык)
+.lang-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px; // Отступ между текстом и стрелкой
+
+  width: 55px; // Чуть шире обычного круга, чтобы влезала стрелка
+  height: 40px;
+  border-radius: 20px; // Овальная форма
+
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0 10px;
+
+  // Стрелочка
+  .lang-arrow {
+    transition: transform 0.3s ease;
+    opacity: 0.7;
+  }
+
+  // Ховер эффект
+  &:hover {
+    border-color: $accent-color;
+    color: $accent-color;
+
+    .lang-arrow {
+      opacity: 1;
+    }
+  }
+
+  // Состояние, когда меню открыто (добавляется через JS)
+  &.active {
+    border-color: $accent-color;
+    background-color: rgba($accent-color, 0.1);
+
+    .lang-arrow {
+      transform: rotate(180deg); // Переворот стрелки
+    }
+  }
+}
+
+// Само выпадающее меню
+.lang-menu {
+  position: absolute;
+  bottom: 100%; // Появляется НАД кнопкой (Drop-up)
+  left: 0;
+  width: 100%; // Ширина равна кнопке
+
+  margin-bottom: 10px; // Отступ от кнопки
+  background-color: rgba(16, 16, 37, 0.95); // Темный полупрозрачный фон
+  backdrop-filter: blur(5px); // Эффект размытия фона
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 5px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  // Скрыто по умолчанию
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+
+  // Класс для показа (добавляется JS)
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+// Опции внутри меню
+.lang-option {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 8px 0;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s;
+  width: 100%;
+  text-align: center;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+}

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/mainmin.css" />
+    <link rel="stylesheet" href="css/ksibemin.css" />
+
+    <title data-i18n="title">My Landing</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <nav>
+          <p class="logo">KSIBE</p>
+
+          <button class="burger-btn" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="nav-content">
+            <ul>
+              <li><a data-i18n="header.link1" href="#">Послуги</a></li>
+              <li><a data-i18n="header.link2" href="#">Портфоліо</a></li>
+              <li><a data-i18n="header.link3" href="#">Відгуки</a></li>
+              <li><a data-i18n="header.link4" href="#">Контакти</a></li>
+            </ul>
+
+            <a class="header__btn" data-i18n="header.link5" href="#">
+              <p>Залишити заявку</p>
+            </a>
+
+            <div class="mobile-footer">
+              <a href="mailto:team@ksibe.dev" class="mobile-email"
+                >team@ksibe.dev</a
+              >
+              <div class="lang-switch">
+                <button onclick="loadLang('en')" data-lang="en">EN</button>
+                <button onclick="loadLang('uk')" data-lang="uk" class="active">UA</button>
+                <button onclick="loadLang('de')" data-lang="de">DE</button>
+                <button onclick="loadLang('ru')" data-lang="ru">RU</button>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div class="header__main">
+          <div class="background-orbs">
+            <span></span>
+            <span></span>
+          </div>
+          <h1>
+            <span>KSIBE</span>
+            <p data-i18n="header.title">– більше, ніж просто веб-студія.</p>
+          </h1>
+          <p data-i18n="header.subtitle" class="subtitle-text">
+            Це місце, де ідеї перетворюються на цифрові продукти.
+          </p>
+
+          <button class="hero-btn-mobile">
+            <p data-i18n="header.btnMobile">ПОГОВОРИМО ПРО ВАШУ ІДЕЮ</p>
+            <span>↗</span>
+          </button>
+
+          <button class="hero-btn-desktop" data-i18n="header.btn">
+
+          </button>
+        </div>
+      </div>
+    </div>
+    <section class="skills">
+      <div class="container">
+        <h2 data-i18n="skills.title">
+          ПРИЧИНИ, ЧОМУ ВАРТО ДОВІРИТИ СВОЙ ПРОЄКТ НАМ
+        </h2>
+        <div class="skills__content">
+          <div class="skills__wrapper">
+            <div class="skills__item">
+              <h3 data-i18n="skills.title1">
+                Ми створюємо цифрові інструменти
+              </h3>
+              <p data-i18n="skills.subtitle1">
+                Наша мета – створити більше, ніж просто веб-студія. Ми створюємо
+                не просто сайти, а ефективні інструменти для бізнесу.
+              </p>
+            </div>
+            <div class="skills__item">
+              <h3 data-i18n="skills.title2">
+                Розуміємо ваш бізнес і прагнемо його розвитку
+              </h3>
+              <p data-i18n="skills.subtitle2">
+                Наше завдання — не просто створити сайт, а допомогти вам досягти
+                ваших бізнес-цілей. Тому ми вивчаємо вашу аудиторію та вносимо
+                зміни, що приносять реальну користь.
+              </p>
+            </div>
+            <div class="skills__item">
+              <h3 data-i18n="skills.title3">
+                Інноваційні рішення, а не шаблонні проєкти
+              </h3>
+              <p data-i18n="skills.subtitle3">
+                Замість стандартних рішень, ми використовуємо новітні технології
+                та підходи, щоб створювати сайти, які вирізняються серед
+                конкурентів і працюють на результат.
+              </p>
+            </div>
+            <div class="skills__item">
+              <h3 data-i18n="skills.title4">
+                Вибір технологій для вашого швидкого та безпечного сайту
+              </h3>
+              <p data-i18n="skills.subtitle4">
+                Ми працюємо з передовими технологіями, такими як Next.js, React
+                та Strapi, щоб забезпечити високу продуктивність і безпеку ваших
+                проєктів.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="product">
+      <div class="container">
+        <h2 data-i18n="product.title">РОЗРОБКА, ЯКА ПРИСКОРЮЄ ВАШ БІЗНЕС</h2>
+        <div class="product__wrapper">
+          <div class="product__item">
+            <h3 data-i18n="product.product1">PWA / Web-App</h3>
+            <p data-i18n="product.discription1">
+              Сучасний веб-додаток, який виглядає та працює як мобільний
+              застосунок. Швидкий, зручний і може працювати офлайн. Ідеальний
+              вибір, коли хочеться «як додаток, але без зайвих витрат».
+            </p>
+            <a data-i18n="product.btn" href="#"></a>
+          </div>
+
+          <div class="product__item">
+            <h3 data-i18n="product.product2">Сайт будь-якої складності</h3>
+            <p data-i18n="product.discription2">
+              Від простих сторінок до продуманих багаторівневих сайтів. Для
+              бренду, малого бізнесу чи компанії — ми робимо акуратно, швидко та
+              з акцентом на результат.
+            </p>
+            <a data-i18n="product.btn" href="#"></a>
+          </div>
+
+          <div class="product__item">
+            <h3 data-i18n="product.product3">Онлайн-магазин / eCommerce</h3>
+            <p data-i18n="product.discription3">
+              Зручний магазин із кошиком, оплатою та сучасним дизайном.
+              Створюємо те, що реально продає й працює стабільно навіть під
+              навантаженням.
+            </p>
+            <a data-i18n="product.btn" href="#"></a>
+          </div>
+
+          <div class="product__item">
+            <h3 data-i18n="product.product4">Корпоративний сайт</h3>
+            <p data-i18n="product.discription4">
+              Стильний та солідний сайт для компанії. Показує бренд, команду,
+              послуги — усе, щоб клієнти бачили професійність з першого погляду.
+            </p>
+            <a data-i18n="product.btn" href="#"></a>
+          </div>
+
+          <div class="product__item">
+            <h3 data-i18n="product.product5">
+              Особисті кабінети, CRM, внутрішні системи
+            </h3>
+            <p data-i18n="product.discription5">
+              Створюємо зручні інструменти для роботи бізнесу: кабінети, системи
+              управління, сервісні панелі. Все продумано та зрозуміло у
+              використанні.
+            </p>
+            <a data-i18n="product.btn" href="#"></a>
+          </div>
+
+          <div class="product__item">
+            <h3 data-i18n="product.product7">Будь-яка інша ідея</h3>
+            <p data-i18n="product.discription7">
+              Навіть якщо це щось нестандартне — давайте обговоримо. Все, що вам
+              прийде в голову, ми беремося зробити!
+            </p>
+            <a data-i18n="product.btn" href="#"></a>
+          </div>
+        </div>
+        <a data-i18n="product.btn" href="#"></a>
+      </div>
+    </section>
+    <section class="leader">
+      <div class="leader__bg">
+        <div class="leader__blob leader__blob--1"></div>
+        <div class="leader__blob leader__blob--2"></div>
+        <div class="leader__blob leader__blob--3"></div>
+      </div>
+
+      <div class="container">
+        <h2 data-i18n="leader.titleSection">
+          ДОПОМАГАЄМО БІЗНЕСУ ЗРОСТАТИ ШВИДШЕ
+        </h2>
+
+        <div class="leader__wrapper">
+          <div class="leader__item">
+            <div class="leader__icon-box">
+              <img src="img/ico/1transform.svg" alt="transformImg" />
+            </div>
+            <div class="leader__content">
+              <p class="leader__title" data-i18n="leader.title1">
+                ЦИФРОВА ТРАНСФОРМАЦІЯ
+              </p>
+              <p class="leader__descr" data-i18n="leader.discription1">
+                Допомагаємо бізнесу адаптуватися до цифрової ери...
+              </p>
+            </div>
+          </div>
+
+          <div class="leader__item">
+            <div class="leader__icon-box">
+              <img src="img/ico/2brends.svg" alt="brandsImg" />
+            </div>
+            <div class="leader__content">
+              <p class="leader__title" data-i18n="leader.title2">
+                РОЗВИТОК БРЕНДУ
+              </p>
+              <p class="leader__descr" data-i18n="leader.discription2">
+                Формуємо унікальний стиль...
+              </p>
+            </div>
+          </div>
+
+          <div class="leader__item">
+            <div class="leader__icon-box">
+              <img src="img/ico/3client.svg" alt="clientImg" />
+            </div>
+            <div class="leader__content">
+              <p class="leader__title" data-i18n="leader.title3">
+                ЗВ'ЯЗОК З КЛІЄНТОМ
+              </p>
+              <p class="leader__descr" data-i18n="leader.discription3">
+                Створюємо сайти, що не просто виглядають красиво...
+              </p>
+            </div>
+          </div>
+
+          <div class="leader__item">
+            <div class="leader__icon-box">
+              <img src="img/ico/4automat.svg" alt="automaticImg" />
+            </div>
+            <div class="leader__content">
+              <p class="leader__title" data-i18n="leader.title4">
+                РОЗВИТОК БЕЗ ЗАЙВИХ ЗУСИЛЬ
+              </p>
+              <p class="leader__descr" data-i18n="leader.discription4">
+                Автоматизуємо процеси...
+              </p>
+            </div>
+          </div>
+
+          <div class="leader__item">
+            <div class="leader__icon-box">
+              <img src="img/ico/5time.svg" alt="timeImg" />
+            </div>
+            <div class="leader__content">
+              <p class="leader__title" data-i18n="leader.title5">
+                БІЗНЕС, ЩО НЕ ЗУПИНЯЄТЬСЯ
+              </p>
+              <p class="leader__descr" data-i18n="leader.discription5">
+                Забезпечуємо стабільну роботу...
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="portfolio">
+        <div class="container">
+          <h2 class="portfolio__title" data-i18n="portfolio.titleSection">
+            НАШІ РОБОТИ – РЕАЛЬНІ РЕЗУЛЬТАТИ
+          </h2>
+
+          <div class="portfolio__wrapper">
+            <div class="portfolio__item" style="--card-bg: #1e1e1e">
+              <div class="portfolio__image-box">
+                <img src="img/portfolio/head.png" alt="portfolioImg" />
+              </div>
+              <div class="portfolio__content">
+                <p class="portfolio__title" data-i18n="portfolio.title1">
+                  Head Barbershop
+                </p>
+                <p class="portfolio__descr" data-i18n="portfolio.descr1">
+                  Преміальний Барбершоп
+                </p>
+                <a
+                  data-i18n="portfolio.link"
+                  href="#"
+                  class="portfolio__link"
+                ></a>
+              </div>
+            </div>
+
+            <div class="portfolio__item" style="--card-bg: #1fa1a6">
+              <div class="portfolio__image-box">
+                <img src="img/portfolio/babies.png" alt="portfolioImg" />
+              </div>
+              <div class="portfolio__content">
+                <p class="portfolio__title">Babies Alliance</p>
+                <p data-i18n="portfolio.descr2" class="portfolio__descr">
+                  Платформа для відповідального батьківства
+                </p>
+                <a
+                  data-i18n="portfolio.link"
+                  href="#"
+                  class="portfolio__link"
+                ></a>
+              </div>
+            </div>
+
+            <div class="portfolio__item" style="--card-bg: #1e1e1e">
+              <div class="portfolio__image-box">
+                <img src="img/portfolio/head.png" alt="portfolioImg" />
+              </div>
+              <div class="portfolio__content">
+                <p class="portfolio__title" data-i18n="portfolio.title1">
+                  Head Barbershop
+                </p>
+                <p class="portfolio__descr" data-i18n="portfolio.descr1">
+                  Преміальний Барбершоп
+                </p>
+                <a
+                  data-i18n="portfolio.link"
+                  href="#"
+                  class="portfolio__link"
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio__footer">
+            <a class="portfolio__btn" href="#" data-i18n="portfolio.allCases">
+              дивитися всі кейси
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="numbers">
+        <div class="container">
+          <div class="numbers__wrapper">
+            <div class="numbers__item">
+              <p class="numbers__emodji" data-i18n="numbers.emodji1"></p>
+              <p class="numbers__title" data-i18n="numbers.title1">
+                200%
+              </p>
+              <p class="numbers__descr" data-i18n="numbers.descr1">
+                зростання конверсії після запуску сайту.
+              </p>
+            </div>
+            <div class="numbers__item">
+              <p class="numbers__emodji" data-i18n="numbers.emodji2"></p>
+              <p class="numbers__title" data-i18n="numbers.title2">
+                40%
+              </p>
+              <p class="numbers__descr" data-i18n="numbers.descr2">
+                зростання конверсії після запуску сайту.
+              </p>
+            </div>
+            <div class="numbers__item">
+              <p class="numbers__emodji" data-i18n="numbers.emodji3"></p>
+              <p class="numbers__title" data-i18n="numbers.title3">
+                320%
+              </p>
+              <p class="numbers__descr" data-i18n="numbers.descr3">
+                зростання конверсії після запуску сайту.
+              </p>
+            </div>
+            <div class="numbers__item">
+              <p class="numbers__emodji" data-i18n="numbers.emodji4"></p>
+              <p class="numbers__title" data-i18n="numbers.title4">
+                250%
+              </p>
+              <p class="numbers__descr" data-i18n="numbers.descr4">
+                зростання конверсії після запуску сайту.
+              </p>
+            </div>
+            <div class="numbers__item">
+              <p class="numbers__emodji" data-i18n="numbers.emodji5"></p>
+              <p class="numbers__title" data-i18n="numbers.title5">
+                100%
+              </p>
+              <p class="numbers__descr" data-i18n="numbers.descr5">
+                зростання конверсії після запуску сайту.
+              </p>
+            </div>
+
+        </div>
+      </section>
+    </section>
+    <section class="contact" style="position: relative; overflow: hidden;">
+      <div id="contact-3d-scene"></div>
+      <div class="container" style="position: relative; z-index: 10;">
+        <div class="contact__wrapper">
+          <div class="contact__item">
+            <div data-i18n="contact.titleSection" class="contact__title"></div>
+            <div data-i18n="contact.descr" class="contact__descr"></div>
+            <div class="contact__itemContact">
+              <img class="contact__img" src="img/ico/smartphone.svg" alt="smartphoneImg">
+              <a class="contact__link" href="#">+38 (067) 123 45 67</a>
+            </div>
+            <div class="contact__itemContact">
+              <img class="contact__img" src="img/ico/email.svg" alt="emailImg">
+              <a class="contact__link" href="#">team@ksibe.dev</a>
+            </div>
+            <div class="contact__itemContact">
+              <img class="contact__img" src="img/ico/telegram.svg" alt="telegram">
+              <a class="contact__link" href="#">@ksibee</a>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__mailTitle" data-i18n="contact.titleMail"></div>
+              <form action="#">
+                <input type="text" data-i18n-placeholder="contact.name" placeholder="Name" required>
+                <input type="email" data-i18n-placeholder="contact.email" placeholder="Email" required>
+                <input type="text" data-i18n-placeholder="contact.site" placeholder="Ваш веб-сайт (якщо є)">
+                <textarea data-i18n-placeholder="contact.message" placeholder="Message" required></textarea>
+                <div class="file-wrapper">
+                  <input type="file" id="fileInput" class="hidden-input">
+                  <label for="fileInput" class="custom-file-label">
+                    <img src="img/ico/file.svg" alt="clip"> <span data-i18n="contact.file">Прикріпити файл</span>
+                  </label>
+                </div>
+                <button type="submit" data-i18n="contact.btn"></button>
+              </form>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer__left">
+        <p class="footer__logo">KSIBE</p>
+        <p class="footer__title" data-i18n="footer.title">
+          Створюємо ПОТУЖНІ інструменти для вашого бізнесу...
+        </p>
+      </div>
+
+      <div class="footer__right">
+        <div class="footer__socials-group">
+          <img class="footer__social" src="img/ico/telegram__footer.svg" alt="tg">
+          <img class="footer__social" src="img/ico/instagram__footer.svg" alt="inst">
+        </div>
+
+        <a class="footer__mail" href="mailto:team@ksibe.dev">team@ksibe.dev</a>
+
+        <div class="lang-switch">
+          <button onclick="loadLang('en')" data-lang="en">EN</button>
+          <button onclick="loadLang('uk')" data-lang="uk" class="active">UA</button>
+          <button onclick="loadLang('de')" data-lang="de">DE</button> 
+          <button onclick="loadLang('ru')" data-lang="ru">RU</button>
+        </div>
+        <button class="scroll-up-btn" aria-label="Scroll to top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        
+        </div>
+    </footer>
+
+    <script src="js/lang.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      const burger = document.querySelector(".burger-btn");
+      const navContent = document.querySelector(".nav-content");
+      const body = document.body;
+
+      burger.addEventListener("click", () => {
+        burger.classList.toggle("active");
+        navContent.classList.toggle("active");
+        body.classList.toggle("lock"); // Блокируем прокрутку фона
+      });
+    </script>
+  </body>
+</html>
