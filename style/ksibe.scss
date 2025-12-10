@@ -125,7 +125,132 @@ body {
       display: flex;
       align-items: center;
       gap: 16px;
+      /* Внутри .header .nav-content */
 
+      .lang-dropdown {
+        position: relative;
+        margin: 0 24px; /* Отступы от соседних элементов */
+        z-index: 101;
+
+        &__btn {
+          background: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 20px;
+          height: 40px;
+          padding: 0 16px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          /* Текст текущего языка */
+          .current-lang {
+            font-family: "Inter", sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            color: #fff;
+          }
+
+          /* Стрелочка */
+          .lang-arrow {
+            fill: white;
+            stroke: rgba(255, 255, 255, 0.6);
+            transition: transform 0.3s ease;
+          }
+
+          &:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.05);
+          }
+        }
+
+        /* Выпадающее меню */
+        &__menu {
+          position: absolute;
+          top: calc(100% + 10px); /* Отступ снизу */
+          right: 0; /* Выравнивание по правому краю кнопки */
+          width: 160px;
+          background: rgba(12, 9, 28, 0.9); /* Темный фон */
+          backdrop-filter: blur(15px); /* Эффект стекла */
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          padding: 8px;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+
+          /* Скрыто по умолчанию */
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Активное состояние (когда открыто) */
+        &.is-open {
+          .lang-dropdown__btn {
+            border-color: $color-accent-light; /* Подсветка кнопки */
+            background: rgba(255, 255, 255, 0.1);
+          }
+
+          .lang-arrow {
+            transform: rotate(180deg); /* Поворот стрелки */
+            stroke: $color-accent-light;
+          }
+
+          .lang-dropdown__menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+          }
+        }
+
+        /* Опции внутри меню */
+        .lang-option {
+          background: transparent;
+          border: none;
+          text-align: left;
+          padding: 10px 12px;
+          border-radius: 8px;
+          color: rgba(255, 255, 255, 0.6);
+          font-family: "Inter", sans-serif;
+          font-size: 14px;
+          cursor: pointer;
+          transition: all 0.2s;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          span {
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            width: 24px;
+          }
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+          }
+
+          &.active {
+            background: rgba($color-accent, 0.2);
+            color: $color-accent-light;
+            span {
+              color: $color-accent-light;
+            }
+          }
+        }
+      }
+
+      /* Скрываем на мобильном (так как там свое меню) */
+      @media (max-width: 992px) {
+        .lang-dropdown {
+          display: none;
+        }
+      }
       ul {
         display: flex;
         gap: 24px;
@@ -313,37 +438,44 @@ body {
 
     /* Кнопка Круглая (ПК) */
     .hero-btn-desktop {
+      text-align: center;
       grid-column: 2 / 3;
       grid-row: 2 / 3;
       justify-self: start;
+
       width: 180px;
       height: 180px;
       border-radius: 50%;
-      border: none;
+
       background: linear-gradient(135deg, #7475d6 0%, #474893 100%);
       color: white;
       cursor: pointer;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
       font-family: "Unbounded", sans-serif;
       font-weight: 700;
       font-size: 14px;
       text-transform: uppercase;
+
+      text-decoration: none; /* важно для <a> */
       box-shadow: 0 10px 30px rgba($color-accent, 0.4);
+
       transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-      &:before {
-        content: "↗";
-        font-size: 32px;
-        margin-bottom: 8px;
-      }
+    .hero-btn-desktop::before {
+      content: "↗";
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
 
-      &:hover {
-        transform: translateY(-5px) scale(1.02);
-        box-shadow: 0 15px 40px rgba($color-accent, 0.6);
-      }
+    .hero-btn-desktop:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 40px rgba($color-accent, 0.6);
     }
 
     .hero-btn-mobile {
@@ -1618,6 +1750,7 @@ $text-placeholder: #8b8b8b;
   .custom-file-label {
     display: flex;
     align-items: center;
+
     cursor: pointer;
     color: #2e2d5f; // Цвет текста
     font-size: 14px;
@@ -2093,4 +2226,212 @@ footer {
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
   }
+}
+/* =========================================
+   МОДАЛЬНОЕ ОКНО (NEUTRAL GLASS STYLE)
+   ========================================= */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px); /* Размытие фона */
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-window {
+  /* НЕЙТРАЛЬНЫЙ ФОН: Темно-серый градиент */
+  background: linear-gradient(
+    145deg,
+    rgba(40, 40, 40, 0.6) 0%,
+    rgba(20, 20, 20, 0.8) 100%
+  );
+
+  /* Сильное размытие стекла */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  /* НЕЙТРАЛЬНЫЕ ГРАНИЦЫ: Тонкие белые линии */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.2); /* Блик сверху */
+
+  /* Черная тень */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+
+  padding: 40px;
+  border-radius: 24px;
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  transform: scale(0.9); /* Начальный масштаб чуть меньше */
+}
+
+/* Кнопка закрытия */
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 24px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal-close-btn:hover {
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+/* --- ТЕКСТЫ --- */
+.modal-title {
+  color: #fff;
+  font-family: "Unbounded", sans-serif;
+  font-size: 22px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modal-text {
+  color: rgba(255, 255, 255, 0.7); /* Более спокойный цвет текста */
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.modal-action-btn {
+  /* Кнопка остается цветной для акцента */
+  background: #575bc8;
+  color: #fff;
+  border: none;
+  padding: 14px 45px;
+  font-family: "Unbounded", sans-serif;
+  font-size: 14px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(87, 91, 200, 0.4);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.modal-action-btn:hover {
+  transform: translateY(-2px);
+  background: #6a6ee6;
+}
+
+/* --- АНИМАЦИЯ ГАЛОЧКИ (FACEID STYLE) --- */
+
+.modal-icon {
+  margin-bottom: 25px;
+  width: 80px;
+  height: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.checkmark {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2.5;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0 0 0 transparent; /* Изначально прозрачно */
+}
+
+/* Круг */
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166; /* Скрыт по умолчанию */
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #575bc8; /* Цвет круга */
+  fill: none;
+}
+
+/* Галочка */
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48; /* Скрыта по умолчанию */
+  stroke: #fff;
+}
+
+/* КЛАСС ДЛЯ ЗАПУСКА АНИМАЦИИ 
+   Добавляется через JS только при открытии
+*/
+.checkmark.animate-start {
+  animation: fill 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark.animate-start .checkmark__circle {
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark.animate-start .checkmark__check {
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+/* KEYFRAMES */
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0 0 0 50px #575bc8;
+  }
+}
+/* Когда файл выбран, меняем фон и границу */
+
+.custom-file-label.file-selected {
+  color: #575bc8; /* Белый текст для контраста */
+
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+/* Добавляем галочку через псевдоэлемент */
+
+.custom-file-label.file-selected::after {
+  content: "✔"; /* Символ галочки */
+
+  display: inline-block;
+
+  margin-left: 10px; /* Отступ от названия файла */
+
+  color: #575bc8; /* Ярко-зеленый цвет галочки */
+
+  font-weight: bold;
+
+  font-size: 16px;
 }

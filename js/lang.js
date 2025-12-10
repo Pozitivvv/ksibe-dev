@@ -1,47 +1,116 @@
-// Получение значения из вложенного объекта
+/* ==========================================
+   Вспомогательная функция для JSON
+   ========================================== */
 function getNested(data, key) {
   return key.split(".").reduce((o, k) => (o ? o[k] : undefined), data);
 }
 
-function loadLang(lang) {
-  // === НОВОЕ: Логика переключения кнопок ===
-  // 1. Находим все кнопки внутри .lang-switch
-  const buttons = document.querySelectorAll(".lang-switch button");
+/* ==========================================
+   1. ГЛОБАЛЬНАЯ функция выбора (для onclick в HTML)
+   ========================================== */
+// Мы привязываем её к window, чтобы HTML мог её увидеть
+window.selectLang = function (langCode, langLabel) {
+  // 1. Находим наш Dropdown (по правильному ID из вашего HTML)
+  const langDropdown = document.getElementById("langDropdown");
 
-  buttons.forEach((btn) => {
-    // 2. Сравниваем data-lang кнопки с текущим языком
+  // 2. Закрываем меню, если оно есть (убираем класс is-open)
+  if (langDropdown) {
+    langDropdown.classList.remove("is-open");
+  }
+
+  // 3. Запускаем основную функцию смены языка
+  loadLang(langCode);
+};
+
+/* ==========================================
+   2. Основная функция загрузки языка
+   ========================================== */
+function loadLang(lang) {
+  // --- А. Логика Dropdown (Desktop) ---
+  const langDropdown = document.getElementById("langDropdown");
+
+  // Проверяем, существует ли элемент, чтобы не было ошибки "Cannot read properties of null"
+  if (langDropdown) {
+    const currentLangText = langDropdown.querySelector(".current-lang"); // Ваш класс в HTML
+    const langOptions = langDropdown.querySelectorAll(".lang-option");
+
+    langOptions.forEach((btn) => {
+      btn.classList.remove("active");
+
+      // Если это выбранный язык
+      if (btn.dataset.value === lang) {
+        btn.classList.add("active");
+
+        // Обновляем текст на главной кнопке (UA -> EN)
+        // Берем текст из тега <span> внутри кнопки (EN, UA, DE...)
+        const spanLabel = btn.querySelector("span");
+        if (currentLangText && spanLabel) {
+          currentLangText.textContent = spanLabel.textContent;
+        }
+      }
+    });
+  }
+
+  // --- Б. Логика кнопок (Mobile / Footer) ---
+  // Это для нижнего меню в мобилке, чтобы там тоже переключался класс active
+  const simpleButtons = document.querySelectorAll(".lang-switch button");
+  simpleButtons.forEach((btn) => {
     if (btn.getAttribute("data-lang") === lang) {
-      btn.classList.add("active"); // Добавляем класс активной кнопке
+      btn.classList.add("active");
     } else {
-      btn.classList.remove("active"); // Убираем у остальных
+      btn.classList.remove("active");
     }
   });
-  // ==========================================
 
-  fetch("/js/lang/" + lang + ".json")
+  // --- В. Загрузка JSON файла перевода ---
+  fetch("js/lang/" + lang + ".json")
     .then((res) => res.json())
     .then((data) => {
-      // Перевод текста
+      // Перевод текстов
       document.querySelectorAll("[data-i18n]").forEach((el) => {
         const value = getNested(data, el.dataset.i18n);
         if (value) el.innerHTML = value;
       });
 
-      // Перевод плейсхолдеров
+      // Перевод плейсхолдеров (для инпутов)
       document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
         const value = getNested(data, el.dataset.i18nPlaceholder);
         if (value) el.placeholder = value;
       });
 
-      // Сохраняем выбор
+      // Сохраняем выбор пользователя
       localStorage.setItem("lang", lang);
-
-      // Меняем <html lang="">
+      // Меняем атрибут языка у HTML тега
       document.documentElement.lang = lang;
     })
     .catch((err) => console.error("Language file error:", err));
 }
 
-// Загрузка сохраненного языка при старте
-const savedLang = localStorage.getItem("lang") || "uk";
-loadLang(savedLang);
+/* ==========================================
+   3. Инициализация событий (при загрузке страницы)
+   ========================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const langDropdown = document.getElementById("langDropdown");
+
+  // Проверяем, существует ли элемент, чтобы избежать ошибок на страницах без хедера
+  if (langDropdown) {
+    // Открытие/Закрытие по клику на кнопку
+    langDropdown.addEventListener("click", (e) => {
+      // closest ищет ближайшего родителя с классом кнопки (чтобы работало и при клике на иконку)
+      if (e.target.closest(".lang-dropdown__btn")) {
+        langDropdown.classList.toggle("is-open");
+      }
+    });
+
+    // Закрытие при клике ВНЕ меню
+    document.addEventListener("click", (e) => {
+      if (!langDropdown.contains(e.target)) {
+        langDropdown.classList.remove("is-open");
+      }
+    });
+  }
+
+  // 4. Загрузка сохраненного языка при старте (или 'uk' по умолчанию)
+  const savedLang = localStorage.getItem("lang") || "uk";
+  loadLang(savedLang);
+});

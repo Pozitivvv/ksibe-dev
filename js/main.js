@@ -1,224 +1,169 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const scrollBtn = document.querySelector(".scroll-up-btn");
+  /* ========================================================================
+     1. МОБИЛЬНОЕ МЕНЮ (БУРГЕР)
+     ======================================================================== */
+  const burger = document.querySelector(".burger-btn");
+  const navContent = document.querySelector(".nav-content");
+  const body = document.body;
 
+  if (burger && navContent) {
+    burger.addEventListener("click", () => {
+      burger.classList.toggle("active");
+      navContent.classList.toggle("active");
+      // Блокируем скролл страницы при открытом меню
+      if (body) body.classList.toggle("lock");
+    });
+  }
+
+  /* ========================================================================
+     2. КНОПКА СКРОЛЛА ВВЕРХ
+     ======================================================================== */
+  const scrollBtn = document.querySelector(".scroll-up-btn");
   if (scrollBtn) {
     scrollBtn.addEventListener("click", () => {
       window.scrollTo({
         top: 0,
-        behavior: "smooth", // Это и делает прокрутку плавной
+        behavior: "smooth",
       });
     });
   }
-});
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.getElementById("langToggle");
-  const menu = document.getElementById("langMenu");
-  const currentLangText = toggleBtn.querySelector(".current-lang-text");
 
-  // 1. Открытие/Закрытие меню
-  toggleBtn.addEventListener("click", (e) => {
-    e.stopPropagation(); // Чтобы клик не ушел на document
-    menu.classList.toggle("show");
-    toggleBtn.classList.toggle("active");
-  });
-
-  // 2. Закрытие при клике в любом месте страницы
-  document.addEventListener("click", (e) => {
-    if (!toggleBtn.contains(e.target) && !menu.contains(e.target)) {
-      menu.classList.remove("show");
-      toggleBtn.classList.remove("active");
-    }
-  });
-});
-
-// 3. Функция выбора языка (обновите вашу функцию loadLang или используйте эту обертку)
-function selectLang(lang) {
-  const toggleBtn = document.getElementById("langToggle");
-  const menu = document.getElementById("langMenu");
-  const currentLangText = toggleBtn.querySelector(".current-lang-text");
-
-  // Здесь вызывайте вашу логику смены языка
-  // loadLang(lang);
-  console.log("Language changed to:", lang);
-
-  // Визуальное обновление
-  currentLangText.textContent = lang.toUpperCase();
-
-  // Закрываем меню
-  menu.classList.remove("show");
-  toggleBtn.classList.remove("active");
-}
-
-document.addEventListener("DOMContentLoaded", () => {
+  /* ========================================================================
+     3. THREE.JS (3D Сцена)
+     ======================================================================== */
   const container = document.getElementById("contact-3d-scene");
-  if (!container) return;
+  if (container) {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      55,
+      container.clientWidth / container.clientHeight,
+      0.1,
+      1000
+    );
+    camera.position.set(0, 0, 14);
 
-  // === СЦЕНА ===
-  const scene = new THREE.Scene();
-
-  // Камера
-  const camera = new THREE.PerspectiveCamera(
-    55,
-    container.clientWidth / container.clientHeight,
-    0.1,
-    1000
-  );
-  camera.position.set(0, 0, 14);
-
-  // Рендерер
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setSize(container.clientWidth, container.clientHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  container.appendChild(renderer.domElement);
-
-  // === ОБ'ЄКТИ ===
-  const gyroscopeGroup = new THREE.Group();
-  scene.add(gyroscopeGroup);
-
-  // Матеріали
-  const ringMaterial = new THREE.MeshBasicMaterial({
-    color: 0x595aad,
-    wireframe: true,
-    transparent: true,
-    opacity: 0.5,
-  });
-
-  const coreGeo = new THREE.IcosahedronGeometry(2, 2);
-  const coreMat = new THREE.MeshPhongMaterial({
-    color: 0x2e2d5f,
-    emissive: 0x111122,
-    shininess: 100,
-    flatShading: true,
-  });
-  const core = new THREE.Mesh(coreGeo, coreMat);
-  gyroscopeGroup.add(core);
-
-  // Кільця
-  const ring1 = new THREE.Mesh(
-    new THREE.TorusGeometry(3.5, 0.05, 16, 100),
-    ringMaterial
-  );
-  gyroscopeGroup.add(ring1);
-
-  const ring2 = new THREE.Mesh(
-    new THREE.TorusGeometry(5, 0.05, 16, 100),
-    ringMaterial
-  );
-  gyroscopeGroup.add(ring2);
-
-  const ring3 = new THREE.Mesh(
-    new THREE.TorusGeometry(6.5, 0.05, 16, 100),
-    ringMaterial
-  );
-  gyroscopeGroup.add(ring3);
-
-  // Частинки
-  const particlesGeo = new THREE.BufferGeometry();
-  const particleCount = 400;
-  const posArray = new Float32Array(particleCount * 3);
-  for (let i = 0; i < particleCount * 3; i++) {
-    posArray[i] = (Math.random() - 0.5) * 25;
-  }
-  particlesGeo.setAttribute("position", new THREE.BufferAttribute(posArray, 3));
-  const particlesMat = new THREE.PointsMaterial({
-    size: 0.05,
-    color: 0xffffff,
-    transparent: true,
-    opacity: 0.6,
-  });
-  const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
-  scene.add(particlesMesh); // Частинки додаємо окремо від групи, щоб вони не нахилялися
-
-  // === ОСВІТЛЕННЯ ===
-  const dirLight = new THREE.DirectionalLight(0xffffff, 1);
-  dirLight.position.set(5, 5, 5);
-  scene.add(dirLight);
-
-  const pointLight = new THREE.PointLight(0x8c7eff, 2, 20);
-  pointLight.position.set(-5, -5, 5);
-  scene.add(pointLight);
-
-  scene.add(new THREE.AmbientLight(0x404040));
-
-  // === 🖱️ ЛОГІКА МИШІ (MOUSE TRACKING) ===
-  let mouseX = 0;
-  let mouseY = 0;
-
-  // Цільові координати для плавності
-  let targetX = 0;
-  let targetY = 0;
-
-  // Центр вікна
-  const windowHalfX = window.innerWidth / 2;
-  const windowHalfY = window.innerHeight / 2;
-
-  document.addEventListener("mousemove", (event) => {
-    // Обчислюємо позицію миші відносно центру екрана
-    mouseX = event.clientX - windowHalfX;
-    mouseY = event.clientY - windowHalfY;
-  });
-
-  // === КЕРУВАННЯ ===
-  const controls = new THREE.OrbitControls(camera, renderer.domElement);
-  controls.enableDamping = true;
-  controls.enableZoom = false;
-  controls.enablePan = false;
-  // 🔥 Вимикаємо авто-обертання камери, щоб вона не заважала мишці
-  controls.autoRotate = false;
-
-  // === АДАПТИВНІСТЬ ===
-  window.addEventListener("resize", () => {
-    if (getComputedStyle(container).display === "none") return;
-    camera.aspect = container.clientWidth / container.clientHeight;
-    camera.updateProjectionMatrix();
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
-  });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
 
-  // === АНІМАЦІЯ ===
-  function animate() {
-    requestAnimationFrame(animate);
+    const gyroscopeGroup = new THREE.Group();
+    scene.add(gyroscopeGroup);
 
-    // 1. Внутрішня механіка (об'єкт живе своїм життям)
-    core.rotation.y += 0.005;
-    core.rotation.x -= 0.002;
-    ring1.rotation.x += 0.01;
-    ring1.rotation.y += 0.005;
-    ring2.rotation.y += 0.01;
-    ring2.rotation.z += 0.002;
-    ring3.rotation.x -= 0.005;
-    ring3.rotation.z -= 0.01;
-    particlesMesh.rotation.y -= 0.0005;
+    const ringMaterial = new THREE.MeshBasicMaterial({
+      color: 0x595aad,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.5,
+    });
+    const coreGeo = new THREE.IcosahedronGeometry(2, 2);
+    const coreMat = new THREE.MeshPhongMaterial({
+      color: 0x2e2d5f,
+      emissive: 0x111122,
+      shininess: 100,
+      flatShading: true,
+    });
+    const core = new THREE.Mesh(coreGeo, coreMat);
+    gyroscopeGroup.add(core);
 
-    // 2. 🔥 Слідкування за мишею (Плавний нахил)
-    // Ми використовуємо формулу інтерполяції, щоб об'єкт не дьоргався, а плив
-    // 0.001 - чутливість (чим менше, тим менший кут нахилу)
-    targetX = mouseX * 0.001;
-    targetY = mouseY * 0.001;
+    const ring1 = new THREE.Mesh(
+      new THREE.TorusGeometry(3.5, 0.05, 16, 100),
+      ringMaterial
+    );
+    gyroscopeGroup.add(ring1);
+    const ring2 = new THREE.Mesh(
+      new THREE.TorusGeometry(5, 0.05, 16, 100),
+      ringMaterial
+    );
+    gyroscopeGroup.add(ring2);
+    const ring3 = new THREE.Mesh(
+      new THREE.TorusGeometry(6.5, 0.05, 16, 100),
+      ringMaterial
+    );
+    gyroscopeGroup.add(ring3);
 
-    // Група нахиляється за курсором
-    // 0.05 - швидкість реакції (плавність)
-    gyroscopeGroup.rotation.y += 0.05 * (targetX - gyroscopeGroup.rotation.y);
-    gyroscopeGroup.rotation.x += 0.05 * (targetY - gyroscopeGroup.rotation.x);
+    const particlesGeo = new THREE.BufferGeometry();
+    const particleCount = 400;
+    const posArray = new Float32Array(particleCount * 3);
+    for (let i = 0; i < particleCount * 3; i++) {
+      posArray[i] = (Math.random() - 0.5) * 25;
+    }
+    particlesGeo.setAttribute(
+      "position",
+      new THREE.BufferAttribute(posArray, 3)
+    );
+    const particlesMat = new THREE.PointsMaterial({
+      size: 0.05,
+      color: 0xffffff,
+      transparent: true,
+      opacity: 0.6,
+    });
+    const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
+    scene.add(particlesMesh);
 
-    controls.update();
-    renderer.render(scene, camera);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+    dirLight.position.set(5, 5, 5);
+    scene.add(dirLight);
+    const pointLight = new THREE.PointLight(0x8c7eff, 2, 20);
+    pointLight.position.set(-5, -5, 5);
+    scene.add(pointLight);
+    scene.add(new THREE.AmbientLight(0x404040));
+
+    let mouseX = 0,
+      mouseY = 0,
+      targetX = 0,
+      targetY = 0;
+    const windowHalfX = window.innerWidth / 2;
+    const windowHalfY = window.innerHeight / 2;
+
+    document.addEventListener("mousemove", (event) => {
+      mouseX = event.clientX - windowHalfX;
+      mouseY = event.clientY - windowHalfY;
+    });
+
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.enableZoom = false;
+    controls.enablePan = false;
+    controls.autoRotate = false;
+
+    window.addEventListener("resize", () => {
+      if (getComputedStyle(container).display === "none") return;
+      camera.aspect = container.clientWidth / container.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+
+    function animate() {
+      requestAnimationFrame(animate);
+      core.rotation.y += 0.005;
+      core.rotation.x -= 0.002;
+      ring1.rotation.x += 0.01;
+      ring1.rotation.y += 0.005;
+      ring2.rotation.y += 0.01;
+      ring2.rotation.z += 0.002;
+      ring3.rotation.x -= 0.005;
+      ring3.rotation.z -= 0.01;
+      particlesMesh.rotation.y -= 0.0005;
+
+      targetX = mouseX * 0.001;
+      targetY = mouseY * 0.001;
+      gyroscopeGroup.rotation.y += 0.05 * (targetX - gyroscopeGroup.rotation.y);
+      gyroscopeGroup.rotation.x += 0.05 * (targetY - gyroscopeGroup.rotation.x);
+
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
   }
 
-  animate();
-});
-document.addEventListener("DOMContentLoaded", () => {
-  // === НАСТРОЙКА ===
+  /* ========================================================================
+     4. GSAP ANIMATIONS
+     ======================================================================== */
   gsap.registerPlugin(ScrollTrigger);
-
-  // 🔥 ФИКС ДЛЯ МОБИЛЬНЫХ: Игнорируем скачки адресной строки
   ScrollTrigger.config({ ignoreMobileResize: true });
 
-  // ... (Ваши секции SKILLS, NUMBERS, PRODUCT, LEADER без изменений) ...
-  // (Я их пропущу для краткости, они у вас правильные)
-
-  // ============================================
-  // 1. СЕКЦИЯ SKILLS
-  // ============================================
+  // 1. Skills
   gsap.from(".skills h2", {
     scrollTrigger: { trigger: ".skills", start: "top 80%" },
     y: 50,
@@ -227,7 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "power3.out",
     clearProps: "all",
   });
-
   gsap.from(".skills__item", {
     scrollTrigger: { trigger: ".skills__wrapper", start: "top 85%" },
     scale: 0.8,
@@ -239,21 +183,17 @@ document.addEventListener("DOMContentLoaded", () => {
     clearProps: "all",
   });
 
-  // ============================================
-  // 2. СЕКЦИЯ NUMBERS
-  // ============================================
+  // 2. Numbers
   const numbers = document.querySelectorAll(".numbers__title");
   numbers.forEach((num) => {
     let rawVal = num.getAttribute("data-num");
     if (!rawVal) rawVal = num.innerText.trim();
     const match = rawVal.toString().match(/\d+/);
-
     if (match) {
       const endValue = parseInt(match[0], 10);
       const prefix = num.getAttribute("data-prefix") || "";
       const suffix = num.getAttribute("data-suffix") || "%";
       let counter = { val: 0 };
-
       gsap.to(counter, {
         val: endValue,
         duration: 2,
@@ -268,7 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
-
   gsap.from(".numbers__item", {
     scrollTrigger: { trigger: ".numbers", start: "top 85%" },
     y: 30,
@@ -278,9 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "back.out(1.7)",
   });
 
-  // ============================================
-  // 3. СЕКЦИЯ PRODUCT
-  // ============================================
+  // 3. Product
   gsap.from(".product h2", {
     scrollTrigger: { trigger: ".product", start: "top 80%" },
     y: 50,
@@ -289,7 +226,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "power3.out",
     clearProps: "all",
   });
-
   gsap.from(".product__item", {
     scrollTrigger: { trigger: ".product__wrapper", start: "top 80%" },
     y: 60,
@@ -299,7 +235,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "power2.out",
     clearProps: "all",
   });
-
   gsap.from(".product .container > a:last-child", {
     scrollTrigger: { trigger: ".product__wrapper", start: "bottom 90%" },
     y: 30,
@@ -310,25 +245,22 @@ document.addEventListener("DOMContentLoaded", () => {
     clearProps: "all",
   });
 
+  // Mobile Product Observer
   if (window.innerWidth < 769) {
     const productItems = document.querySelectorAll(".product__item");
-    const observerOptions = {
-      root: null,
-      rootMargin: "-45% 0px -45% 0px",
-      threshold: 0,
-    };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("active");
-        else entry.target.classList.remove("active");
-      });
-    }, observerOptions);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("active");
+          else entry.target.classList.remove("active");
+        });
+      },
+      { root: null, rootMargin: "-45% 0px -45% 0px", threshold: 0 }
+    );
     productItems.forEach((item) => observer.observe(item));
   }
 
-  // ============================================
-  // 4. СЕКЦИЯ LEADER
-  // ============================================
+  // 4. Leader
   gsap.from(".leader h2", {
     scrollTrigger: {
       trigger: ".leader",
@@ -340,7 +272,6 @@ document.addEventListener("DOMContentLoaded", () => {
     opacity: 0,
     ease: "none",
   });
-
   const leaderItems = document.querySelectorAll(".leader__item");
   leaderItems.forEach((item, index) => {
     item.style.setProperty("--line-progress", 0);
@@ -357,7 +288,6 @@ document.addEventListener("DOMContentLoaded", () => {
       { opacity: 0, y: 50 },
       { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
     );
-
     if (index !== leaderItems.length - 1) {
       tl.fromTo(
         item,
@@ -368,11 +298,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ============================================
-  // 5. СЕКЦИЯ PORTFOLIO (ФИКС)
-  // ============================================
+  // 5. Portfolio
   ScrollTrigger.matchMedia({
-    // --- DESKTOP (ПК) ---
     "(min-width: 769px)": function () {
       gsap.to(".portfolio__title", {
         scrollTrigger: {
@@ -386,7 +313,6 @@ document.addEventListener("DOMContentLoaded", () => {
         autoAlpha: 1,
         ease: "none",
       });
-
       const portItems = gsap.utils.toArray(".portfolio__item");
       portItems.forEach((item, i) => {
         gsap.from(item, {
@@ -403,8 +329,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
     },
-
-    // --- MOBILE (ТЕЛЕФОН) ---
     "(max-width: 768px)": function () {
       gsap.to(".portfolio__title", {
         scrollTrigger: {
@@ -417,7 +341,6 @@ document.addEventListener("DOMContentLoaded", () => {
         opacity: 1,
         autoAlpha: 1,
       });
-
       gsap.from(".portfolio__item", {
         scrollTrigger: {
           trigger: ".portfolio__wrapper",
@@ -430,13 +353,10 @@ document.addEventListener("DOMContentLoaded", () => {
         stagger: 0.2,
       });
     },
-
-    // --- ОБЩЕЕ (Кнопка внизу) ---
     all: function () {
-      // 🔥 ВАЖНО: Анимируем кнопку от положения "y: 50" до "y: 0"
       gsap.from(".portfolio__footer", {
         scrollTrigger: {
-          trigger: ".portfolio__wrapper", // Триггер - конец списка карточек
+          trigger: ".portfolio__wrapper",
           start: "bottom 100%",
           end: "bottom 85%",
           scrub: 1,
@@ -447,39 +367,31 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     },
   });
-  // ============================================
-  // 6. СЕКЦИЯ CONTACT (НОВОЕ 🔥)
-  // ============================================
 
-  // Анимация появления блоков (Текст слева и Форма справа)
+  // 6. Contact
   gsap.from(".contact__item", {
     scrollTrigger: {
       trigger: ".contact",
-      start: "top 80%", // Починаємо, коли верх секції на 80% екрану
+      start: "top 80%",
       end: "bottom 20%",
-      // play: грати при скролі вниз
-      // reverse: плавно ховати при скролі вгору
       toggleActions: "play none none reverse",
     },
-    y: 80, // Їдуть знизу (довший шлях для плавності)
-    opacity: 0, // З прозорості
-    filter: "blur(15px)", // 🔥 ЕФЕКТ: З'являються з розмиття
-    duration: 1.5, // 🔥 Повільніша анімація (було 1)
-    stagger: 0.2, // Затримка між лівою і правою частиною
-    ease: "power4.out", // Дуже м'яке гальмування
-    clearProps: "all", // Очистити стилі після завершення
+    y: 80,
+    opacity: 0,
+    filter: "blur(15px)",
+    duration: 1.5,
+    stagger: 0.2,
+    ease: "power4.out",
+    clearProps: "all",
   });
-  // ============================================
-  // 🔥 ФИНАЛЬНЫЙ ФИКС ПОЗИЦИЙ (Refresh)
-  // ============================================
-  // Это заставит GSAP пересчитать высоту после загрузки всех картинок
+
+  // Refresh GSAP
   function refresh() {
     ScrollTrigger.refresh();
   }
-
   window.addEventListener("load", () => {
     refresh();
-    setTimeout(refresh, 200); // Для быстрых мобилок
-    setTimeout(refresh, 1000); // Для медленных (подстраховка)
+    setTimeout(refresh, 200);
+    setTimeout(refresh, 1000);
   });
 });
