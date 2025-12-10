@@ -1,0 +1,990 @@
+/* ========================================================================
+   STANDALONE STYLE FOR PWA PAGE
+   File: pwa.scss
+   ======================================================================== */
+
+/* --- 1. ШРИФТЫ И СБРОС (RESET) --- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500&family=Unbounded:wght@400;600;700&display=swap");
+
+@font-face {
+  font-family: "Arkhip";
+  // Важно: путь ../ выводит из папки css в корень, потом в fonts
+  src: url("../fonts/Arkhip_font.otf") format("opentype"),
+    url("../fonts/Arkhip_font.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Переменные
+$font-main: "Inter", sans-serif;
+$font-title: "Unbounded", sans-serif;
+$font-text: "Montserrat", sans-serif;
+$font-logo: "Arkhip", sans-serif;
+
+$color-bg: #050511;
+$color-accent: #575bc8;
+$color-accent-hover: #6a6ee6;
+$color-white: #ffffff;
+$color-text-gray: rgba(255, 255, 255, 0.7);
+
+// Reset
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: $font-main;
+  background-color: $color-bg;
+  color: $color-white;
+  line-height: 1.5;
+  overflow-x: hidden;
+  &.lock {
+    overflow: hidden;
+  } // Для модалки и меню
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea {
+  font: inherit;
+  outline: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  position: relative; /* Or absolute/fixed */
+  z-index: 9999; /* Make this significantly higher than .pwa-hero */
+}
+
+.pwa-hero {
+  position: relative;
+  z-index: 1; /* Keep this low */
+}
+/* --- 2. HEADER (Изолированный) --- */
+.header {
+  position: absolute; // Чтобы контент заезжал под шапку (прозрачность)
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0 20px;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      color: #6b6bda;
+      font-family: $font-logo;
+      font-size: 32px;
+      color: $color-white;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      z-index: 102;
+    }
+
+    // Бургер кнопка
+    .burger-btn {
+      display: none; // На ПК скрыта
+      width: 30px;
+      height: 20px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 102;
+
+      span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: $color-white;
+        transition: 0.3s;
+      }
+
+      &.active {
+        span:nth-child(1) {
+          transform: translateY(9px) rotate(45deg);
+        }
+        span:nth-child(2) {
+          opacity: 0;
+        }
+        span:nth-child(3) {
+          transform: translateY(-9px) rotate(-45deg);
+        }
+      }
+    }
+
+    .nav-content {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      ul {
+        display: flex;
+        gap: 24px;
+        li a {
+          font-family: $font-main;
+          font-size: 15px;
+          color: rgba(255, 255, 255, 0.8);
+          transition: color 0.3s;
+          &:hover {
+            color: $color-white;
+          }
+        }
+      }
+
+      // Кнопка в хедере
+      .header__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 30px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50px;
+        color: $color-white;
+        font-family: $font-title;
+        font-size: 12px;
+        font-weight: 600;
+        transition: 0.3s;
+
+        &:hover {
+          background: $color-white;
+          color: $color-bg;
+        }
+      }
+
+      // Языки (упрощенные стили)
+      .lang-dropdown {
+        position: relative;
+        z-index: 2000;
+        &__btn {
+          background: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 20px;
+          height: 40px;
+          padding: 0 15px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          cursor: pointer;
+          color: #fff;
+          font-size: 14px;
+        }
+        &__menu {
+          z-index: 3000 !important;
+          display: none; /* JS needed to open */
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background: #1e1e1e;
+          padding: 10px;
+          border-radius: 10px;
+        }
+      }
+      .mobile-footer {
+        display: none;
+      } // Скрыто на ПК
+    }
+  }
+}
+
+// АДАПТИВ ХЕДЕРА
+@media (max-width: 992px) {
+  .header nav {
+    .burger-btn {
+      display: flex;
+    }
+
+    .nav-content {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(5, 5, 17, 0.98);
+      backdrop-filter: blur(10px);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: translateX(100%);
+      transition: transform 0.4s ease;
+
+      &.active {
+        transform: translateX(0);
+      }
+
+      ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+      }
+      ul li a {
+        font-size: 24px;
+        font-family: $font-title;
+      }
+
+      .lang-dropdown {
+        display: none;
+      } // Упрощаем на мобилке
+      .mobile-footer {
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+        gap: 20px;
+        align-items: center;
+
+        .mobile-email {
+          color: $color-accent;
+          text-decoration: underline;
+        }
+        .lang-switch {
+          display: flex;
+          gap: 10px;
+        }
+        .lang-switch button {
+          background: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: #fff;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          &.active {
+            background: $color-accent;
+            border-color: $color-accent;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* --- 3. PWA PAGE CONTENT (Уникальные стили) --- */
+.page-content {
+  padding-top: 140px;
+  min-height: 100vh;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.page-bg-orb {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba($color-accent, 0.25) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  top: -100px;
+  right: -100px;
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(80px);
+  animation: pulseOrb 8s infinite alternate;
+}
+@keyframes pulseOrb {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: $font-title;
+  font-size: 14px;
+  transition: 0.3s;
+  span {
+    margin-right: 10px;
+    transition: 0.3s;
+  }
+  &:hover {
+    color: $color-white;
+    span {
+      transform: translateX(-5px);
+    }
+  }
+}
+
+// Hero Section
+.pwa-hero {
+  padding-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 120px;
+
+  &__text {
+    flex: 1;
+    min-width: 300px;
+    padding-right: 60px;
+    @media (max-width: 992px) {
+      padding-right: 0;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+  }
+
+  .service-title {
+    font-family: $font-title;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.1;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg, #fff 0%, #aeb2ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .service-subtitle {
+    font-family: $font-text;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 40px;
+    max-width: 600px;
+    @media (max-width: 992px) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .service-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    padding: 0 40px;
+    background: $color-accent;
+    color: $color-white;
+    border-radius: 50px;
+    font-family: $font-title;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 10px 30px rgba($color-accent, 0.4);
+    &:hover {
+      background: $color-accent-hover;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba($color-accent, 0.6);
+    }
+  }
+}
+
+// Phone Visual
+.pwa-hero__visual {
+  position: relative;
+  width: 300px;
+  height: 600px;
+  flex-shrink: 0;
+  margin: 0 auto;
+  perspective: 1000px;
+  @media (max-width: 768px) {
+    transform: scale(0.9);
+  }
+}
+
+.glow-circle {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba($color-accent, 0.4) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  filter: blur(40px);
+}
+
+.phone-mockup {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  border-radius: 40px;
+  border: 8px solid #2a2a2a;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  transform: rotateY(-15deg) rotateX(10deg);
+  transition: transform 0.5s ease;
+  &:hover {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+}
+
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #1e1e1e 0%, #2e2d5f 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.push-notification {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  width: 85%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: pushSlide 5s infinite 2s;
+
+  .push-icon {
+    width: 34px;
+    height: 34px;
+    background: $color-accent;
+    border-radius: 8px;
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+  .push-text {
+    flex: 1;
+    text-align: left;
+  }
+  .push-title {
+    font-family: $font-main;
+    font-size: 11px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 2px;
+  }
+  .push-msg {
+    font-family: $font-main;
+    font-size: 10px;
+    color: #555;
+    line-height: 1.2;
+  }
+}
+@keyframes pushSlide {
+  0% {
+    transform: translateX(-50%) translateY(-100px);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-100px);
+    opacity: 0;
+  }
+}
+
+.app-icon {
+  width: 80px;
+  height: 80px;
+  background: $color-accent;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-title;
+  font-weight: 800;
+  font-size: 32px;
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.app-line {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: 60%;
+  &.short {
+    width: 40%;
+  }
+}
+
+// Cards Grid
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 120px;
+}
+
+.benefit-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 35px;
+  border-radius: 24px;
+  transition: 0.3s ease;
+  &:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateY(-5px);
+    border-color: rgba($color-accent, 0.3);
+    .card-icon {
+      color: $color-accent;
+    }
+  }
+
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+    color: #aeb2ff;
+    transition: color 0.3s;
+  }
+  .card-title {
+    font-family: $font-title;
+    font-size: 18px;
+    color: $color-white;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-family: $font-text;
+    font-size: 14px;
+    color: $color-text-gray;
+    line-height: 1.6;
+  }
+}
+
+// Info Section
+.info-section {
+  margin-bottom: 100px;
+  max-width: 800px;
+  .info-title {
+    font-family: $font-title;
+    font-size: 28px;
+    margin-bottom: 30px;
+    border-left: 5px solid $color-accent;
+    padding-left: 20px;
+  }
+  .info-list {
+    li {
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 20px;
+      font-family: $font-text;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 16px;
+      strong {
+        color: #fff;
+        font-weight: 600;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 4px;
+        width: 20px;
+        height: 20px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23575bc8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}
+
+/* --- 5. FOOTER (Изолированный) --- */
+footer {
+  background: #02000b;
+  padding: 40px 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px 60px;
+  }
+
+  .footer__left {
+    text-align: center;
+    @media (min-width: 992px) {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      text-align: left;
+    }
+
+    .footer__logo {
+      font-family: $font-logo;
+      font-size: 42px;
+      color: $color-accent;
+      margin-bottom: 10px;
+      @media (min-width: 992px) {
+        margin: 0;
+      }
+    }
+    .footer__title {
+      font-family: $font-text;
+      font-size: 14px;
+      max-width: 300px;
+      line-height: 1.4;
+      opacity: 0.7;
+    }
+  }
+
+  .footer__right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    @media (min-width: 992px) {
+      flex-direction: row;
+      gap: 30px;
+    }
+
+    .footer__socials-group {
+      display: flex;
+      gap: 15px;
+      img {
+        width: 30px;
+        transition: 0.3s;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+    .footer__mail {
+      font-family: $font-text;
+      font-size: 16px;
+      &:hover {
+        color: $color-accent;
+      }
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 10px;
+      button {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.5);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover,
+        &.active {
+          border-color: $color-accent;
+          background: $color-accent;
+          color: #fff;
+        }
+      }
+    }
+
+    .scroll-up-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        border-color: $color-accent;
+        background: $color-accent;
+        color: #fff;
+      }
+    }
+  }
+}
+
+/* --- 6. MODAL (Изолированная, нейтральный стиль) --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.modal-window {
+  background: linear-gradient(
+    145deg,
+    rgba(40, 40, 40, 0.6) 0%,
+    rgba(20, 20, 20, 0.8) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  padding: 40px;
+  border-radius: 24px;
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  transform: scale(0.9);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 24px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    color: #fff;
+    transform: rotate(90deg);
+  }
+}
+
+.modal-title {
+  font-family: $font-title;
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: #fff;
+}
+.modal-text {
+  font-family: $font-text;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.modal-action-btn {
+  background: $color-accent;
+  color: #fff;
+  border: none;
+  padding: 14px 45px;
+  font-family: $font-title;
+  font-size: 14px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(87, 91, 200, 0.4);
+  transition: 0.2s;
+  &:hover {
+    transform: translateY(-2px);
+    background: $color-accent-hover;
+  }
+}
+
+// Анимация галочки
+.modal-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px;
+  position: relative;
+}
+.checkmark {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2.5;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0 0 0 transparent;
+}
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: $color-accent;
+  fill: none;
+}
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke: #fff;
+}
+
+.checkmark.animate-start {
+  animation: fill 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
+}
+.checkmark.animate-start .checkmark__circle {
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+.checkmark.animate-start .checkmark__check {
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0 0 0 50px $color-accent;
+  }
+}
+
+/* --- Сетка преимуществ --- */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 120px; /* Отступ до Info Section */
+  position: relative;
+  z-index: 2;
+}
+
+/* Карточка */
+.benefit-card {
+  background: rgba(255, 255, 255, 0.03); /* Прозрачный фон */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 35px;
+  border-radius: 24px;
+  transition: 0.3s ease;
+  /* Важно: цвет текста */
+  color: #ffffff;
+}
+
+.benefit-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-5px);
+  border-color: rgba(87, 91, 200, 0.3);
+}
+
+/* Иконка внутри карточки */
+.benefit-card .card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 20px;
+  color: #aeb2ff; /* Цвет иконки */
+  display: block;
+}
+
+.benefit-card .card-title {
+  font-family: "Unbounded", sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.benefit-card .card-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.header {
+  min-height: 0;
+}
+.page-content {
+  padding-top: 0px;
+}
+/* --- HEADER --- */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* High z-index */
+  padding: 20px 0;
+  min-height: auto;
+  overflow: visible !important; /* Allow menu to show */
+}
+
+/* --- DROPDOWN --- */
+.lang-dropdown {
+  position: relative;
+  z-index: 2000; /* Above header content */
+}
+.lang-dropdown__menu {
+  z-index: 3000 !important; /* Highest z-index */
+}
+
+/* --- PAGE CONTENT --- */
+.page-content {
+  padding-top: 0px; /* Push content down below absolute header */
+  min-height: 100vh;
+  position: relative;
+  z-index: 1; /* Lower than header */
+}
+
+.pwa-hero {
+  position: relative;
+  z-index: 1;
+}

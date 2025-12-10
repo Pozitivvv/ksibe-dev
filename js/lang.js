@@ -63,7 +63,8 @@ function loadLang(lang) {
   });
 
   // --- В. Загрузка JSON файла перевода ---
-  fetch("js/lang/" + lang + ".json")
+  // Add a slash at the beginning to always start from root
+  fetch("/js/lang/" + lang + ".json")
     .then((res) => res.json())
     .then((data) => {
       // Перевод текстов

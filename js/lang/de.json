@@ -4,7 +4,7 @@
     "link2": "Portfolio",
     "link3": "Bewertungen",
     "link4": "Kontakt",
-    "link5": "Starten wir gemeinsam?",
+    "link5": "Gemeinsam starten?",
     "title": "– mehr als nur eine Webagentur!",
     "subtitle": "Wir erstellen nicht einfach Websites, sondern effektive Werkzeuge für Ihr Business. KSIBE – Ihr Partner in der digitalen Transformation.",
     "btn": "Projekt besprechen",
@@ -110,5 +110,59 @@
   },
   "footer": {
     "title": "Wir entwickeln LEISTUNGSSTARKE Tools für Ihr Business, die echte Ergebnisse liefern!"
+  },
+  "pwa": {
+    "pageTitle": "PWA / Web-App – Entwicklung von Webanwendungen | KSIBE",
+    "back": "Zur Startseite",
+    "hero": {
+      "title": "PWA / Web-App",
+      "subtitle": "Verwandeln Sie Ihre Website in eine vollwertige mobile App. App-Icon auf dem Homescreen, Offline-Modus und Push-Benachrichtigungen – ganz ohne App-Store-Kosten.",
+      "btn": "Beratung anfordern"
+    },
+    "phone": {
+      "pushTitle": "Ihre Marke",
+      "pushMsg": "20% Rabatt auf die neue Kollektion!"
+    },
+    "cards": {
+      "card1": {
+        "title": "Icon auf dem Homescreen",
+        "text": "Der Kunde installiert die App mit einem Klick direkt aus dem Browser. Ihre Marke ist immer griffbereit auf dem Smartphone."
+      },
+      "card2": {
+        "title": "Sofortige Geschwindigkeit",
+        "text": "PWA speichert das Interface im Cache, daher öffnen sich Seiten sofort – selbst bei sehr schwachem Internet."
+      },
+      "card3": {
+        "title": "Offline-Betrieb",
+        "text": "Nutzer können Ihren Produktkatalog oder Ihre Kontaktinformationen sogar ohne Internetverbindung ansehen."
+      },
+      "card4": {
+        "title": "Push-Benachrichtigungen",
+        "text": "Bringen Sie Kunden zurück in die App, indem Sie ihnen Erinnerungen zu Aktionen, Bestellungen oder Neuigkeiten senden."
+      },
+      "card5": {
+        "title": "Ideal für Google",
+        "text": "Im Gegensatz zu nativen Apps wird PWA vollständig von Google indexiert und bringt neue Kunden aus der Suche."
+      },
+      "card6": {
+        "title": "70% günstiger",
+        "text": "Ein einziger Code für Web, iOS und Android. Keine Kosten für die Entwicklung von drei separaten Produktversionen."
+      }
+    },
+    "info": {
+      "title": "Für wen ist das geeignet?",
+      "list1": "<strong>Online-Shops:</strong> Höhere Wiederholungskäufe durch Push-Benachrichtigungen.",
+      "list2": "<strong>Liefer- und Taxi-Services:</strong> Schneller Zugriff auf die Servicebestellung in einem Klick.",
+      "list3": "<strong>Medien und Blogs:</strong> Leser können Nachrichten sogar in der U-Bahn ohne Internet lesen.",
+      "list4": "<strong>Start-ups:</strong> Schneller MVP-Launch gleichzeitig auf allen Plattformen."
+    },
+    "contact": {
+      "descr": "Möchten Sie eine PWA für Ihr Unternehmen?"
+    }
+  },
+  "modal": {
+    "successTitle": "Ihre Anfrage wurde erhalten!",
+    "successText": "Vielen Dank für Ihr Vertrauen. <br> Wir prüfen bereits Ihre Anfrage und melden uns in Kürze.",
+    "successBtn": "Super!"
   }
 }

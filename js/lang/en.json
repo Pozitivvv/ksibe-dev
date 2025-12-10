@@ -112,5 +112,59 @@
   },
   "footer": {
     "title": "We create POWERFUL tools for your business that deliver real results!"
+  },
+  "pwa": {
+    "contact": {
+      "descr": "Would you like a PWA for your company?"
+    },
+    "pageTitle": "PWA / Web App – Web Application Development | KSIBE",
+    "back": "Back to Home",
+    "hero": {
+      "title": "PWA / Web App",
+      "subtitle": "Transform your website into a full-fledged mobile app. Home-screen icon, offline mode, and push notifications — without App Store costs.",
+      "btn": "Request a Consultation"
+    },
+    "phone": {
+      "pushTitle": "Your Brand",
+      "pushMsg": "-20% discount on the new collection! 🔥"
+    },
+    "cards": {
+      "card1": {
+        "title": "Home-Screen Icon",
+        "text": "Users can install your app in one click directly from the browser. Your brand is always at hand on their phone screen."
+      },
+      "card2": {
+        "title": "Instant Speed",
+        "text": "PWA caches the interface, so pages load instantly, even with a very weak internet connection."
+      },
+      "card3": {
+        "title": "Offline Mode",
+        "text": "Users can browse your product catalog or contact information even without network access."
+      },
+      "card4": {
+        "title": "Push Notifications",
+        "text": "Bring users back to your app by sending reminders about promotions, orders, or news."
+      },
+      "card5": {
+        "title": "Perfect for Google",
+        "text": "Unlike native apps, a PWA is fully indexed by Google, bringing new customers from search."
+      },
+      "card6": {
+        "title": "70% More Cost-Effective",
+        "text": "One codebase for Web, iOS, and Android. No need to pay for developing three separate product versions."
+      }
+    },
+    "info": {
+      "title": "Who Needs This?",
+      "list1": "<strong>Online stores:</strong> Increase repeat sales using push notifications.",
+      "list2": "<strong>Delivery services and taxi apps:</strong> Quick one-click access to placing an order.",
+      "list3": "<strong>Media and blogs:</strong> Readers can access content even in the subway without internet.",
+      "list4": "<strong>Startups:</strong> Fast MVP launch across all platforms at once."
+    }
+  },
+  "modal": {
+    "successTitle": "Your request has been received!",
+    "successText": "Thank you for trusting us with your ideas. <br> We are already reviewing your request and will contact you shortly.",
+    "successBtn": "Great!"
   }
 }
