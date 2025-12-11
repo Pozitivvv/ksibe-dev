@@ -303,5 +303,36 @@
     "infoList4": "<strong>LMS platforms:</strong> Systems for online employee training and testing.",
 
     "contactDescr": "Need a CRM for your business?"
+  },
+  "custom": {
+    "pageTitle": "Any Idea / Startups – Web Development | KSIBE",
+    "heroTitle": "Turning Any Idea Into Reality",
+    "heroSubtitle": "Even if it is something unconventional — let’s discuss it. Whatever you imagine, we can build! From a startup MVP to complex ecosystems.",
+
+    "card1Title": "MVP in One Month",
+    "card1Text": "Rapid launch of a minimum viable product to validate your hypothesis without massive investments.",
+
+    "card2Title": "Unique Functionality",
+    "card2Text": "Need a complex calculator, product configurator, or booking system? We will build it from scratch.",
+
+    "card3Title": "AI and Technologies",
+    "card3Text": "Integration of artificial intelligence (ChatGPT, Midjourney API) or blockchain solutions into your project.",
+
+    "card4Title": "Complex Integrations",
+    "card4Text": "We can connect your service with any API: banks, logistics, warehouse systems, CRM, and more.",
+
+    "card5Title": "Scalability",
+    "card5Text": "Architecture designed for high loads. From 100 to 1,000,000 users without system failures.",
+
+    "card6Title": "Flexible Approach",
+    "card6Text": "We are not limited by templates. We select the technology stack that perfectly fits your task.",
+
+    "infoTitle": "What can we build?",
+    "infoList1": "<strong>Startups:</strong> From a napkin idea to a product ready for investment.",
+    "infoList2": "<strong>Online services:</strong> Aggregators, marketplaces, classifieds, booking platforms.",
+    "infoList3": "<strong>Automation:</strong> Bots for Telegram/Viber, data parsers, automation scripts.",
+    "infoList4": "<strong>IoT & Hardware:</strong> Web interfaces for managing smart devices.",
+
+    "contactDescr": "Got an idea? Let’s bring it to life!"
   }
 }

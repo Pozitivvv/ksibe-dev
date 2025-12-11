@@ -301,5 +301,36 @@
     "infoList4": "<strong>LMS-Plattformen:</strong> Systeme für Online-Schulungen und Mitarbeiter-Tests.",
 
     "contactDescr": "Benötigen Sie eine CRM für Ihr Unternehmen?"
+  },
+  "custom": {
+    "pageTitle": "Beliebige Idee / Startups – Webentwicklung | KSIBE",
+    "heroTitle": "Umsetzung jeder Idee",
+    "heroSubtitle": "Auch wenn es etwas Ungewöhnliches ist — lassen Sie uns darüber sprechen. Alles, was Ihnen in den Sinn kommt, können wir realisieren! Vom MVP-Startup bis zu komplexen Ökosystemen.",
+
+    "card1Title": "MVP in einem Monat",
+    "card1Text": "Schneller Launch eines minimal funktionsfähigen Produkts, um eine Hypothese zu testen, ohne Millionen zu investieren.",
+
+    "card2Title": "Einzigartige Funktionen",
+    "card2Text": "Benötigen Sie einen komplexen Rechner, Produktkonfigurator oder Buchungssystem? Wir entwickeln es von Grund auf.",
+
+    "card3Title": "KI und Technologien",
+    "card3Text": "Integration von künstlicher Intelligenz (ChatGPT, Midjourney API) oder Blockchain-Lösungen in Ihr Projekt.",
+
+    "card4Title": "Komplexe Integrationen",
+    "card4Text": "Wir verbinden Ihren Service mit jedem API: von Banken und Logistik bis zu Lagersystemen und CRM.",
+
+    "card5Title": "Skalierung",
+    "card5Text": "Eine Architektur, die für hohe Lasten ausgelegt ist. Von 100 bis 1.000.000 Nutzern ohne Systemabstürze.",
+
+    "card6Title": "Flexibler Ansatz",
+    "card6Text": "Wir sind nicht an Vorlagen gebunden. Wir wählen den Technologie-Stack, der genau zu Ihrer Aufgabe passt.",
+
+    "infoTitle": "Was können wir?",
+    "infoList1": "<strong>Startups:</strong> Von einer Idee auf einer Serviette bis zu einem investitionsfähigen Produkt.",
+    "infoList2": "<strong>Online-Services:</strong> Aggregatoren, Marktplätze, Kleinanzeigen-Portale, Buchungsservices.",
+    "infoList3": "<strong>Automatisierung:</strong> Telegram/Viber-Bots, Datenparser, Skripte für Routineaufgaben.",
+    "infoList4": "<strong>IoT und Hardware:</strong> Web-Interfaces zur Steuerung von Smart-Devices.",
+
+    "contactDescr": "Haben Sie eine Idee? Lassen Sie sie uns umsetzen!"
   }
 }
