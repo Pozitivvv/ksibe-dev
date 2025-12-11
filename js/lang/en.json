@@ -210,5 +210,36 @@
     "contact": {
       "descr": "Ready to discuss your new website?"
     }
+  },
+  "ecommerce": {
+    "pageTitle": "Online Stores / eCommerce | KSIBE",
+    "heroTitle": "Online Stores / eCommerce",
+    "heroSubtitle": "A convenient store with a cart, online payments, and modern design. Functionality that truly converts and remains stable under load.",
+
+    "card1Title": "User-Friendly Cart",
+    "card1Text": "A thoughtful UX/UI flow from selecting a product to completing payment in just 2 minutes.",
+
+    "card2Title": "Online Payments",
+    "card2Text": "Integration of payment systems (LiqPay, WayForPay, Stripe) and Apple/Google Pay.",
+
+    "card3Title": "CRM and Inventory",
+    "card3Text": "Synchronization of products, stock levels, and prices with your CRM or Google Tables.",
+
+    "card4Title": "Smart Filters",
+    "card4Text": "Fast search and convenient filtering by features, brand, and price.",
+
+    "card5Title": "SEO & Analytics",
+    "card5Text": "Integration of Google Analytics 4, Pixel, and full conversion tracking.",
+
+    "card6Title": "High Performance",
+    "card6Text": "A store that loads quickly even with thousands of products. Critical for retaining customers.",
+
+    "infoTitle": "Who is it for?",
+    "infoList1": "<strong>Retail business:</strong> Clothing, electronics, cosmetics, home goods.",
+    "infoList2": "<strong>Instagram brands:</strong> Automated sales without manually answering “price?”.",
+    "infoList3": "<strong>Wholesale companies (B2B):</strong> Closed catalogs, wholesale pricing, and dealer dashboards.",
+    "infoList4": "<strong>Dropshipping:</strong> A fast launch without your own warehouse.",
+
+    "contactDescr": "Ready to launch your store?"
   }
 }

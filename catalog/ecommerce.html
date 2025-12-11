@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/catalogmin.css" />
+    <link rel="stylesheet" href="/css/ksibemin.css" />
+
+    <title data-i18n="ecommerce.pageTitle">
+      Інтернет-магазини / eCommerce | KSIBE
+    </title>
+  </head>
+  <body>
+    <div style="min-height: auto; padding: 0" class="header">
+      <div class="container">
+        <nav>
+          <a href="../index.html" class="logo" style="text-decoration: none"
+            >KSIBE</a
+          >
+          <button class="burger-btn" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="nav-content">
+            <ul>
+              <li>
+                <a href="../index.html" data-i18n="header.link1">Головна</a>
+              </li>
+              <li>
+                <a href="../index.html#portfolio" data-i18n="header.link2"
+                  >Портфоліо</a
+                >
+              </li>
+              <li><a href="#contact" data-i18n="header.link4">Контакти</a></li>
+            </ul>
+            <div class="lang-dropdown" id="langDropdown">
+              <button class="lang-dropdown__btn">
+                <span class="current-lang">UA</span>
+                <svg
+                  class="lang-arrow"
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 1L5 5L9 1"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div class="lang-dropdown__menu">
+                <button
+                  onclick="selectLang('en', 'EN')"
+                  class="lang-option"
+                  data-value="en"
+                >
+                  <span>EN</span> English
+                </button>
+                <button
+                  onclick="selectLang('uk', 'UA')"
+                  class="lang-option active"
+                  data-value="uk"
+                >
+                  <span>UA</span> Українська
+                </button>
+                <button
+                  onclick="selectLang('de', 'DE')"
+                  class="lang-option"
+                  data-value="de"
+                >
+                  <span>DE</span> Deutsch
+                </button>
+                <button
+                  onclick="selectLang('ru', 'RU')"
+                  class="lang-option"
+                  data-value="ru"
+                >
+                  <span>RU</span> Русский
+                </button>
+              </div>
+            </div>
+            <a class="header__btn" href="#contact"
+              ><p data-i18n="header.link5">Залишити заявку</p></a
+            >
+            <div class="mobile-footer">
+              <a href="mailto:team@ksibe.dev" class="mobile-email"
+                >team@ksibe.dev</a
+              >
+              <div class="lang-switch">
+                <button onclick="loadLang('en')" data-lang="en">EN</button>
+                <button onclick="loadLang('uk')" data-lang="uk" class="active">
+                  UA
+                </button>
+                <button onclick="loadLang('de')" data-lang="de">DE</button>
+                <button onclick="loadLang('ru')" data-lang="ru">RU</button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <main class="page-content">
+      <div class="page-bg-orb"></div>
+      <div class="container">
+        <div class="pwa-hero">
+          <div class="pwa-hero__text">
+            <h1 class="service-title" data-i18n="ecommerce.heroTitle">
+              Інтернет-магазини / eCommerce
+            </h1>
+            <p class="service-subtitle" data-i18n="ecommerce.heroSubtitle">
+              Зручний магазин із кошиком, оплатою та сучасним дизайном...
+            </p>
+            <a href="#contact" class="service-btn" data-i18n="pwa.hero.btn"
+              >Замовити консультацію</a
+            >
+          </div>
+
+          <div class="pwa-hero__visual ecommerce-visual">
+            <div class="glow-circle"></div>
+            <div class="product-card-mockup">
+              <div class="prod-img"></div>
+              <div class="prod-title-line"></div>
+              <div class="prod-price-line"></div>
+              <div class="prod-btn">Buy Now</div>
+            </div>
+            <div class="credit-card-mockup">
+              <div class="cc-chip"></div>
+              <div class="cc-number">**** **** **** 4242</div>
+            </div>
+            <div class="sale-badge">
+              <span>+12 New Orders 🚀</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="ecommerce.card1Title">
+              Зручний кошик
+            </h3>
+            <p class="card-text" data-i18n="ecommerce.card1Text">...</p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="ecommerce.card2Title">
+              Онлайн оплата
+            </h3>
+            <p class="card-text" data-i18n="ecommerce.card2Text">...</p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="ecommerce.card3Title">
+              CRM та Облік
+            </h3>
+            <p class="card-text" data-i18n="ecommerce.card3Text">...</p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="ecommerce.card4Title">
+              Розумні фільтри
+            </h3>
+            <p class="card-text" data-i18n="ecommerce.card4Text">...</p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="ecommerce.card5Title">
+              SEO та Аналітика
+            </h3>
+            <p class="card-text" data-i18n="ecommerce.card5Text">...</p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="ecommerce.card6Title">
+              Висока швидкість
+            </h3>
+            <p class="card-text" data-i18n="ecommerce.card6Text">...</p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="info-title" data-i18n="ecommerce.infoTitle">
+            Для кого це?
+          </h2>
+          <ul class="info-list">
+            <li data-i18n="ecommerce.infoList1">
+              <strong>Роздрібний бізнес:</strong> Одяг, техніка, косметика,
+              товари для дому.
+            </li>
+            <li data-i18n="ecommerce.infoList2">
+              <strong>Instagram-бренди:</strong> Автоматизація продажів, щоб не
+              відповідати на "ціна?" в дірект.
+            </li>
+            <li data-i18n="ecommerce.infoList3">
+              <strong>Оптові компанії (B2B):</strong> Закриті каталоги, оптові
+              ціни та кабінети дилерів.
+            </li>
+            <li data-i18n="ecommerce.infoList4">
+              <strong>Дропшипінг:</strong> Швидкий старт продажів без власного
+              складу.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <section
+      id="contact"
+      class="contact"
+      style="position: relative; overflow: hidden; margin-top: 100px"
+    >
+      <div id="contact-3d-scene"></div>
+      <div class="container" style="position: relative; z-index: 10">
+        <div class="contact__wrapper">
+          <div class="contact__item">
+            <div data-i18n="contact.titleSection" class="contact__title">
+              Зв'яжіться з нами
+            </div>
+            <div data-i18n="ecommerce.contactDescr" class="contact__descr">
+              Запустимо ваш магазин?
+            </div>
+            <div class="contact__itemContact">
+              <img
+                class="contact__img"
+                src="../img/ico/smartphone.svg"
+                alt="smartphoneImg"
+              /><a class="contact__link" href="#">+38 (067) 123 45 67</a>
+            </div>
+            <div class="contact__itemContact">
+              <img
+                class="contact__img"
+                src="../img/ico/email.svg"
+                alt="emailImg"
+              /><a class="contact__link" href="mailto:team@ksibe.dev"
+                >team@ksibe.dev</a
+              >
+            </div>
+            <div class="contact__itemContact">
+              <img
+                class="contact__img"
+                src="../img/ico/telegram.svg"
+                alt="telegram"
+              /><a class="contact__link" href="https://t.me/ksibee">@ksibee</a>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__mailTitle" data-i18n="contact.titleMail">
+              Залишити заявку
+            </div>
+            <form action="#" id="telegramForm">
+              <input
+                type="text"
+                id="name"
+                data-i18n-placeholder="contact.name"
+                placeholder="Name"
+                required
+              />
+              <input
+                type="email"
+                id="email"
+                data-i18n-placeholder="contact.email"
+                placeholder="Email"
+                required
+              />
+              <input
+                type="text"
+                id="site"
+                data-i18n-placeholder="contact.site"
+                placeholder="Ваш веб-сайт (якщо є)"
+              />
+              <textarea
+                id="message"
+                data-i18n-placeholder="contact.message"
+                placeholder="Message"
+                required
+              ></textarea>
+              <div class="file-wrapper">
+                <input type="file" id="fileInput" class="hidden-input" /><label
+                  for="fileInput"
+                  class="custom-file-label"
+                  ><img src="../img/ico/file.svg" alt="clip" /><span
+                    data-i18n="contact.file"
+                    >Прикріпити файл</span
+                  ></label
+                >
+              </div>
+              <button type="submit" id="submitBtn" data-i18n="contact.btn">
+                Відправити
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer__left">
+        <p class="footer__logo">KSIBE</p>
+        <p class="footer__title" data-i18n="footer.title">
+          Створюємо ПОТУЖНІ інструменти для вашого бізнесу...
+        </p>
+      </div>
+      <div class="footer__right">
+        <div class="footer__socials-group">
+          <a href="https://t.me/ksibee"
+            ><img
+              class="footer__social"
+              src="../img/ico/telegram__footer.svg"
+              alt="tg" /></a
+          ><a href="https://www.instagram.com/ksibe.dev"
+            ><img
+              class="footer__social"
+              src="../img/ico/instagram__footer.svg"
+              alt="inst"
+          /></a>
+        </div>
+        <a class="footer__mail" href="mailto:team@ksibe.dev">team@ksibe.dev</a>
+        <div class="lang-switch">
+          <button onclick="loadLang('en')" data-lang="en">EN</button
+          ><button onclick="loadLang('uk')" data-lang="uk" class="active">
+            UA</button
+          ><button onclick="loadLang('de')" data-lang="de">DE</button
+          ><button onclick="loadLang('ru')" data-lang="ru">RU</button>
+        </div>
+        <button class="scroll-up-btn" aria-label="Scroll to top">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 19V5M12 5L5 12M12 5L19 12"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </footer>
+
+    <div class="modal-overlay" id="successModal">
+      <div class="modal-window">
+        <button class="modal-close-btn">&times;</button>
+        <div class="modal-icon">
+          <svg
+            class="checkmark"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 52 52"
+          >
+            <circle
+              class="checkmark__circle"
+              cx="26"
+              cy="26"
+              r="25"
+              fill="none"
+            />
+            <path
+              class="checkmark__check"
+              fill="none"
+              d="M14.1 27.2l7.1 7.2 16.7-16.8"
+            />
+          </svg>
+        </div>
+        <h3 class="modal-title" data-i18n="modal.successTitle">
+          Ваша заявка прийнята!
+        </h3>
+        <p class="modal-text" data-i18n="modal.successText">
+          Дякуємо, що довірили нам свої ідеї. <br />Ми вже вивчаємо ваш запит і
+          зв'яжемося з вами найближчим часом.
+        </p>
+        <button class="modal-action-btn" data-i18n="modal.successBtn">
+          Чудово!
+        </button>
+      </div>
+    </div>
+
+    <script src="js/web-app.js"></script>
+    <script src="/js/lang.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

@@ -208,5 +208,36 @@
     "contact": {
       "descr": "Sprechen wir über Ihre neue Website?"
     }
+  },
+  "ecommerce": {
+    "pageTitle": "Onlineshops / eCommerce | KSIBE",
+    "heroTitle": "Onlineshops / eCommerce",
+    "heroSubtitle": "Ein moderner Shop mit Warenkorb, Online-Zahlungen und zeitgemäßem Design. Funktionalität, die wirklich verkauft und auch unter hoher Last stabil bleibt.",
+
+    "card1Title": "Benutzerfreundlicher Warenkorb",
+    "card1Text": "Ein durchdachter UX/UI-Workflow vom Produktauswahl bis zur erfolgreichen Zahlung in nur 2 Minuten.",
+
+    "card2Title": "Online-Zahlungen",
+    "card2Text": "Integration von Zahlungssystemen (LiqPay, WayForPay, Stripe) sowie Apple/Google Pay.",
+
+    "card3Title": "CRM und Warenwirtschaft",
+    "card3Text": "Synchronisation von Produkten, Beständen und Preisen mit Ihrem CRM oder Google Tables.",
+
+    "card4Title": "Intelligente Filter",
+    "card4Text": "Schnelle Suche und komfortable Filterung nach Eigenschaften, Marken und Preisen.",
+
+    "card5Title": "SEO und Analytics",
+    "card5Text": "Integration von Google Analytics 4, Pixel sowie präzises Conversion-Tracking.",
+
+    "card6Title": "Hohe Performance",
+    "card6Text": "Ein Shop, der selbst mit Tausenden von Produkten schnell lädt. Entscheidend für die Kundenbindung.",
+
+    "infoTitle": "Für wen ist es geeignet?",
+    "infoList1": "<strong>Einzelhandel:</strong> Kleidung, Elektronik, Kosmetik, Haushaltswaren.",
+    "infoList2": "<strong>Instagram-Brands:</strong> Automatisierte Verkaufsprozesse, ohne auf „Preis?“ manuell antworten zu müssen.",
+    "infoList3": "<strong>Großhandelsunternehmen (B2B):</strong> Geschlossene Kataloge, Großhandelspreise und Händlerbereiche.",
+    "infoList4": "<strong>Dropshipping:</strong> Schneller Verkaufsstart ohne eigenes Lager.",
+
+    "contactDescr": "Bereit, Ihren Shop zu starten?"
   }
 }
