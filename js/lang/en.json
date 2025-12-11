@@ -241,5 +241,36 @@
     "infoList4": "<strong>Dropshipping:</strong> A fast launch without your own warehouse.",
 
     "contactDescr": "Ready to launch your store?"
+  },
+  "corporate": {
+    "pageTitle": "Corporate Website – Web Development | KSIBE",
+    "heroTitle": "Corporate Website",
+    "heroSubtitle": "A stylish and solid website for your company. Showcases your brand, team, and services — ensuring clients see professionalism at first glance.",
+
+    "card1Title": "Brand Image & Trust",
+    "card1Text": "Your website works for your reputation 24/7. Modern design communicates that your company keeps up with the times.",
+
+    "card2Title": "Service Structure",
+    "card2Text": "A clear and convenient service catalog or business structure, helping partners quickly find what they need.",
+
+    "card3Title": "Team & Careers",
+    "card3Text": "Sections for presenting key employees and an HR block to attract new talent.",
+
+    "card4Title": "Press Center",
+    "card4Text": "Company news, case studies, reports, and events for investors and clients.",
+
+    "card5Title": "Multilingual Support",
+    "card5Text": "Content adapted for different markets and languages for seamless international cooperation.",
+
+    "card6Title": "Data Protection",
+    "card6Text": "Enhanced security, DDoS protection, and full GDPR compliance.",
+
+    "infoTitle": "Who is it for?",
+    "infoList1": "<strong>B2B companies:</strong> For attracting partners and wholesale clients.",
+    "infoList2": "<strong>Legal and consulting firms:</strong> To demonstrate expertise and team capabilities.",
+    "infoList3": "<strong>Construction & Real Estate:</strong> Property catalogs and portfolios of completed projects.",
+    "infoList4": "<strong>Holdings & Corporate Groups:</strong> To present business structure and reporting.",
+
+    "contactDescr": "Shall we discuss your corporate website?"
   }
 }

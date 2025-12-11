@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/catalogmin.css" />
+    <link rel="stylesheet" href="/css/ksibemin.css" />
+
+    <title data-i18n="corporate.pageTitle">
+      Корпоративний сайт – Розробка сайтів | KSIBE
+    </title>
+  </head>
+  <body>
+    <div style="min-height: auto; padding: 0" class="header">
+      <div class="container">
+        <nav>
+          <a href="../index.html" class="logo" style="text-decoration: none"
+            >KSIBE</a
+          >
+          <button class="burger-btn" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="nav-content">
+            <ul>
+              <li>
+                <a href="../index.html" data-i18n="header.link1">Головна</a>
+              </li>
+              <li>
+                <a href="../index.html#portfolio" data-i18n="header.link2"
+                  >Портфоліо</a
+                >
+              </li>
+              <li><a href="#contact" data-i18n="header.link4">Контакти</a></li>
+            </ul>
+            <div class="lang-dropdown" id="langDropdown">
+              <button class="lang-dropdown__btn">
+                <span class="current-lang">UA</span>
+                <svg
+                  class="lang-arrow"
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 1L5 5L9 1"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div class="lang-dropdown__menu">
+                <button
+                  onclick="selectLang('en', 'EN')"
+                  class="lang-option"
+                  data-value="en"
+                >
+                  <span>EN</span> English
+                </button>
+                <button
+                  onclick="selectLang('uk', 'UA')"
+                  class="lang-option active"
+                  data-value="uk"
+                >
+                  <span>UA</span> Українська
+                </button>
+                <button
+                  onclick="selectLang('de', 'DE')"
+                  class="lang-option"
+                  data-value="de"
+                >
+                  <span>DE</span> Deutsch
+                </button>
+                <button
+                  onclick="selectLang('ru', 'RU')"
+                  class="lang-option"
+                  data-value="ru"
+                >
+                  <span>RU</span> Русский
+                </button>
+              </div>
+            </div>
+            <a class="header__btn" href="#contact"
+              ><p data-i18n="header.link5">Залишити заявку</p></a
+            >
+            <div class="mobile-footer">
+              <a href="mailto:team@ksibe.dev" class="mobile-email"
+                >team@ksibe.dev</a
+              >
+              <div class="lang-switch">
+                <button onclick="loadLang('en')" data-lang="en">EN</button>
+                <button onclick="loadLang('uk')" data-lang="uk" class="active">
+                  UA
+                </button>
+                <button onclick="loadLang('de')" data-lang="de">DE</button>
+                <button onclick="loadLang('ru')" data-lang="ru">RU</button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <main class="page-content">
+      <div class="page-bg-orb"></div>
+      <div class="container">
+        <div class="pwa-hero">
+          <div class="pwa-hero__text">
+            <h1 class="service-title" data-i18n="corporate.heroTitle">
+              Корпоративний сайт
+            </h1>
+            <p class="service-subtitle" data-i18n="corporate.heroSubtitle">
+              Стильний та солідний сайт для компанії. Показує бренд, команду,
+              послуги — усе, щоб клієнти бачили професійність з першого погляду.
+            </p>
+            <a href="#contact" class="service-btn" data-i18n="pwa.hero.btn"
+              >Замовити консультацію</a
+            >
+          </div>
+
+          <div class="pwa-hero__visual corporate-visual">
+            <div class="glow-circle"></div>
+            <div class="corp-layer layer-1">
+              <div class="layer-content">
+                <div class="skeleton-line full"></div>
+                <div class="skeleton-line half"></div>
+              </div>
+            </div>
+            <div class="corp-layer layer-2">
+              <div class="layer-header">
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+              <div class="layer-grid">
+                <div class="grid-box"></div>
+                <div class="grid-box"></div>
+                <div class="grid-box"></div>
+              </div>
+            </div>
+            <div class="corp-layer layer-3">
+              <div class="corp-logo-circle">K</div>
+              <div class="corp-badge">Official Partner</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="corporate.card1Title">
+              Імідж та Довіра
+            </h3>
+            <p class="card-text" data-i18n="corporate.card1Text">
+              Сайт працює на вашу репутацію 24/7. Сучасний дизайн показує, що
+              ваша компанія йде в ногу з часом.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="corporate.card2Title">
+              Структура послуг
+            </h3>
+            <p class="card-text" data-i18n="corporate.card2Text">
+              Зручний каталог послуг або напрямків діяльності, щоб партнери
+              швидко знаходили потрібне.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="corporate.card3Title">
+              Команда та Кар'єра
+            </h3>
+            <p class="card-text" data-i18n="corporate.card3Text">
+              Розділи для презентації ключових співробітників та HR-блок для
+              залучення нових талантів.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="corporate.card4Title">
+              Прес-центр
+            </h3>
+            <p class="card-text" data-i18n="corporate.card4Text">
+              Блог новин компанії, публікація звітів, кейсів та подій для
+              інвесторів і клієнтів.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="corporate.card5Title">
+              Мультимовність
+            </h3>
+            <p class="card-text" data-i18n="corporate.card5Text">
+              Адаптація контенту під різні ринки та мови для міжнародної
+              співпраці.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="corporate.card6Title">
+              Захист даних
+            </h3>
+            <p class="card-text" data-i18n="corporate.card6Text">
+              Підвищена безпека, захист від DDoS-атак та відповідність
+              стандартам GDPR.
+            </p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="info-title" data-i18n="corporate.infoTitle">
+            Для кого це?
+          </h2>
+          <ul class="info-list">
+            <li data-i18n="corporate.infoList1">
+              <strong>B2B Компанії:</strong> Для залучення партнерів та оптових
+              клієнтів.
+            </li>
+            <li data-i18n="corporate.infoList2">
+              <strong>Юридичні та Консалтингові фірми:</strong> Для демонстрації
+              експертизи та команди.
+            </li>
+            <li data-i18n="corporate.infoList3">
+              <strong>Будівельні компанії та Нерухомість:</strong> Каталоги
+              об'єктів та портфоліо реалізованих проєктів.
+            </li>
+            <li data-i18n="corporate.infoList4">
+              <strong>Холдинги та Групи компаній:</strong> Для представлення
+              структури бізнесу та звітності.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <section
+      id="contact"
+      class="contact"
+      style="position: relative; overflow: hidden; margin-top: 100px"
+    >
+      <div id="contact-3d-scene"></div>
+      <div class="container" style="position: relative; z-index: 10">
+        <div class="contact__wrapper">
+          <div class="contact__item">
+            <div data-i18n="contact.titleSection" class="contact__title">
+              Зв'яжіться з нами
+            </div>
+            <div data-i18n="corporate.contactDescr" class="contact__descr">
+              Обговоримо ваш корпоративний сайт?
+            </div>
+            <div class="contact__itemContact">
+              <img
+                class="contact__img"
+                src="../img/ico/smartphone.svg"
+                alt="smartphoneImg"
+              /><a class="contact__link" href="#">+38 (067) 123 45 67</a>
+            </div>
+            <div class="contact__itemContact">
+              <img
+                class="contact__img"
+                src="../img/ico/email.svg"
+                alt="emailImg"
+              /><a class="contact__link" href="mailto:team@ksibe.dev"
+                >team@ksibe.dev</a
+              >
+            </div>
+            <div class="contact__itemContact">
+              <img
+                class="contact__img"
+                src="../img/ico/telegram.svg"
+                alt="telegram"
+              /><a class="contact__link" href="https://t.me/ksibee">@ksibee</a>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__mailTitle" data-i18n="contact.titleMail">
+              Залишити заявку
+            </div>
+            <form action="#" id="telegramForm">
+              <input
+                type="text"
+                id="name"
+                data-i18n-placeholder="contact.name"
+                placeholder="Name"
+                required
+              />
+              <input
+                type="email"
+                id="email"
+                data-i18n-placeholder="contact.email"
+                placeholder="Email"
+                required
+              />
+              <input
+                type="text"
+                id="site"
+                data-i18n-placeholder="contact.site"
+                placeholder="Ваш веб-сайт (якщо є)"
+              />
+              <textarea
+                id="message"
+                data-i18n-placeholder="contact.message"
+                placeholder="Message"
+                required
+              ></textarea>
+              <div class="file-wrapper">
+                <input type="file" id="fileInput" class="hidden-input" /><label
+                  for="fileInput"
+                  class="custom-file-label"
+                  ><img src="../img/ico/file.svg" alt="clip" /><span
+                    data-i18n="contact.file"
+                    >Прикріпити файл</span
+                  ></label
+                >
+              </div>
+              <button type="submit" id="submitBtn" data-i18n="contact.btn">
+                Відправити
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer__left">
+        <p class="footer__logo">KSIBE</p>
+        <p class="footer__title" data-i18n="footer.title">
+          Створюємо ПОТУЖНІ інструменти для вашого бізнесу...
+        </p>
+      </div>
+      <div class="footer__right">
+        <div class="footer__socials-group">
+          <a href="https://t.me/ksibee"
+            ><img
+              class="footer__social"
+              src="../img/ico/telegram__footer.svg"
+              alt="tg" /></a
+          ><a href="https://www.instagram.com/ksibe.dev"
+            ><img
+              class="footer__social"
+              src="../img/ico/instagram__footer.svg"
+              alt="inst"
+          /></a>
+        </div>
+        <a class="footer__mail" href="mailto:team@ksibe.dev">team@ksibe.dev</a>
+        <div class="lang-switch">
+          <button onclick="loadLang('en')" data-lang="en">EN</button
+          ><button onclick="loadLang('uk')" data-lang="uk" class="active">
+            UA</button
+          ><button onclick="loadLang('de')" data-lang="de">DE</button
+          ><button onclick="loadLang('ru')" data-lang="ru">RU</button>
+        </div>
+        <button class="scroll-up-btn" aria-label="Scroll to top">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 19V5M12 5L5 12M12 5L19 12"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </footer>
+
+    <div class="modal-overlay" id="successModal">
+      <div class="modal-window">
+        <button class="modal-close-btn">&times;</button>
+        <div class="modal-icon">
+          <svg
+            class="checkmark"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 52 52"
+          >
+            <circle
+              class="checkmark__circle"
+              cx="26"
+              cy="26"
+              r="25"
+              fill="none"
+            />
+            <path
+              class="checkmark__check"
+              fill="none"
+              d="M14.1 27.2l7.1 7.2 16.7-16.8"
+            />
+          </svg>
+        </div>
+        <h3 class="modal-title" data-i18n="modal.successTitle">
+          Ваша заявка прийнята!
+        </h3>
+        <p class="modal-text" data-i18n="modal.successText">
+          Дякуємо, що довірили нам свої ідеї. <br />Ми вже вивчаємо ваш запит і
+          зв'яжемося з вами найближчим часом.
+        </p>
+        <button class="modal-action-btn" data-i18n="modal.successBtn">
+          Чудово!
+        </button>
+      </div>
+    </div>
+
+    <script src="js/web-app.js"></script>
+    <script src="/js/lang.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

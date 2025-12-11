@@ -239,5 +239,36 @@
     "infoList4": "<strong>Dropshipping:</strong> Schneller Verkaufsstart ohne eigenes Lager.",
 
     "contactDescr": "Bereit, Ihren Shop zu starten?"
+  },
+  "corporate": {
+    "pageTitle": "Corporate Website – Webentwicklung | KSIBE",
+    "heroTitle": "Corporate Website",
+    "heroSubtitle": "Ein stilvoller und professioneller Unternehmensauftritt. Präsentiert Marke, Team und Leistungen — damit Kunden Ihre Kompetenz auf den ersten Blick erkennen.",
+
+    "card1Title": "Image und Vertrauen",
+    "card1Text": "Die Website stärkt Ihren Ruf rund um die Uhr. Modernes Design zeigt, dass Ihr Unternehmen technologisch und organisatorisch auf dem neuesten Stand ist.",
+
+    "card2Title": "Klare Service-Struktur",
+    "card2Text": "Ein übersichtlicher Katalog Ihrer Dienstleistungen oder Geschäftsbereiche, damit Partner schnell das Richtige finden.",
+
+    "card3Title": "Team & Karriere",
+    "card3Text": "Bereiche zur Präsentation der Schlüsselmitarbeitenden sowie ein HR-Bereich zur Gewinnung neuer Talente.",
+
+    "card4Title": "Presse- und Medienbereich",
+    "card4Text": "Unternehmensnews, Case Studies, Berichte und Events für Investor:innen und Kund:innen.",
+
+    "card5Title": "Mehrsprachigkeit",
+    "card5Text": "Content-Anpassung für verschiedene Märkte und Sprachen – ideal für internationale Zusammenarbeit.",
+
+    "card6Title": "Datenschutz",
+    "card6Text": "Erhöhte Sicherheit, Schutz vor DDoS-Angriffen und vollständige Einhaltung der GDPR-Richtlinien.",
+
+    "infoTitle": "Für wen ist es geeignet?",
+    "infoList1": "<strong>B2B-Unternehmen:</strong> Zur Gewinnung von Partnern und Großkunden.",
+    "infoList2": "<strong>Rechts- und Beratungsfirmen:</strong> Zur Präsentation von Expertise und Team.",
+    "infoList3": "<strong>Bauunternehmen & Immobilien:</strong> Objektkataloge und Portfolios realisierter Projekte.",
+    "infoList4": "<strong>Holdings & Unternehmensgruppen:</strong> Darstellung der Unternehmensstruktur und Berichte.",
+
+    "contactDescr": "Besprechen wir Ihre Corporate Website?"
   }
 }
