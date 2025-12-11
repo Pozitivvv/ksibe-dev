@@ -167,5 +167,48 @@
     "successTitle": "Your request has been received!",
     "successText": "Thank you for trusting us with your ideas. <br> We are already reviewing your request and will contact you shortly.",
     "successBtn": "Great!"
+  },
+  "website": {
+    "pageTitle": "Websites of Any Complexity – Website Development | KSIBE",
+    "hero": {
+      "title": "Websites of Any Complexity",
+      "subtitle": "From simple pages to well-structured multi-level websites. For brands, small businesses, or companies — we deliver clean, fast, and result-focused solutions."
+    },
+    "cards": {
+      "card1": {
+        "title": "Responsive Design",
+        "text": "Your website will look perfect on any device — from smartphones to large monitors."
+      },
+      "card2": {
+        "title": "High Performance",
+        "text": "Optimized code and images for instant page loading (Google PageSpeed Green Zone)."
+      },
+      "card3": {
+        "title": "SEO Optimization",
+        "text": "Basic SEO setup, proper tag structure, and metadata for better Google ranking."
+      },
+      "card4": {
+        "title": "Easy Content Management",
+        "text": "We connect a convenient CMS so you can update content and images without a developer."
+      },
+      "card5": {
+        "title": "Data Security",
+        "text": "SSL setup, spam and attack protection, regular backups."
+      },
+      "card6": {
+        "title": "Clean Code",
+        "text": "We write modern, valid code that is easy to maintain and scale."
+      }
+    },
+    "info": {
+      "title": "What do we build?",
+      "list1": "<strong>Landing Page:</strong> A one-page website for fast promotion of a product or service.",
+      "list2": "<strong>Corporate Website:</strong> A multi-page site for presenting your company.",
+      "list3": "<strong>Product Catalog:</strong> A product showcase without online payment (or with).",
+      "list4": "<strong>Promo Websites:</strong> Bright, animated websites for marketing campaigns."
+    },
+    "contact": {
+      "descr": "Ready to discuss your new website?"
+    }
   }
 }

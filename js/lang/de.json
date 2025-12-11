@@ -165,5 +165,48 @@
     "successTitle": "Ihre Anfrage wurde erhalten!",
     "successText": "Vielen Dank für Ihr Vertrauen. <br> Wir prüfen bereits Ihre Anfrage und melden uns in Kürze.",
     "successBtn": "Super!"
+  },
+  "website": {
+    "pageTitle": "Website jeder Komplexität – Webentwicklung | KSIBE",
+    "hero": {
+      "title": "Website jeder Komplexität",
+      "subtitle": "Von einfachen Seiten bis zu durchdachten, mehrstufigen Webprojekten. Für Marken, kleine Unternehmen oder Firmen — wir arbeiten präzise, schnell und mit Fokus auf Ergebnis."
+    },
+    "cards": {
+      "card1": {
+        "title": "Responsives Design",
+        "text": "Ihre Website wird auf jedem Gerät perfekt aussehen – vom Smartphone bis zum großen Monitor."
+      },
+      "card2": {
+        "title": "Hohe Ladegeschwindigkeit",
+        "text": "Code- und Bildoptimierung für nahezu sofortiges Laden der Seiten (Google PageSpeed Green Zone)."
+      },
+      "card3": {
+        "title": "SEO-Optimierung",
+        "text": "Basis-SEO, richtige Struktur der Tags und Metadaten für bessere Platzierungen bei Google."
+      },
+      "card4": {
+        "title": "Einfache Verwaltung",
+        "text": "Wir integrieren ein benutzerfreundliches CMS, damit Sie Texte und Bilder ohne Programmierer ändern können."
+      },
+      "card5": {
+        "title": "Datensicherheit",
+        "text": "SSL-Zertifikat, Schutz vor Spam und Angriffen, regelmäßige Backups."
+      },
+      "card6": {
+        "title": "Sauberer Code",
+        "text": "Wir schreiben modernen, validen Code, der leicht zu warten und zu erweitern ist."
+      }
+    },
+    "info": {
+      "title": "Was entwickeln wir?",
+      "list1": "<strong>Landing Page:</strong> Einseitige Website zur schnellen Präsentation eines Produkts oder einer Dienstleistung.",
+      "list2": "<strong>Corporate Website:</strong> Mehrseitige Website zur Darstellung eines Unternehmens.",
+      "list3": "<strong>Produktkatalog:</strong> Produktübersicht ohne Online-Zahlung (oder mit).",
+      "list4": "<strong>Promo-Websites:</strong> Auffällige, animierte Websites für Marketingkampagnen."
+    },
+    "contact": {
+      "descr": "Sprechen wir über Ihre neue Website?"
+    }
   }
 }

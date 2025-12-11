@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/catalogmin.css" />
+    <link rel="stylesheet" href="/css/ksibemin.css" />
+
+    <title data-i18n="website.pageTitle">
+      Сайт будь-якої складності – Розробка сайтів | KSIBE
+    </title>
+  </head>
+  <body>
+    <div style="min-height: auto; padding: 0" class="header">
+      <div class="container">
+        <nav>
+          <a href="../index.html" class="logo" style="text-decoration: none"
+            >KSIBE</a
+          >
+
+          <button class="burger-btn" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+
+          <div class="nav-content">
+            <ul>
+              <li>
+                <a href="../index.html" data-i18n="header.link1">Головна</a>
+              </li>
+              <li>
+                <a href="../index.html#portfolio" data-i18n="header.link2"
+                  >Портфоліо</a
+                >
+              </li>
+              <li><a href="#contact" data-i18n="header.link4">Контакти</a></li>
+            </ul>
+            <div class="lang-dropdown" id="langDropdown">
+              <button class="lang-dropdown__btn">
+                <span class="current-lang">UA</span>
+                <svg
+                  class="lang-arrow"
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 1L5 5L9 1"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div class="lang-dropdown__menu">
+                <button
+                  onclick="selectLang('en', 'EN')"
+                  class="lang-option"
+                  data-value="en"
+                >
+                  <span>EN</span> English
+                </button>
+                <button
+                  onclick="selectLang('uk', 'UA')"
+                  class="lang-option active"
+                  data-value="uk"
+                >
+                  <span>UA</span> Українська
+                </button>
+                <button
+                  onclick="selectLang('de', 'DE')"
+                  class="lang-option"
+                  data-value="de"
+                >
+                  <span>DE</span> Deutsch
+                </button>
+                <button
+                  onclick="selectLang('ru', 'RU')"
+                  class="lang-option"
+                  data-value="ru"
+                >
+                  <span>RU</span> Русский
+                </button>
+              </div>
+            </div>
+            <a class="header__btn" href="#contact"
+              ><p data-i18n="header.link5">Залишити заявку</p></a
+            >
+            <div class="mobile-footer">
+              <a href="mailto:team@ksibe.dev" class="mobile-email"
+                >team@ksibe.dev</a
+              >
+              <div class="lang-switch">
+                <button onclick="loadLang('en')" data-lang="en">EN</button>
+                <button onclick="loadLang('uk')" data-lang="uk" class="active">
+                  UA
+                </button>
+                <button onclick="loadLang('de')" data-lang="de">DE</button>
+                <button onclick="loadLang('ru')" data-lang="ru">RU</button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <main class="page-content">
+      <div class="page-bg-orb"></div>
+      <div class="container">
+        <div class="pwa-hero">
+          <div class="pwa-hero__text">
+            <h1 class="service-title" data-i18n="website.hero.title">
+              Сайт будь-якої складності
+            </h1>
+            <p class="service-subtitle" data-i18n="website.hero.subtitle">
+              Від простих сторінок до продуманих багаторівневих сайтів. Для
+              бренду, малого бізнесу чи компанії — ми робимо акуратно, швидко та
+              з акцентом на результат.
+            </p>
+            <a href="#contact" class="service-btn" data-i18n="pwa.hero.btn"
+              >Замовити консультацію</a
+            >
+          </div>
+
+          <div class="pwa-hero__visual website-visual">
+            <div class="glow-circle"></div>
+            <div class="browser-mockup">
+              <div class="browser-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <div class="browser-bar">ksibe.dev</div>
+              </div>
+              <div class="browser-content">
+                <div class="skeleton-header"></div>
+                <div class="skeleton-hero">
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-btn"></div>
+                </div>
+                <div class="skeleton-grid">
+                  <div class="skeleton-card"></div>
+                  <div class="skeleton-card"></div>
+                  <div class="skeleton-card"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="website.cards.card1.title">
+              Адаптивний дизайн
+            </h3>
+            <p class="card-text" data-i18n="website.cards.card1.text">
+              Ваш сайт буде ідеально виглядати на будь-якому пристрої: від
+              смартфона до великого монітора.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="website.cards.card2.title">
+              Висока швидкість
+            </h3>
+            <p class="card-text" data-i18n="website.cards.card2.text">
+              Оптимізація коду та зображень для миттєвого завантаження сторінок
+              (Google PageSpeed Green Zone).
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="website.cards.card3.title">
+              SEO-оптимізація
+            </h3>
+            <p class="card-text" data-i18n="website.cards.card3.text">
+              Базова SEO-підготовка, правильна структура тегів та мета-даних для
+              кращого ранжування в Google.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="website.cards.card4.title">
+              Зручне керування
+            </h3>
+            <p class="card-text" data-i18n="website.cards.card4.text">
+              Підключаємо зручну адмін-панель (CMS), щоб ви могли легко
+              змінювати тексти та фото без програміста.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="website.cards.card5.title">
+              Безпека даних
+            </h3>
+            <p class="card-text" data-i18n="website.cards.card5.text">
+              Налаштування SSL-сертифікату, захист від спаму та атак, резервне
+              копіювання даних.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="website.cards.card6.title">
+              Чистий код
+            </h3>
+            <p class="card-text" data-i18n="website.cards.card6.text">
+              Пишемо сучасний, валідний код, який легко підтримувати та
+              масштабувати в майбутньому.
+            </p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="info-title" data-i18n="website.info.title">
+            Що ми розробляємо?
+          </h2>
+          <ul class="info-list">
+            <li data-i18n="website.info.list1">
+              <strong>Landing Page:</strong> Односторінковий сайт для швидкого
+              продажу товару чи послуги.
+            </li>
+            <li data-i18n="website.info.list2">
+              <strong>Корпоративний сайт:</strong> Багатосторінковий ресурс для
+              презентації компанії.
+            </li>
+            <li data-i18n="website.info.list3">
+              <strong>Інтернет-каталог:</strong> Вітрина товарів без можливості
+              оплати онлайн (або з нею).
+            </li>
+            <li data-i18n="website.info.list4">
+              <strong>Промо-сайти:</strong> Яскраві, анімовані сайти для
+              рекламних кампаній.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <section
+      id="contact"
+      class="contact"
+      style="position: relative; overflow: hidden; margin-top: 100px"
+    >
+      <div id="contact-3d-scene"></div>
+      <div class="container" style="position: relative; z-index: 10">
+        <div class="contact__wrapper">
+          <div class="contact__item">
+            <div data-i18n="contact.titleSection" class="contact__title">
+              Зв'яжіться з нами
+            </div>
+            <div data-i18n="website.contact.descr" class="contact__descr">
+              Обговоримо ваш новий сайт?
+            </div>
+            <div class="contact__itemContact">
+              <img
+                class="contact__img"
+                src="../img/ico/smartphone.svg"
+                alt="smartphoneImg"
+              /><a class="contact__link" href="#">+38 (067) 123 45 67</a>
+            </div>
+            <div class="contact__itemContact">
+              <img
+                class="contact__img"
+                src="../img/ico/email.svg"
+                alt="emailImg"
+              /><a class="contact__link" href="mailto:team@ksibe.dev"
+                >team@ksibe.dev</a
+              >
+            </div>
+            <div class="contact__itemContact">
+              <img
+                class="contact__img"
+                src="../img/ico/telegram.svg"
+                alt="telegram"
+              /><a class="contact__link" href="https://t.me/ksibee">@ksibee</a>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__mailTitle" data-i18n="contact.titleMail">
+              Залишити заявку
+            </div>
+            <form action="#" id="telegramForm">
+              <input
+                type="text"
+                id="name"
+                data-i18n-placeholder="contact.name"
+                placeholder="Name"
+                required
+              />
+              <input
+                type="email"
+                id="email"
+                data-i18n-placeholder="contact.email"
+                placeholder="Email"
+                required
+              />
+              <input
+                type="text"
+                id="site"
+                data-i18n-placeholder="contact.site"
+                placeholder="Ваш веб-сайт (якщо є)"
+              />
+              <textarea
+                id="message"
+                data-i18n-placeholder="contact.message"
+                placeholder="Message"
+                required
+              ></textarea>
+              <div class="file-wrapper">
+                <input type="file" id="fileInput" class="hidden-input" /><label
+                  for="fileInput"
+                  class="custom-file-label"
+                  ><img src="../img/ico/file.svg" alt="clip" /><span
+                    data-i18n="contact.file"
+                    >Прикріпити файл</span
+                  ></label
+                >
+              </div>
+              <button type="submit" id="submitBtn" data-i18n="contact.btn">
+                Відправити
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer__left">
+        <p class="footer__logo">KSIBE</p>
+        <p class="footer__title" data-i18n="footer.title">
+          Створюємо ПОТУЖНІ інструменти для вашого бізнесу...
+        </p>
+      </div>
+      <div class="footer__right">
+        <div class="footer__socials-group">
+          <a href="https://t.me/ksibee"
+            ><img
+              class="footer__social"
+              src="../img/ico/telegram__footer.svg"
+              alt="tg" /></a
+          ><a href="https://www.instagram.com/ksibe.dev"
+            ><img
+              class="footer__social"
+              src="../img/ico/instagram__footer.svg"
+              alt="inst"
+          /></a>
+        </div>
+        <a class="footer__mail" href="mailto:team@ksibe.dev">team@ksibe.dev</a>
+        <div class="lang-switch">
+          <button onclick="loadLang('en')" data-lang="en">EN</button
+          ><button onclick="loadLang('uk')" data-lang="uk" class="active">
+            UA</button
+          ><button onclick="loadLang('de')" data-lang="de">DE</button
+          ><button onclick="loadLang('ru')" data-lang="ru">RU</button>
+        </div>
+        <button class="scroll-up-btn" aria-label="Scroll to top">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 19V5M12 5L5 12M12 5L19 12"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </footer>
+
+    <div class="modal-overlay" id="successModal">
+      <div class="modal-window">
+        <button class="modal-close-btn">&times;</button>
+        <div class="modal-icon">
+          <svg
+            class="checkmark"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 52 52"
+          >
+            <circle
+              class="checkmark__circle"
+              cx="26"
+              cy="26"
+              r="25"
+              fill="none"
+            />
+            <path
+              class="checkmark__check"
+              fill="none"
+              d="M14.1 27.2l7.1 7.2 16.7-16.8"
+            />
+          </svg>
+        </div>
+        <h3 class="modal-title" data-i18n="modal.successTitle">
+          Ваша заявка прийнята!
+        </h3>
+        <p class="modal-text" data-i18n="modal.successText">
+          Дякуємо, що довірили нам свої ідеї. <br />Ми вже вивчаємо ваш запит і
+          зв'яжемося з вами найближчим часом.
+        </p>
+        <button class="modal-action-btn" data-i18n="modal.successBtn">
+          Чудово!
+        </button>
+      </div>
+    </div>
+
+    <script src="js/web-app.js"></script>
+    <script src="/js/lang.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
