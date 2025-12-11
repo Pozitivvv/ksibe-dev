@@ -1388,3 +1388,174 @@ footer {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
+/* --- CRM DASHBOARD VISUALS --- */
+.crm-visual {
+  width: 320px;
+  height: 480px;
+  perspective: 1000px;
+  position: relative;
+  margin: 0 auto;
+}
+
+// Контейнер дашборда
+.dashboard-mockup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateY(-15deg) rotateX(10deg);
+  width: 280px;
+  height: 380px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  display: flex;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+
+  &:hover {
+    transform: translate(-50%, -50%) rotateY(0deg) rotateX(0deg) scale(1.05);
+  }
+}
+
+// Сайдбар (ліва частина)
+.dash-sidebar {
+  width: 60px;
+  background: rgba(0, 0, 0, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  gap: 15px;
+}
+
+.dash-dot {
+  width: 30px;
+  height: 30px;
+  background: #575bc8;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.dash-line {
+  width: 30px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+// Контент (права частина)
+.dash-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dash-title-line {
+  width: 100px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+.dash-user-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #aeb2ff;
+}
+
+.dash-stats {
+  display: flex;
+  gap: 10px;
+}
+.stat-box {
+  flex: 1;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.dash-chart {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 10px 10px 0;
+}
+
+.chart-bar {
+  width: 20px;
+  background: linear-gradient(to top, #575bc8, #aeb2ff);
+  border-radius: 4px 4px 0 0;
+  opacity: 0.8;
+  transition: height 1s ease;
+
+  // Висота стовпчиків
+  &.h40 {
+    height: 40%;
+  }
+  &.h70 {
+    height: 70%;
+  }
+  &.h50 {
+    height: 50%;
+  }
+  &.h90 {
+    height: 90%;
+  }
+  &.h60 {
+    height: 60%;
+  }
+}
+
+// Літаючий віджет
+.float-widget {
+  position: absolute;
+  top: 20%;
+  right: -20px;
+  background: #fff;
+  color: #000;
+  padding: 10px 15px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: floatWidget 4s infinite ease-in-out;
+  z-index: 5;
+
+  .widget-icon {
+    font-size: 20px;
+  }
+  .widget-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+    line-height: 1.2;
+  }
+  strong {
+    font-size: 12px;
+    color: #575bc8;
+  }
+}
+
+@keyframes floatWidget {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

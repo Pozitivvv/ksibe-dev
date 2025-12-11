@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/catalogmin.css" />
+    <link rel="stylesheet" href="/css/ksibemin.css" />
+
+    <title data-i18n="crm.pageTitle">CRM та Особисті кабінети | KSIBE</title>
+  </head>
+  <body>
+    <div style="min-height: auto; padding: 0" class="header">
+      <div class="container">
+        <nav>
+          <a href="../index.html" class="logo" style="text-decoration: none"
+            >KSIBE</a
+          >
+          <button class="burger-btn" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="nav-content">
+            <ul>
+              <li>
+                <a href="../index.html#portfolio" data-i18n="header.link2"
+                  >Портфоліо</a
+                >
+              </li>
+              <li><a href="#contact" data-i18n="header.link4">Контакти</a></li>
+            </ul>
+            <div class="lang-dropdown" id="langDropdown">
+              <button class="lang-dropdown__btn">
+                <span class="current-lang">UA</span>
+                <svg
+                  class="lang-arrow"
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 1L5 5L9 1"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div class="lang-dropdown__menu">
+                <button
+                  onclick="selectLang('en', 'EN')"
+                  class="lang-option"
+                  data-value="en"
+                >
+                  <span>EN</span> English
+                </button>
+                <button
+                  onclick="selectLang('uk', 'UA')"
+                  class="lang-option active"
+                  data-value="uk"
+                >
+                  <span>UA</span> Українська
+                </button>
+                <button
+                  onclick="selectLang('de', 'DE')"
+                  class="lang-option"
+                  data-value="de"
+                >
+                  <span>DE</span> Deutsch
+                </button>
+                <button
+                  onclick="selectLang('ru', 'RU')"
+                  class="lang-option"
+                  data-value="ru"
+                >
+                  <span>RU</span> Русский
+                </button>
+              </div>
+            </div>
+            <a class="header__btn" href="#contact"
+              ><p data-i18n="header.link5">Залишити заявку</p></a
+            >
+            <div class="mobile-footer">
+              <a href="mailto:team@ksibe.dev" class="mobile-email"
+                >team@ksibe.dev</a
+              >
+              <div class="lang-switch">
+                <button onclick="loadLang('en')" data-lang="en">EN</button>
+                <button onclick="loadLang('uk')" data-lang="uk" class="active">
+                  UA
+                </button>
+                <button onclick="loadLang('de')" data-lang="de">DE</button>
+                <button onclick="loadLang('ru')" data-lang="ru">RU</button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <main class="page-content">
+      <div class="page-bg-orb"></div>
+      <div class="container">
+        <div class="pwa-hero">
+          <div class="pwa-hero__text">
+            <h1 class="service-title" data-i18n="crm.heroTitle">
+              CRM та Внутрішні системи
+            </h1>
+            <p class="service-subtitle" data-i18n="crm.heroSubtitle">
+              Створюємо зручні інструменти для роботи бізнесу: кабінети, системи
+              управління, сервісні панелі. Все продумано та зрозуміло у
+              використанні.
+            </p>
+            <a href="#contact" class="service-btn" data-i18n="pwa.hero.btn"
+              >Замовити консультацію</a
+            >
+          </div>
+
+          <div class="pwa-hero__visual crm-visual">
+            <div class="glow-circle"></div>
+
+            <div class="dashboard-mockup">
+              <div class="dash-sidebar">
+                <div class="dash-dot"></div>
+                <div class="dash-line short"></div>
+                <div class="dash-line"></div>
+                <div class="dash-line"></div>
+              </div>
+              <div class="dash-content">
+                <div class="dash-header">
+                  <div class="dash-title-line"></div>
+                  <div class="dash-user-circle"></div>
+                </div>
+                <div class="dash-stats">
+                  <div class="stat-box"></div>
+                  <div class="stat-box"></div>
+                </div>
+                <div class="dash-chart">
+                  <div class="chart-bar h40"></div>
+                  <div class="chart-bar h70"></div>
+                  <div class="chart-bar h50"></div>
+                  <div class="chart-bar h90"></div>
+                  <div class="chart-bar h60"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="float-widget">
+              <div class="widget-icon">⚡</div>
+              <div class="widget-text">
+                <span>Efficiency</span>
+                <strong>+145%</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="crm.cards.card1.title">
+              Автоматизація
+            </h3>
+            <p class="card-text" data-i18n="crm.cards.card1.text">
+              Звільніть співробітників від рутини. Система сама сформує звіти,
+              виставить рахунки та нагадає про завдання.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="crm.cards.card2.title">
+              Глибока Аналітика
+            </h3>
+            <p class="card-text" data-i18n="crm.cards.card2.text">
+              Всі показники бізнесу як на долоні. Зручні графіки та дашборди для
+              прийняття правильних рішень.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="crm.cards.card3.title">
+              Безпека даних
+            </h3>
+            <p class="card-text" data-i18n="crm.cards.card3.text">
+              Розподіл прав доступу (Ролі). Менеджер бачить тільки свої заявки,
+              директор — усю картину.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="crm.cards.card4.title">
+              Зручний інтерфейс
+            </h3>
+            <p class="card-text" data-i18n="crm.cards.card4.text">
+              Ми робимо складні системи простими. Вашим співробітникам не
+              знадобиться місяць на навчання.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="crm.cards.card5.title">
+              Швидкість роботи
+            </h3>
+            <p class="card-text" data-i18n="crm.cards.card5.text">
+              Оптимізовані бази даних та запити. Система працює миттєво навіть з
+              мільйонами записів.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <svg
+              class="card-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+              />
+            </svg>
+            <h3 class="card-title" data-i18n="crm.cards.card6.title">
+              Інтеграції (API)
+            </h3>
+            <p class="card-text" data-i18n="crm.cards.card6.text">
+              З'єднаємо вашу CRM з сайтом, телефонією, поштою, банками та
+              службами доставки.
+            </p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="info-title" data-i18n="crm.infoTitle">
+            Що ми розробляємо?
+          </h2>
+          <ul class="info-list">
+            <li data-i18n="crm.infoList1">
+              <strong>Особисті кабінети клієнтів:</strong> Історія замовлень,
+              бонуси, персональні дані.
+            </li>
+            <li data-i18n="crm.infoList2">
+              <strong>CRM-системи:</strong> Для відділів продажу, обліку
+              клієнтів та угод.
+            </li>
+            <li data-i18n="crm.infoList3">
+              <strong>ERP-системи:</strong> Для управління ресурсами
+              підприємства (склад, логістика, фінанси).
+            </li>
+            <li data-i18n="crm.infoList4">
+              <strong>LMS платформи:</strong> Системи для онлайн-навчання та
+              тестування співробітників.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <section
+      id="contact"
+      class="contact"
+      style="position: relative; overflow: hidden; margin-top: 100px"
+    >
+      <div id="contact-3d-scene"></div>
+      <div class="container" style="position: relative; z-index: 10">
+        <div class="contact__wrapper">
+          <div class="contact__item">
+            <div data-i18n="contact.titleSection" class="contact__title">
+              Зв'яжіться з нами
+            </div>
+            <div data-i18n="crm.contactDescr" class="contact__descr">
+              Потрібна CRM для бізнесу?
+            </div>
+            <div class="contact__itemContact">
+              <img
+                class="contact__img"
+                src="../img/ico/smartphone.svg"
+                alt="smartphoneImg"
+              /><a class="contact__link" href="#">+38 (067) 123 45 67</a>
+            </div>
+            <div class="contact__itemContact">
+              <img
+                class="contact__img"
+                src="../img/ico/email.svg"
+                alt="emailImg"
+              /><a class="contact__link" href="mailto:team@ksibe.dev"
+                >team@ksibe.dev</a
+              >
+            </div>
+            <div class="contact__itemContact">
+              <img
+                class="contact__img"
+                src="../img/ico/telegram.svg"
+                alt="telegram"
+              /><a class="contact__link" href="https://t.me/ksibee">@ksibee</a>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__mailTitle" data-i18n="contact.titleMail">
+              Залишити заявку
+            </div>
+            <form action="#" id="telegramForm">
+              <input
+                type="text"
+                id="name"
+                data-i18n-placeholder="contact.name"
+                placeholder="Name"
+                required
+              />
+              <input
+                type="email"
+                id="email"
+                data-i18n-placeholder="contact.email"
+                placeholder="Email"
+                required
+              />
+              <input
+                type="text"
+                id="site"
+                data-i18n-placeholder="contact.site"
+                placeholder="Ваш веб-сайт (якщо є)"
+              />
+              <textarea
+                id="message"
+                data-i18n-placeholder="contact.message"
+                placeholder="Message"
+                required
+              ></textarea>
+              <div class="file-wrapper">
+                <input type="file" id="fileInput" class="hidden-input" /><label
+                  for="fileInput"
+                  class="custom-file-label"
+                  ><img src="../img/ico/file.svg" alt="clip" /><span
+                    data-i18n="contact.file"
+                    >Прикріпити файл</span
+                  ></label
+                >
+              </div>
+              <button type="submit" id="submitBtn" data-i18n="contact.btn">
+                Відправити
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer__left">
+        <p class="footer__logo">KSIBE</p>
+        <p class="footer__title" data-i18n="footer.title">
+          Створюємо ПОТУЖНІ інструменти для вашого бізнесу...
+        </p>
+      </div>
+      <div class="footer__right">
+        <div class="footer__socials-group">
+          <a href="https://t.me/ksibee"
+            ><img
+              class="footer__social"
+              src="../img/ico/telegram__footer.svg"
+              alt="tg" /></a
+          ><a href="https://www.instagram.com/ksibe.dev"
+            ><img
+              class="footer__social"
+              src="../img/ico/instagram__footer.svg"
+              alt="inst"
+          /></a>
+        </div>
+        <a class="footer__mail" href="mailto:team@ksibe.dev">team@ksibe.dev</a>
+        <div class="lang-switch">
+          <button onclick="loadLang('en')" data-lang="en">EN</button
+          ><button onclick="loadLang('uk')" data-lang="uk" class="active">
+            UA</button
+          ><button onclick="loadLang('de')" data-lang="de">DE</button
+          ><button onclick="loadLang('ru')" data-lang="ru">RU</button>
+        </div>
+        <button class="scroll-up-btn" aria-label="Scroll to top">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 19V5M12 5L5 12M12 5L19 12"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </footer>
+
+    <div class="modal-overlay" id="successModal">
+      <div class="modal-window">
+        <button class="modal-close-btn">&times;</button>
+        <div class="modal-icon">
+          <svg
+            class="checkmark"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 52 52"
+          >
+            <circle
+              class="checkmark__circle"
+              cx="26"
+              cy="26"
+              r="25"
+              fill="none"
+            />
+            <path
+              class="checkmark__check"
+              fill="none"
+              d="M14.1 27.2l7.1 7.2 16.7-16.8"
+            />
+          </svg>
+        </div>
+        <h3 class="modal-title" data-i18n="modal.successTitle">
+          Ваша заявка прийнята!
+        </h3>
+        <p class="modal-text" data-i18n="modal.successText">
+          Дякуємо, що довірили нам свої ідеї. <br />Ми вже вивчаємо ваш запит і
+          зв'яжемося з вами найближчим часом.
+        </p>
+        <button class="modal-action-btn" data-i18n="modal.successBtn">
+          Чудово!
+        </button>
+      </div>
+    </div>
+
+    <script src="js/web-app.js"></script>
+    <script src="/js/lang.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

@@ -270,5 +270,36 @@
     "infoList4": "<strong>Holdings & Unternehmensgruppen:</strong> Darstellung der Unternehmensstruktur und Berichte.",
 
     "contactDescr": "Besprechen wir Ihre Corporate Website?"
+  },
+  "crm": {
+    "pageTitle": "CRM und Kundenportale – Systementwicklung | KSIBE",
+    "heroTitle": "CRM und Interne Systeme",
+    "heroSubtitle": "Wir entwickeln benutzerfreundliche Tools für Unternehmen: Kundenportale, Verwaltungssysteme, Service-Panels. Alles durchdacht und einfach zu bedienen.",
+
+    "card1Title": "Automatisierung",
+    "card1Text": "Befreien Sie Mitarbeiter von Routineaufgaben. Das System erstellt Berichte, stellt Rechnungen aus und erinnert an Aufgaben automatisch.",
+
+    "card2Title": "Tiefgehende Analytik",
+    "card2Text": "Alle Geschäftskennzahlen auf einen Blick. Komfortable Diagramme und Dashboards für fundierte Entscheidungen.",
+
+    "card3Title": "Datensicherheit",
+    "card3Text": "Rollenbasierte Zugriffskontrolle. Der Manager sieht nur seine Anfragen, der Geschäftsführer — das Gesamtbild.",
+
+    "card4Title": "Benutzerfreundliches Interface",
+    "card4Text": "Wir machen komplexe Systeme einfach. Ihren Mitarbeitern wird kein Monat zur Einarbeitung nötig sein.",
+
+    "card5Title": "Arbeitsgeschwindigkeit",
+    "card5Text": "Optimierte Datenbanken und Abfragen. Das System arbeitet blitzschnell, selbst mit Millionen von Einträgen.",
+
+    "card6Title": "Integrationen (API)",
+    "card6Text": "Wir verbinden Ihre CRM mit Website, Telefonie, E-Mail, Banken und Lieferdiensten.",
+
+    "infoTitle": "Was entwickeln wir?",
+    "infoList1": "<strong>Kundenportale:</strong> Bestellhistorie, Boni, persönliche Daten.",
+    "infoList2": "<strong>CRM-Systeme:</strong> Für Vertriebsabteilungen, Kundenverwaltung und Deals.",
+    "infoList3": "<strong>ERP-Systeme:</strong> Ressourcenmanagement des Unternehmens (Lager, Logistik, Finanzen).",
+    "infoList4": "<strong>LMS-Plattformen:</strong> Systeme für Online-Schulungen und Mitarbeiter-Tests.",
+
+    "contactDescr": "Benötigen Sie eine CRM für Ihr Unternehmen?"
   }
 }

@@ -272,5 +272,36 @@
     "infoList4": "<strong>Holdings & Corporate Groups:</strong> To present business structure and reporting.",
 
     "contactDescr": "Shall we discuss your corporate website?"
+  },
+  "crm": {
+    "pageTitle": "CRM and Client Dashboards – System Development | KSIBE",
+    "heroTitle": "CRM and Internal Systems",
+    "heroSubtitle": "We build intuitive tools for business operations: dashboards, management systems, service panels. Everything is well-structured and easy to use.",
+
+    "card1Title": "Automation",
+    "card1Text": "Free your team from routine tasks. The system automatically generates reports, issues invoices, and sends task reminders.",
+
+    "card2Title": "Deep Analytics",
+    "card2Text": "All key business metrics at a glance. Clear charts and dashboards for informed decision-making.",
+
+    "card3Title": "Data Security",
+    "card3Text": "Role-based access control. A manager sees only their requests, while the director sees the full picture.",
+
+    "card4Title": "User-Friendly Interface",
+    "card4Text": "We make complex systems simple. Your staff will not need a month to learn how to use it.",
+
+    "card5Title": "Performance",
+    "card5Text": "Optimized databases and queries. The system runs instantly, even with millions of records.",
+
+    "card6Title": "Integrations (API)",
+    "card6Text": "We connect your CRM with the website, telephony, email, banks, and delivery services.",
+
+    "infoTitle": "What do we develop?",
+    "infoList1": "<strong>Client dashboards:</strong> Order history, bonuses, personal data.",
+    "infoList2": "<strong>CRM systems:</strong> For sales teams, customer tracking, and deal management.",
+    "infoList3": "<strong>ERP systems:</strong> Enterprise resource management (warehouse, logistics, finance).",
+    "infoList4": "<strong>LMS platforms:</strong> Systems for online employee training and testing.",
+
+    "contactDescr": "Need a CRM for your business?"
   }
 }
