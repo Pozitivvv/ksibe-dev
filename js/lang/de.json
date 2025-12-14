@@ -70,6 +70,8 @@
     "titleSection": "Unsere Projekte – echte Ergebnisse",
     "title1": "Head Barbershop",
     "descr1": "Premium-Barbershop",
+    "title2": "Babies Alliance",
+    "descr2": "Kindergarten",
     "color": "#030303",
     "link": "Transformations-Case",
     "allCases": "Alle Cases ansehen"
@@ -381,5 +383,53 @@
 
     "nextCaseText": "Nächsten Case ansehen",
     "nextCaseName": "Pidvezu - Plattform für gemeinsame Fahrten"
+  },
+  "pidvezu": {
+    "pageTitle": "Pidvezu – Case | KSIBE",
+    "tagWeb": "Webplattform",
+    "tagBot": "Telegram-Bot",
+    "heroTitle": "Finden Sie Mitfahrende ganz einfach mit <span style=\"color: var(--accent-blue)\">Pidvezu</span>",
+    "heroDesc": "Plattformentwicklung von Grund auf: von der Datenbankarchitektur bis zum <strong>React</strong>-Frontend. Wir haben ein Ökosystem geschaffen, in dem Fahrer und Mitfahrer sich in wenigen Minuten finden. Das Ergebnis — <span style=\"color: var(--accent-green)\">spürbare Zeit- und Kostenersparnis.</span>",
+    "visitSite": "Live-Website besuchen",
+
+    "widgetRoute": "Route",
+    "widgetMaps": "Google Maps API",
+    "widgetSave": "Ersparnis",
+    "widgetPercent": "-40% Kosten",
+
+    "chartTitle": "Nutzerwachstum",
+    "chartSub": "Registrierungsdynamik von Fahrern und Mitfahrern",
+    "labelStart": "Beta",
+    "labelWeek": "Monat 1",
+    "labelMonth": "Monat 3",
+    "labelNow": "Jetzt",
+
+    "resMainTitle": "Skalierbarkeit",
+    "resMainDesc": "Landesweite Abdeckung von Beginn an",
+    "resSpeedTitle": "Performance",
+    "resSpeedDesc": "React SPA Optimierung",
+    "resSupportTitle": "Support",
+    "resSupportDesc": "Intelligenter Telegram-Bot",
+
+    "stackTitle": "Tech-Stack",
+
+    "structTitle": "System-<br />Funktionen",
+    "structDesc": "Eine ganzheitliche Lösung mit Weboberfläche, Admin-Panel und Messenger-Automatisierung.",
+
+    "feat1Title": "Smart Search",
+    "feat1Desc": "Algorithmus zur Fahrtensuche nach Datum, Uhrzeit und Route mit Filtern.",
+    "feat2Title": "Telegram-Bot",
+    "feat2Desc": "Bot für Benachrichtigungen über neue Fahrten und schnellen Support-Kontakt.",
+    "feat3Title": "Admin-Panel",
+    "feat3Desc": "Fahrermoderation und Echtzeit-Analyse der Fahrten.",
+    "feat4Title": "Smart Trust Factor",
+    "feat4Desc": "Intelligente Berechnung des Vertrauenslevels basierend auf erfolgreichen Fahrten.",
+    "feat5Title": "Bequeme Buchung",
+    "feat5Desc": "Sofortige Sitzplatzbuchung mit automatischen Status-Updates und Historie.",
+    "feat6Title": "React UI",
+    "feat6Desc": "Extrem schnelle SPA-Oberfläche für sofortige Seitenladezeiten.",
+
+    "nextCaseText": "Vorherigen Case ansehen",
+    "nextCaseName": "Head Barbershop – premium barbershop"
   }
 }

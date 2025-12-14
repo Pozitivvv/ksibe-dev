@@ -71,8 +71,7 @@
     "title1": "Head Barbershop",
     "descr1": "Premium barbershop",
     "title2": "Babies Alliance",
-    "descr2": "Children's charity",
-    "color": "#030303",
+    "descr2": "Children's Kindergarten",
     "link": "Case study",
     "allCases": "View all cases"
   },
@@ -385,5 +384,53 @@
 
     "nextCaseText": "View next case",
     "nextCaseName": "Pidvezu - platform for shared rides"
+  },
+  "pidvezu": {
+    "pageTitle": "Pidvezu - Case | KSIBE",
+    "tagWeb": "Web Platform",
+    "tagBot": "Telegram Bot",
+    "heroTitle": "Find travel companions easily with <span style=\"color: var(--accent-blue)\">Pidvezu</span>",
+    "heroDesc": "Platform development from scratch: from database architecture to a <strong>React</strong> frontend. We built an ecosystem where drivers and passengers find each other in minutes. The result — <span style=\"color: var(--accent-green)\">convenient savings of time and money.</span>",
+    "visitSite": "Visit Live Site",
+
+    "widgetRoute": "Route",
+    "widgetMaps": "Google Maps API",
+    "widgetSave": "Savings",
+    "widgetPercent": "-40% Cost",
+
+    "chartTitle": "User Growth",
+    "chartSub": "Driver and passenger registration dynamics",
+    "labelStart": "Beta",
+    "labelWeek": "Month 1",
+    "labelMonth": "Month 3",
+    "labelNow": "Now",
+
+    "resMainTitle": "Scalability",
+    "resMainDesc": "Nationwide coverage from day one",
+    "resSpeedTitle": "Performance",
+    "resSpeedDesc": "React SPA Optimization",
+    "resSupportTitle": "Support",
+    "resSupportDesc": "Smart Telegram bot",
+
+    "stackTitle": "Tech Stack",
+
+    "structTitle": "System<br />Functionality",
+    "structDesc": "A comprehensive solution combining a web interface, admin panel, and messenger automation.",
+
+    "feat1Title": "Smart Search",
+    "feat1Desc": "Trip matching algorithm by date, time, and route with advanced filtering.",
+    "feat2Title": "Telegram Bot",
+    "feat2Desc": "Bot for new trip notifications and fast communication with support.",
+    "feat3Title": "Admin Panel",
+    "feat3Desc": "Driver moderation system and real-time trip analytics.",
+    "feat4Title": "Smart Trust Factor",
+    "feat4Desc": "Intelligent trust score calculation based on successful trips.",
+    "feat5Title": "Easy Booking",
+    "feat5Desc": "Instant seat booking with automatic status updates and history.",
+    "feat6Title": "React UI",
+    "feat6Desc": "Ultra-fast SPA interface for instant page loading.",
+
+    "nextCaseText": "View previous case",
+    "nextCaseName": "Head Barbershop – premium barbershop"
   }
 }
