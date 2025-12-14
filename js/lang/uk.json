@@ -437,5 +437,53 @@
 
     "nextCaseText": "Дивитись наступний кейс",
     "nextCaseName": " Head Barbershop - Преміальний Барбершоп"
+  },
+
+  "head": {
+    "tagLp": "Landing Page",
+    "tagAds": "Google Ads",
+    "heroTitle": "Преміальний стиль для мережі <span style=\"color: var(--accent-gold)\">Head Barbershop</span>",
+    "heroDesc": "Редезайн старого сайту, який втрачав клієнтів. Ми створили швидкий <strong>React</strong>-лендінг у темних тонах, налаштували пряму інтеграцію з CRM та запустили рекламу. Результат — стабільний потік заявок та <span style=\"color: var(--accent-gold)\">зручний запис за 2 кліки.</span>",
+    "visitSite": "Відкрити сайт",
+
+    "widgetBook": "Booking",
+    "widgetSync": "CRM Sync",
+    "widgetConv": "Conversion",
+    "widgetX3": "x3 Growth",
+
+    "chartTitle": "Ріст записів",
+    "chartSub": "Порівняння старого сайту та нового лендінгу",
+    "labelOld": "Old Site",
+    "labelLaunch": "Launch",
+    "labelAds": "Ads",
+    "labelNow": "Now",
+
+    "resMainTitle": "Результат",
+    "resMainDesc": "Збільшення кількості онлайн-записів",
+    "resOptTitle": "Швидкість",
+    "resOptDesc": "Google PageSpeed",
+    "resAdsTitle": "Реклама",
+    "resAdsDesc": "Зниження вартості заявки",
+
+    "stackTitle": "Стек",
+
+    "structTitle": "Рішення<br />Проблем",
+    "structDesc": "Ми перетворили старий глючний сайт на потужний інструмент лідогенерації.",
+
+    "feat1Title": "Онлайн Запис",
+    "feat1Desc": "Безшовна інтеграція з платформою (Altegio/Yclients). Клієнт бачить вільні слоти в реальному часі.",
+    "feat2Title": "UI/UX Дизайн",
+    "feat2Desc": "Сувора, преміальна стилістика. Зручна навігація замість хаосу старого сайту.",
+    "feat3Title": "Оптимізація",
+    "feat3Desc": "Миттєве завантаження на мобільних. Жодних підвисань, які раніше відлякували клієнтів.",
+    "feat4Title": "Прайс-лист",
+    "feat4Desc": "Інтерактивне меню послуг. Чітка структура цін допомагає клієнту швидко прийняти рішення.",
+    "feat5Title": "Локальне SEO",
+    "feat5Desc": "Сайт оптимізовано під пошукові запити 'барбершоп [місто]'.",
+    "feat6Title": "Google Ads",
+    "feat6Desc": "Налаштування рекламних кампаній на 'гарячі' запити для швидкого залучення клієнтів.",
+
+    "nextCaseText": "Дивитись попередній кейс",
+    "nextCaseName": "Pidvezu - Сервіс попутників"
   }
 }

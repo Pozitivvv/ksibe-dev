@@ -1,4 +1,47 @@
-/* --- VARIABLES --- */
+/* --- SMART GLASS HEADER (MORE TRANSPARENT) --- */
+
+.header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 15px 0;
+
+  /* Начальное состояние */
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  box-shadow: none;
+
+  /* Анимация */
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: background, backdrop-filter, padding, border-bottom;
+}
+
+/* Состояние при скролле */
+.header.scrolled {
+  /* Было: 0.85 (почти плотный)
+     Стало: 0.6 (сильно прозрачный, видно контент сзади)
+  */
+  background: rgba(9, 9, 16, 0.6);
+
+  /* Усилили размытие, чтобы текст читался даже на пестром фоне */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  /* Граница и тень */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+
+  /* Сжатие отступов */
+  padding: 10px 0;
+}
+
+.page-content {
+  padding-top: 80px;
+}
 :root {
   --accent-blue: #27c5ec;
   --accent-green: #82c31d;

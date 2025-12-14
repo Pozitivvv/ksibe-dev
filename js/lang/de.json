@@ -431,5 +431,52 @@
 
     "nextCaseText": "Vorherigen Case ansehen",
     "nextCaseName": "Head Barbershop – premium barbershop"
+  },
+  "head": {
+    "tagLp": "Landingpage",
+    "tagAds": "Google Ads",
+    "heroTitle": "Ein Premium-Auftritt für <span style=\"color: var(--accent-gold)\">Head Barbershop</span>",
+    "heroDesc": "Relaunch einer veralteten Website, die Kunden verlor. Wir entwickelten eine schnelle <strong>React</strong>-Landingpage in dunklen Farbtönen, integrierten sie direkt mit dem CRM und starteten Werbekampagnen. Das Ergebnis — ein stabiler Leadflow und <span style=\"color: var(--accent-gold)\">eine bequeme Buchung in nur 2 Klicks.</span>",
+    "visitSite": "Website besuchen",
+
+    "widgetBook": "Buchung",
+    "widgetSync": "CRM-Sync",
+    "widgetConv": "Conversion",
+    "widgetX3": "x3 Wachstum",
+
+    "chartTitle": "Buchungswachstum",
+    "chartSub": "Vergleich der alten Website mit der neuen Landingpage",
+    "labelOld": "Alte Website",
+    "labelLaunch": "Launch",
+    "labelAds": "Ads",
+    "labelNow": "Jetzt",
+
+    "resMainTitle": "Ergebnis",
+    "resMainDesc": "Steigerung der Online-Buchungen",
+    "resOptTitle": "Performance",
+    "resOptDesc": "Google PageSpeed",
+    "resAdsTitle": "Werbung",
+    "resAdsDesc": "Geringere Kosten pro Anfrage",
+
+    "stackTitle": "Tech-Stack",
+
+    "structTitle": "Lösungen<br />für Probleme",
+    "structDesc": "Wir haben eine langsame und instabile Website in ein leistungsstarkes Lead-Generierungstool verwandelt.",
+
+    "feat1Title": "Online-Buchung",
+    "feat1Desc": "Nahtlose Integration mit Buchungssystemen (Altegio/Yclients). Kunden sehen freie Termine in Echtzeit.",
+    "feat2Title": "UI/UX Design",
+    "feat2Desc": "Strenger, hochwertiger Stil. Klare Navigation statt Chaos der alten Website.",
+    "feat3Title": "Optimierung",
+    "feat3Desc": "Sofortige Ladezeiten auf mobilen Geräten. Keine Aussetzer, die Kunden zuvor abgeschreckt haben.",
+    "feat4Title": "Preisliste",
+    "feat4Desc": "Interaktives Leistungsmenü. Klare Preisstruktur erleichtert schnelle Entscheidungen.",
+    "feat5Title": "Lokales SEO",
+    "feat5Desc": "Die Website ist für Suchanfragen wie „Barbershop [Stadt]“ optimiert.",
+    "feat6Title": "Google Ads",
+    "feat6Desc": "Einrichtung von Kampagnen für kaufbereite Suchanfragen zur schnellen Kundengewinnung.",
+
+    "nextCaseText": "Vorherigen Case ansehen",
+    "nextCaseName": "Pidvezu – Mitfahrplattform"
   }
 }

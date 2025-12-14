@@ -432,5 +432,52 @@
 
     "nextCaseText": "View previous case",
     "nextCaseName": "Head Barbershop – premium barbershop"
+  },
+  "head": {
+    "tagLp": "Landing Page",
+    "tagAds": "Google Ads",
+    "heroTitle": "A premium look for the <span style=\"color: var(--accent-gold)\">Head Barbershop</span> brand",
+    "heroDesc": "Redesign of an outdated website that was losing clients. We built a fast <strong>React</strong> landing page in dark tones, integrated it directly with the CRM, and launched advertising campaigns. The result — a steady flow of leads and <span style=\"color: var(--accent-gold)\">easy booking in just 2 clicks.</span>",
+    "visitSite": "Visit Website",
+
+    "widgetBook": "Booking",
+    "widgetSync": "CRM Sync",
+    "widgetConv": "Conversion",
+    "widgetX3": "x3 Growth",
+
+    "chartTitle": "Booking Growth",
+    "chartSub": "Comparison between the old website and the new landing page",
+    "labelOld": "Old Site",
+    "labelLaunch": "Launch",
+    "labelAds": "Ads",
+    "labelNow": "Now",
+
+    "resMainTitle": "Result",
+    "resMainDesc": "Increase in online bookings",
+    "resOptTitle": "Performance",
+    "resOptDesc": "Google PageSpeed",
+    "resAdsTitle": "Advertising",
+    "resAdsDesc": "Reduced cost per lead",
+
+    "stackTitle": "Tech Stack",
+
+    "structTitle": "Problem<br />Solutions",
+    "structDesc": "We transformed a slow and unstable website into a powerful lead generation tool.",
+
+    "feat1Title": "Online Booking",
+    "feat1Desc": "Seamless integration with booking platforms (Altegio/Yclients). Clients see available time slots in real time.",
+    "feat2Title": "UI/UX Design",
+    "feat2Desc": "A strict, premium visual style. Clear navigation instead of the chaos of the old website.",
+    "feat3Title": "Optimization",
+    "feat3Desc": "Instant loading on mobile devices. No freezes that previously scared clients away.",
+    "feat4Title": "Price List",
+    "feat4Desc": "Interactive service menu. A clear pricing structure helps clients make quick decisions.",
+    "feat5Title": "Local SEO",
+    "feat5Desc": "The website is optimized for local search queries like “barbershop [city]”.",
+    "feat6Title": "Google Ads",
+    "feat6Desc": "Launch of ad campaigns targeting high-intent queries for rapid customer acquisition.",
+
+    "nextCaseText": "View previous case",
+    "nextCaseName": "Pidvezu – Ride-Sharing Platform"
   }
 }
