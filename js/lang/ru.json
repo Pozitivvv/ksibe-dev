@@ -306,5 +306,54 @@
     "infoList4": "<strong>IoT и Hardware:</strong> Веб-интерфейсы для управления умными устройствами.",
 
     "contactDescr": "У вас есть идея? Давайте реализуем!"
+  },
+  "babies": {
+    "pageTitle": "Babies Alliance – Кейс | KSIBE",
+    "tagDev": "Full-Stack Dev",
+    "tagMark": "Marketing",
+    "heroTitle": "Как превратить новый детский сад в <span style='color: var(--accent-blue)'>самый популярный</span> в районе",
+    "heroDesc": "Комплексный запуск для <strong>Babies Alliance</strong>. Мы разработали сайт, который формирует доверие, и настроили рекламу, привлекающую родителей. Результат — <span style='color: var(--accent-green)'>полные группы за 2 месяца.</span>",
+    "visitSite": "Посмотреть сайт",
+    "showcaseDesktop": "Версия сайта для ПК",
+    "showcaseMobile": "Мобильная версия",
+    "showcaseMapTitle": "Топ 1",
+    "showcaseMapSub": "Локальные карты",
+    "showcaseStatTitle": "Sold Out",
+    "showcaseStatSub": "Полные группы",
+
+    "chartTitle": "Рост заявок",
+    "chartSub": "Динамика заполнения групп после запуска",
+    "chartLabel1": "Старт",
+    "chartLabel2": "Неделя 2",
+    "chartLabel3": "Месяц 1",
+    "chartLabel4": "Месяц 2",
+
+    "resMainTitle": "Главный результат",
+    "resMainDesc": "Свободных мест не осталось",
+    "resLocTitle": "Локация",
+    "resLocDesc": "Пакет Google Maps",
+    "resRevTitle": "Отзывы",
+    "resRevDesc": "40+ реальных отзывов",
+
+    "stackTitle": "Стек",
+
+    "structTitle": "Структура<br />сайта",
+    "structDesc": "Мы не просто сделали страницы. Мы создали воронку, закрывающую страхи родителей.",
+
+    "structItem1Title": "Укрытие (Безопасность)",
+    "structItem1Desc": "Обязательный блок в наше время. Фото и видео укрытия, чтобы закрыть главный страх.",
+    "structItem2Title": "Питание",
+    "structItem2Desc": "Примеры меню и сертификаты качества. Здоровье ребёнка — приоритет.",
+    "structItem3Title": "Наша команда",
+    "structItem3Desc": "Знакомство с воспитателями. Люди доверяют людям, а не логотипам.",
+    "structItem4Title": "Активности",
+    "structItem4Desc": "Расписание занятий: английский, спорт, творчество. Показываем ценность.",
+    "structItem5Title": "Где мы находимся?",
+    "structItem5Desc": "Интеграция карты и удобная схема проезда для родителей.",
+    "structItem6Title": "Цены",
+    "structItem6Desc": "Прозрачная ценовая политика. Отсутствие скрытых платежей повышает доверие.",
+
+    "nextCaseText": "Смотреть следующий кейс",
+    "nextCaseName": "Pidvezu - платформа совместных поездок"
   }
 }

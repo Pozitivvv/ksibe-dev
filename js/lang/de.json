@@ -332,5 +332,54 @@
     "infoList4": "<strong>IoT und Hardware:</strong> Web-Interfaces zur Steuerung von Smart-Devices.",
 
     "contactDescr": "Haben Sie eine Idee? Lassen Sie sie uns umsetzen!"
+  },
+  "babies": {
+    "pageTitle": "Babies Alliance – Case | KSIBE",
+    "tagDev": "Full-Stack Dev",
+    "tagMark": "Marketing",
+    "heroTitle": "Wie man einen neuen Kindergarten zum <span style='color: var(--accent-blue)'>beliebtesten</span> im Stadtteil macht",
+    "heroDesc": "Ganzheitlicher Launch für <strong>Babies Alliance</strong>. Wir haben eine vertrauensbildende Website entwickelt und Werbung geschaltet, die Eltern gebracht hat. Das Ergebnis — <span style='color: var(--accent-green)'>volle Gruppen in nur 2 Monaten.</span>",
+    "visitSite": "Seite besuchen",
+    "showcaseDesktop": "Desktop-Version der Website",
+    "showcaseMobile": "Mobile Ansicht",
+    "showcaseMapTitle": "Top 1",
+    "showcaseMapSub": "Lokale Karten",
+    "showcaseStatTitle": "Ausgebucht",
+    "showcaseStatSub": "Volle Gruppen",
+
+    "chartTitle": "Anfragewachstum",
+    "chartSub": "Dynamik der Gruppenauslastung nach dem Launch",
+    "chartLabel1": "Start",
+    "chartLabel2": "Woche 2",
+    "chartLabel3": "Monat 1",
+    "chartLabel4": "Monat 2",
+
+    "resMainTitle": "Hauptergebnis",
+    "resMainDesc": "Keine freien Plätze mehr",
+    "resLocTitle": "Standort",
+    "resLocDesc": "Google Maps Pack",
+    "resRevTitle": "Bewertungen",
+    "resRevDesc": "40+ echte Bewertungen",
+
+    "stackTitle": "Tech-Stack",
+
+    "structTitle": "Website-<br />Struktur",
+    "structDesc": "Wir haben nicht nur Seiten erstellt. Wir haben einen Funnel gebaut, der die Sorgen der Eltern adressiert.",
+
+    "structItem1Title": "Schutzraum (Sicherheit)",
+    "structItem1Desc": "Ein unverzichtbarer Bereich heute. Fotos und Videos des Schutzraums zur Beruhigung der Eltern.",
+    "structItem2Title": "Verpflegung",
+    "structItem2Desc": "Beispielmenüs und Qualitätszertifikate. Die Gesundheit des Kindes steht an erster Stelle.",
+    "structItem3Title": "Unser Team",
+    "structItem3Desc": "Vorstellung der Erzieher:innen. Menschen vertrauen Menschen, nicht Logos.",
+    "structItem4Title": "Aktivitäten",
+    "structItem4Desc": "Stundenplan: Englisch, Sport, Kreativität. Wir zeigen den Mehrwert.",
+    "structItem5Title": "Wo finden Sie uns?",
+    "structItem5Desc": "Kartenintegration und einfache Wegbeschreibung für Eltern.",
+    "structItem6Title": "Preise",
+    "structItem6Desc": "Transparente Preisgestaltung. Keine versteckten Kosten schaffen Vertrauen.",
+
+    "nextCaseText": "Nächsten Case ansehen",
+    "nextCaseName": "Pidvezu - Plattform für gemeinsame Fahrten"
   }
 }

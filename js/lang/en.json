@@ -334,5 +334,56 @@
     "infoList4": "<strong>IoT & Hardware:</strong> Web interfaces for managing smart devices.",
 
     "contactDescr": "Got an idea? Let’s bring it to life!"
+  },
+  "babies": {
+    "pageTitle": "Babies Alliance – Case Study | KSIBE",
+    "backLink": "← All case studies",
+    "tagDev": "Full-Stack Dev",
+    "tagMark": "Marketing",
+    "visitSite": "Visit Site",
+    "heroTitle": "How to turn a new kindergarten into the <span style='color: var(--accent-blue)'>most popular</span> one in the area",
+    "heroDesc": "A comprehensive launch for <strong>Babies Alliance</strong>. We built a trust-driven website and set up advertising that brought parents in. The result — <span style='color: var(--accent-green)'>fully booked groups in 2 months.</span>",
+
+    "showcaseDesktop": "Desktop Website View",
+    "showcaseMobile": "Mobile View",
+    "showcaseMapTitle": "Top 1",
+    "showcaseMapSub": "Local Maps",
+    "showcaseStatTitle": "Sold Out",
+    "showcaseStatSub": "Full Groups",
+
+    "chartTitle": "Lead Growth",
+    "chartSub": "Group enrollment dynamics after launch",
+    "chartLabel1": "Start",
+    "chartLabel2": "Week 2",
+    "chartLabel3": "Month 1",
+    "chartLabel4": "Month 2",
+
+    "resMainTitle": "Key Result",
+    "resMainDesc": "No spots left",
+    "resLocTitle": "Location",
+    "resLocDesc": "Google Maps Pack",
+    "resRevTitle": "Reviews",
+    "resRevDesc": "40+ real reviews",
+
+    "stackTitle": "Tech Stack",
+
+    "structTitle": "Website<br />Structure",
+    "structDesc": "We didn’t just create pages. We built a funnel that addresses parents’ concerns.",
+
+    "structItem1Title": "Shelter (Safety)",
+    "structItem1Desc": "A mandatory section in today’s reality. Photos and videos of the shelter to eliminate the main concern.",
+    "structItem2Title": "Nutrition",
+    "structItem2Desc": "Menu examples and quality certificates. Your child’s health is the top priority.",
+    "structItem3Title": "Our Team",
+    "structItem3Desc": "Meet the educators. People trust people, not logos.",
+    "structItem4Title": "Activities",
+    "structItem4Desc": "Class schedule: English, sports, creative activities. We show real value.",
+    "structItem5Title": "Where to find us?",
+    "structItem5Desc": "Map integration and clear directions for parents.",
+    "structItem6Title": "Pricing",
+    "structItem6Desc": "Transparent pricing policy. No hidden fees increases trust.",
+
+    "nextCaseText": "View next case",
+    "nextCaseName": "Pidvezu - platform for shared rides"
   }
 }

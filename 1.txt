@@ -1,0 +1,3 @@
+<link rel="stylesheet" href="/catalog/css/catalogmin.css" />
+    <link rel="stylesheet" href="/css/ksibemin.css" />
+    <link rel="stylesheet" href="css/portfoliomin.css" />

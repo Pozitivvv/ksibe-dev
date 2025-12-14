@@ -334,5 +334,55 @@
     "infoList4": "<strong>IoT та Hardware:</strong> Веб-інтерфейси для керування розумними пристроями.",
 
     "contactDescr": "У вас є ідея? Давайте реалізуємо!"
+  },
+  "babies": {
+    "pageTitle": "Babies Alliance – Кейс | KSIBE",
+    "backLink": "← Всі кейси",
+    "tagDev": "Full-Stack Dev",
+    "tagMark": "Marketing",
+    "heroTitle": "Як перетворити новий садок на <span style='color: var(--accent-blue)'>найпопулярніший</span> у районі",
+    "heroDesc": "Комплексний запуск для <strong>Babies Alliance</strong>. Ми розробили сайт, який будує довіру, та налаштували рекламу, що привела батьків. Результат — <span style='color: var(--accent-green)'>повні групи за 2 місяці.</span>",
+    "visitSite": "Переглянути сайт",
+    "showcaseDesktop": "Desktop Website View",
+    "showcaseMobile": "Mobile View",
+    "showcaseMapTitle": "Top 1",
+    "showcaseMapSub": "Local Maps",
+    "showcaseStatTitle": "Sold Out",
+    "showcaseStatSub": "Full Groups",
+
+    "chartTitle": "Ріст заявок",
+    "chartSub": "Динаміка заповнення груп після запуску",
+    "chartLabel1": "Старт",
+    "chartLabel2": "Тиждень 2",
+    "chartLabel3": "Місяць 1",
+    "chartLabel4": "Місяць 2",
+
+    "resMainTitle": "Головний результат",
+    "resMainDesc": "Вільних місць не залишилось",
+    "resLocTitle": "Локація",
+    "resLocDesc": "Google Maps Pack",
+    "resRevTitle": "Відгуки",
+    "resRevDesc": "40+ реальних відгуків",
+
+    "stackTitle": "Стек",
+
+    "structTitle": "Структура<br />Сайту",
+    "structDesc": "Ми не просто зробили сторінки. Ми створили воронку, яка відповідає на страхи батьків.",
+
+    "structItem1Title": "Укриття (Безпека)",
+    "structItem1Desc": "Обов'язковий блок у наш час. Фото та відео укриття, щоб закрити головний страх.",
+    "structItem2Title": "Харчування",
+    "structItem2Desc": "Приклади меню та сертифікати якості. Здоров'я дитини — пріоритет.",
+    "structItem3Title": "Наша Команда",
+    "structItem3Desc": "Знайомство з вихователями. Люди довіряють людям, а не логотипам.",
+    "structItem4Title": "Активності",
+    "structItem4Desc": "Розклад занять: англійська, спорт, творчість. Показуємо цінність.",
+    "structItem5Title": "Де нас знайти?",
+    "structItem5Desc": "Інтеграція карти та зручна схема проїзду для батьків.",
+    "structItem6Title": "Прайс",
+    "structItem6Desc": "Прозора цінова політика. Відсутність прихованих платежів підвищує довіру.",
+
+    "nextCaseText": "Дивитись наступний кейс",
+    "nextCaseName": "Pidvezu - платформа спільних поїздок"
   }
 }
