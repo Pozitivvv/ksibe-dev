@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@400;500;700&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/catalog/css/catalogmin.css" />
+    <link rel="stylesheet" href="/css/ksibemin.css" />
+    <link rel="stylesheet" href="css/portfoliomin.css" />
+
+    <title data-i18n="allCase.pageTitle">Всі кейси | KSIBE</title>
+    <style>
+      :root {
+        --bg-dark: #050505;
+        --card-bg: #101014;
+        --text-white: #ffffff;
+        --text-muted: #9ca3af;
+        --border-light: rgba(255, 255, 255, 0.08);
+      }
+
+      body {
+        background-color: var(--bg-dark);
+        background-image: radial-gradient(
+          circle at 50% -20%,
+          #202035 0%,
+          #050505 60%
+        );
+      }
+
+      /* HERO */
+      .portfolio-hero {
+        padding: 90px 0 80px;
+        text-align: left;
+      }
+      .portfolio-title {
+        font-family: "Unbounded", sans-serif;
+        font-size: clamp(36px, 5vw, 72px);
+        font-weight: 700;
+        color: var(--text-white);
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+      .portfolio-desc {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        color: var(--text-muted);
+        max-width: 500px;
+        line-height: 1.6;
+      }
+
+      /* --- BENTO GRID CONTAINER --- */
+      .bento-grid {
+        display: grid;
+        /* 12 колонок для гнучкості */
+        grid-template-columns: repeat(12, 1fr);
+        /* Висота рядків */
+        grid-auto-rows: 400px;
+        gap: 24px;
+        margin-bottom: 100px;
+      }
+
+      /* --- BENTO CARD --- */
+      .bento-card {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-light);
+        border-radius: 32px; /* Сильне скруглення */
+        overflow: hidden;
+        position: relative;
+        text-decoration: none;
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          border-color 0.3s;
+
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bento-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255, 255, 255, 0.3);
+        z-index: 2;
+      }
+
+      /* Background Image Area */
+      .bc-img-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+
+      .bc-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      /* Затемнення картинки, щоб текст читався */
+      .bc-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.9) 10%,
+          rgba(0, 0, 0, 0.2) 60%,
+          rgba(0, 0, 0, 0.1) 100%
+        );
+        z-index: 1;
+      }
+
+      .bento-card:hover .bc-img {
+        transform: scale(1.05);
+      }
+
+      /* Content Area */
+      .bc-content {
+        position: relative;
+        z-index: 2;
+        margin-top: auto; /* Притискаємо до низу */
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      /* Top Tags (Floating) */
+      .bc-top-tags {
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        z-index: 2;
+        display: flex;
+        gap: 8px;
+      }
+      .bc-tag {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 6px 12px;
+        border-radius: 50px;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Text Styles */
+      .bc-title {
+        font-family: "Unbounded", sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #fff;
+        margin: 0;
+      }
+      .bc-sub {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0;
+      }
+
+      /* Arrow Button */
+      .bc-btn {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        width: 44px;
+        height: 44px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        z-index: 3;
+        opacity: 0;
+        transform: scale(0.8) rotate(-45deg);
+        transition: all 0.3s ease;
+      }
+      .bento-card:hover .bc-btn {
+        opacity: 1;
+        transform: scale(1) rotate(0deg); /* Поворот стрілки при наведенні */
+      }
+
+      /* --- SIZES (GRID SPANS) --- */
+
+      /* Wide Card (2/3 width) */
+      .span-8 {
+        grid-column: span 8;
+      }
+
+      /* Narrow Card (1/3 width) */
+      .span-4 {
+        grid-column: span 4;
+      }
+
+      /* Full Width (optional) */
+      .span-12 {
+        grid-column: span 12;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 992px) {
+        .bento-grid {
+          grid-template-columns: 1fr; /* Одна колонка */
+          grid-auto-rows: 350px;
+        }
+        .span-8,
+        .span-4,
+        .span-12 {
+          grid-column: span 1;
+        }
+
+        /* Кнопка завжди видна на мобайлі */
+        .bc-btn {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div style="min-height: auto; padding: 0" class="header">
+      <div class="container">
+        <nav>
+          <a href="../index.html" class="logo" style="text-decoration: none"
+            >KSIBE</a
+          >
+          <button class="burger-btn" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="nav-content">
+            <ul>
+              <li>
+                <a href="../index.html" data-i18n="header.link1">Головна</a>
+              </li>
+              <li>
+                <a href="../index.html#portfolio" data-i18n="header.link2"
+                  >Портфоліо</a
+                >
+              </li>
+              <li><a href="#contact" data-i18n="header.link4">Контакти</a></li>
+            </ul>
+            <div class="lang-dropdown" id="langDropdown">
+              <button class="lang-dropdown__btn">
+                <span class="current-lang">UA</span>
+                <svg
+                  class="lang-arrow"
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 1L5 5L9 1"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div class="lang-dropdown__menu">
+                <button
+                  onclick="selectLang('en', 'EN')"
+                  class="lang-option"
+                  data-value="en"
+                >
+                  <span>EN</span> English
+                </button>
+                <button
+                  onclick="selectLang('uk', 'UA')"
+                  class="lang-option active"
+                  data-value="uk"
+                >
+                  <span>UA</span> Українська
+                </button>
+                <button
+                  onclick="selectLang('de', 'DE')"
+                  class="lang-option"
+                  data-value="de"
+                >
+                  <span>DE</span> Deutsch
+                </button>
+                <button
+                  onclick="selectLang('ru', 'RU')"
+                  class="lang-option"
+                  data-value="ru"
+                >
+                  <span>RU</span> Русский
+                </button>
+              </div>
+            </div>
+            <a class="header__btn" href="#contact"
+              ><p data-i18n="header.link5">Залишити заявку</p></a
+            >
+            <div class="mobile-footer">
+              <a href="mailto:team@ksibe.dev" class="mobile-email"
+                >team@ksibe.dev</a
+              >
+              <div class="lang-switch">
+                <button onclick="loadLang('en')" data-lang="en">EN</button>
+                <button onclick="loadLang('uk')" data-lang="uk" class="active">
+                  UA
+                </button>
+                <button onclick="loadLang('de')" data-lang="de">DE</button>
+                <button onclick="loadLang('ru')" data-lang="ru">RU</button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <main class="page-content">
+      <div class="container">
+        <div class="portfolio-hero reveal-on-scroll">
+          <h1 class="portfolio-title" data-i18n="allCase.heroTitle">
+            Обрані <span style="color: #595aad">Роботи</span>
+          </h1>
+          <p class="portfolio-desc" data-i18n="allCase.heroDesc">
+            Ми поєднуємо дизайн, технології та маркетинг, щоб створювати
+            продукти, які змінюють ринок.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <a href="wortly.html" class="bento-card span-8 reveal-on-scroll">
+            <div class="bc-img-wrap">
+              <img
+                src="../img/portfolio/wortly/2.png"
+                alt="Wortly"
+                class="bc-img"
+              />
+              <div class="bc-overlay"></div>
+            </div>
+
+            <div class="bc-top-tags">
+              <span
+                class="bc-tag"
+                style="background: #1fdb52; color: #000"
+                data-i18n="allCase.tagSocial"
+                >Social</span
+              >
+              <span class="bc-tag" data-i18n="allCase.tagEdTech">EdTech</span>
+            </div>
+
+            <div class="bc-btn">➜</div>
+
+            <div class="bc-content">
+              <h3 class="bc-title">Wortly.one</h3>
+              <p class="bc-sub" data-i18n="allCase.descWortly">
+                Додаток для вивчення німецької мови з AI озвучкою
+              </p>
+            </div>
+          </a>
+
+          <a href="pidvezu.html" class="bento-card span-4 reveal-on-scroll">
+            <div class="bc-img-wrap">
+              <img
+                src="../img/portfolio/pidvezu-portfolio/1.png"
+                alt="Pidvezu"
+                class="bc-img"
+              />
+              <div class="bc-overlay"></div>
+            </div>
+
+            <div class="bc-top-tags">
+              <span
+                class="bc-tag"
+                style="background: #4cc9f0; color: #000"
+                data-i18n="allCase.tagLogistics"
+                >Logistics</span
+              >
+            </div>
+
+            <div class="bc-btn">➜</div>
+
+            <div class="bc-content">
+              <h3 class="bc-title">Pidvezu</h3>
+              <p class="bc-sub" data-i18n="allCase.descPidvezu">
+                Платформа пошуку попутників + Bot
+              </p>
+            </div>
+          </a>
+
+          <a href="head.html" class="bento-card span-4 reveal-on-scroll">
+            <div class="bc-img-wrap">
+              <img
+                src="../img/portfolio/head/1.png"
+                alt="Head"
+                class="bc-img"
+              />
+              <div class="bc-overlay"></div>
+            </div>
+
+            <div class="bc-top-tags">
+              <span
+                class="bc-tag"
+                style="background: #d19d64; color: #000"
+                data-i18n="allCase.tagBeauty"
+                >Beauty</span
+              >
+            </div>
+
+            <div class="bc-btn">➜</div>
+
+            <div class="bc-content">
+              <h3 class="bc-title">Head</h3>
+              <p class="bc-sub" data-i18n="allCase.descHead">
+                Landing Page & Google Ads
+              </p>
+            </div>
+          </a>
+
+          <a href="#" class="bento-card span-8 reveal-on-scroll">
+            <div class="bc-img-wrap">
+              <img
+                src="../img/portfolio/babies-portfolio/2.png"
+                alt="Babies"
+                class="bc-img"
+              />
+              <div class="bc-overlay"></div>
+            </div>
+
+            <div class="bc-top-tags">
+              <span class="bc-tag" data-i18n="allCase.tagCorporate"
+                >Corporate</span
+              >
+            </div>
+
+            <div class="bc-btn">➜</div>
+
+            <div class="bc-content">
+              <h3 class="bc-title">Babies Alliance</h3>
+              <p class="bc-sub" data-i18n="allCase.descBabies">
+                Корпоративний сайт з CRM інтеграцією
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <section
+      id="contact"
+      class="contact"
+      style="position: relative; overflow: hidden; margin-top: 100px"
+    >
+      <div id="contact-3d-scene"></div>
+      <div class="container" style="position: relative; z-index: 10">
+        <div class="contact__wrapper">
+          <div class="contact__item">
+            <div data-i18n="contact.titleSection" class="contact__title">
+              Зв'яжіться з нами
+            </div>
+            <div data-i18n="corporate.contactDescr" class="contact__descr">
+              Обговоримо ваш корпоративний сайт?
+            </div>
+            <div class="contact__itemContact">
+              <img
+                class="contact__img"
+                src="../img/ico/smartphone.svg"
+                alt="smartphoneImg"
+              /><a class="contact__link" href="#">+38 (067) 123 45 67</a>
+            </div>
+            <div class="contact__itemContact">
+              <img
+                class="contact__img"
+                src="../img/ico/email.svg"
+                alt="emailImg"
+              /><a class="contact__link" href="mailto:team@ksibe.dev"
+                >team@ksibe.dev</a
+              >
+            </div>
+            <div class="contact__itemContact">
+              <img
+                class="contact__img"
+                src="../img/ico/telegram.svg"
+                alt="telegram"
+              /><a class="contact__link" href="https://t.me/ksibee">@ksibee</a>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__mailTitle" data-i18n="contact.titleMail">
+              Залишити заявку
+            </div>
+            <form action="#" id="telegramForm">
+              <input
+                type="text"
+                id="name"
+                data-i18n-placeholder="contact.name"
+                placeholder="Name"
+                required
+              />
+              <input
+                type="email"
+                id="email"
+                data-i18n-placeholder="contact.email"
+                placeholder="Email"
+                required
+              />
+              <input
+                type="text"
+                id="site"
+                data-i18n-placeholder="contact.site"
+                placeholder="Ваш веб-сайт (якщо є)"
+              />
+              <textarea
+                id="message"
+                data-i18n-placeholder="contact.message"
+                placeholder="Message"
+                required
+              ></textarea>
+              <div class="file-wrapper">
+                <input type="file" id="fileInput" class="hidden-input" /><label
+                  for="fileInput"
+                  class="custom-file-label"
+                  ><img src="../img/ico/file.svg" alt="clip" /><span
+                    data-i18n="contact.file"
+                    >Прикріпити файл</span
+                  ></label
+                >
+              </div>
+              <button type="submit" id="submitBtn" data-i18n="contact.btn">
+                Відправити
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer__left">
+        <p class="footer__logo">KSIBE</p>
+        <p class="footer__title" data-i18n="footer.title">
+          Створюємо ПОТУЖНІ інструменти для вашого бізнесу...
+        </p>
+      </div>
+      <div class="footer__right">
+        <div class="footer__socials-group">
+          <a href="https://t.me/ksibee"
+            ><img
+              class="footer__social"
+              src="../img/ico/telegram__footer.svg"
+              alt="tg" /></a
+          ><a href="https://www.instagram.com/ksibe.dev"
+            ><img
+              class="footer__social"
+              src="../img/ico/instagram__footer.svg"
+              alt="inst"
+          /></a>
+        </div>
+        <a class="footer__mail" href="mailto:team@ksibe.dev">team@ksibe.dev</a>
+        <div class="lang-switch">
+          <button onclick="loadLang('en')" data-lang="en">EN</button
+          ><button onclick="loadLang('uk')" data-lang="uk" class="active">
+            UA</button
+          ><button onclick="loadLang('de')" data-lang="de">DE</button
+          ><button onclick="loadLang('ru')" data-lang="ru">RU</button>
+        </div>
+        <button class="scroll-up-btn" aria-label="Scroll to top">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 19V5M12 5L5 12M12 5L19 12"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </footer>
+
+    <div class="modal-overlay" id="successModal">
+      <div class="modal-window">
+        <button class="modal-close-btn">&times;</button>
+        <div class="modal-icon">
+          <svg
+            class="checkmark"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 52 52"
+          >
+            <circle
+              class="checkmark__circle"
+              cx="26"
+              cy="26"
+              r="25"
+              fill="none"
+            />
+            <path
+              class="checkmark__check"
+              fill="none"
+              d="M14.1 27.2l7.1 7.2 16.7-16.8"
+            />
+          </svg>
+        </div>
+        <h3 class="modal-title" data-i18n="modal.successTitle">
+          Ваша заявка прийнята!
+        </h3>
+        <p class="modal-text" data-i18n="modal.successText">
+          Дякуємо, що довірили нам свої ідеї. <br />Ми вже вивчаємо ваш запит і
+          зв'яжемося з вами найближчим часом.
+        </p>
+        <button class="modal-action-btn" data-i18n="modal.successBtn">
+          Чудово!
+        </button>
+      </div>
+    </div>
+
+    <script src="/js/web-app.js"></script>
+    <script src="/js/lang.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="/js/main.js"></script>
+
+    <script>
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector(".header");
+        // Если прокрутили больше 50px, добавляем класс 'scrolled'
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          // Если вернулись наверх, убираем класс
+          header.classList.remove("scrolled");
+        }
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.15,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        const targets = document.querySelectorAll(".reveal-on-scroll");
+        targets.forEach((target) => observer.observe(target));
+      });
+    </script>
+  </body>
+</html>

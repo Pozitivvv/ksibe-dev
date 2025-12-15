@@ -72,6 +72,10 @@
     "descr1": "Premium barbershop",
     "title2": "Babies Alliance",
     "descr2": "Children's Kindergarten",
+    "title3": "Pidvezu",
+    "descr3": "Ride-sharing application",
+    "title4": "Wortly",
+    "descr4": "Smart vocabulary app",
     "link": "Case study",
     "allCases": "View all cases"
   },
@@ -431,9 +435,10 @@
     "feat6Desc": "Ultra-fast SPA interface for instant page loading.",
 
     "nextCaseText": "View previous case",
-    "nextCaseName": "Head Barbershop – premium barbershop"
+    "nextCaseName": "Head Barbershop - service for barbershops"
   },
   "head": {
+    "pageTitle": "Head Barbershop - Case | KSIBE",
     "tagLp": "Landing Page",
     "tagAds": "Google Ads",
     "heroTitle": "A premium look for the <span style=\"color: var(--accent-gold)\">Head Barbershop</span> brand",
@@ -478,7 +483,7 @@
     "feat6Desc": "Launch of ad campaigns targeting high-intent queries for rapid customer acquisition.",
 
     "nextCaseText": "View previous case",
-    "nextCaseName": "Pidvezu – Ride-Sharing Platform"
+    "nextCaseName": "Wortly – Smart service for learning German words"
   },
   "wortly": {
     "title": "Wortly – German Learning App",
@@ -526,6 +531,20 @@
     "feat6Desc": "Detailed error analytics help identify weak points.",
 
     "nextCaseText": "View previous case",
-    "nextCaseName": "Pidvezu – Ride-Sharing Service"
+    "nextCaseName": "Babies Alliance – Kindergarten"
+  },
+  "allCase": {
+    "pageTitle": "All Cases | KSIBE",
+    "heroTitle": "Selected <span style=\"color: #595aad;\">Works</span>",
+    "heroDesc": "We combine design, technology, and marketing to build products that transform the market.",
+    "tagSocial": "Social",
+    "tagEdTech": "EdTech",
+    "descWortly": "German learning app with AI-powered voice",
+    "tagLogistics": "Logistics",
+    "descPidvezu": "Ride-sharing platform + Bot",
+    "tagBeauty": "Beauty",
+    "descHead": "Landing Page & Google Ads",
+    "tagCorporate": "Corporate",
+    "descBabies": "Corporate website with CRM integration"
   }
 }

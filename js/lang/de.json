@@ -72,6 +72,10 @@
     "descr1": "Premium-Barbershop",
     "title2": "Babies Alliance",
     "descr2": "Kindergarten",
+    "title3": "Pidvezu",
+    "descr3": "Mitfahr-App",
+    "title4": "Wortly",
+    "descr4": "Intelligente Vokabel-App",
     "color": "#030303",
     "link": "Transformations-Case",
     "allCases": "Alle Cases ansehen"
@@ -430,9 +434,10 @@
     "feat6Desc": "Extrem schnelle SPA-Oberfläche für sofortige Seitenladezeiten.",
 
     "nextCaseText": "Vorherigen Case ansehen",
-    "nextCaseName": "Head Barbershop – premium barbershop"
+    "nextCaseName": "Head Barbershop - Dienstleistung für Barbershops"
   },
   "head": {
+    "pageTitle": "Head Barbershop – Case | KSIBE",
     "tagLp": "Landingpage",
     "tagAds": "Google Ads",
     "heroTitle": "Ein Premium-Auftritt für <span style=\"color: var(--accent-gold)\">Head Barbershop</span>",
@@ -477,7 +482,7 @@
     "feat6Desc": "Einrichtung von Kampagnen für kaufbereite Suchanfragen zur schnellen Kundengewinnung.",
 
     "nextCaseText": "Vorherigen Case ansehen",
-    "nextCaseName": "Pidvezu – Mitfahrplattform"
+    "nextCaseName": "Wortly – eine intelligente App zum Deutschlernen"
   },
   "wortly": {
     "title": "Wortly – App zum Deutschlernen",
@@ -525,6 +530,20 @@
     "feat6Desc": "Detaillierte Fehleranalysen helfen, Schwächen zu erkennen.",
 
     "nextCaseText": "Vorherigen Case ansehen",
-    "nextCaseName": "Pidvezu – Mitfahrservice"
+    "nextCaseName": "Babies Alliance – Kindergarten"
+  },
+  "allCase": {
+    "pageTitle": "Alle Cases | KSIBE",
+    "heroTitle": "Ausgewählte <span style=\"color: #595aad;\">Projekte</span>",
+    "heroDesc": "Wir verbinden Design, Technologie und Marketing, um Produkte zu entwickeln, die den Markt verändern.",
+    "tagSocial": "Social",
+    "tagEdTech": "EdTech",
+    "descWortly": "Deutschlern-App mit KI-Sprachausgabe",
+    "tagLogistics": "Logistics",
+    "descPidvezu": "Mitfahrplattform + Bot",
+    "tagBeauty": "Beauty",
+    "descHead": "Landingpage & Google Ads",
+    "tagCorporate": "Corporate",
+    "descBabies": "Unternehmenswebsite mit CRM-Integration"
   }
 }

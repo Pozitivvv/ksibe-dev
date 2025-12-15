@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Unbounded:wght@400;500;700;800&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../catalog/css/catalogmin.css" />
+    <link rel="stylesheet" href="../css/ksibemin.css" />
+    <link rel="stylesheet" href="../portfolio/css/portfoliomin.css" />
+
+    <title data-i18n="feedback.pageTitle">Відгуки | KSIBE</title>
+
+    <style>
+      /* --- CUSTOM STYLES FOR FEEDBACK PAGE --- */
+      /* Доповнення до ksibemin.css */
+
+      body {
+        background-color: #030208;
+        overflow-x: hidden;
+      }
+
+      /* Wrapper for 3D Background */
+      #feedback-scene {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.6; /* Щоб не заважало тексту */
+        pointer-events: none;
+      }
+
+      .feedback-page {
+        padding-top: 120px;
+        padding-bottom: 100px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 80px;
+        position: relative;
+      }
+
+      /* Використовуємо шрифт Unbounded як в заголовках ksibemin.css */
+      .page-title {
+        font-family: "Unbounded", sans-serif;
+        font-size: clamp(32px, 5vw, 64px);
+        font-weight: 800;
+        color: #fff;
+        margin: 0;
+        text-transform: uppercase;
+        background: linear-gradient(135deg, #fff 0%, #a0a0b8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 10px 30px rgba(107, 107, 218, 0.2);
+      }
+
+      .page-subtitle {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        color: #a0a0b8;
+        margin-top: 20px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+      }
+
+      /* --- 3D GRID LAYOUT --- */
+      .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 40px;
+        perspective: 2000px; /* Глибина сцени */
+      }
+
+      /* --- GLASS CARD DESIGN --- */
+      .review-card {
+        background: rgba(20, 19, 51, 0.4); /* Напівпрозорий фон в тон сайту */
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        /* 3D Properties */
+        transform-style: preserve-3d;
+        transform: translateZ(0);
+        will-change: transform;
+        transition: transform 0.1s ease-out, border-color 0.3s ease,
+          box-shadow 0.3s ease;
+
+        cursor: default;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Glow Effect on Hover */
+      .review-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 24px;
+        background: radial-gradient(
+          circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+          rgba(107, 107, 218, 0.15),
+          transparent 60%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .review-card:hover {
+        border-color: rgba(107, 107, 218, 0.5); /* Акцентний колір #6b6bda */
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      }
+
+      .review-card:hover::after {
+        opacity: 1;
+      }
+
+      /* Content Z-Index fix for 3D */
+      .card-content {
+        transform: translateZ(30px); /* Текст "висить" над карткою */
+        position: relative;
+        z-index: 1;
+      }
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+      }
+
+      .avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        /* Градієнт з ваших стилів */
+        background: linear-gradient(135deg, #2e2d5f, #6b6bda);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Unbounded", sans-serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: #fff;
+        margin-right: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .client-info h4 {
+        margin: 0;
+        font-family: "Unbounded", sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+      }
+
+      .client-info span {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        color: #6b6bda; /* Акцентний колір */
+        font-weight: 500;
+      }
+
+      .review-text {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #d1d1d1;
+        margin-bottom: 30px;
+        font-weight: 300;
+      }
+
+      .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transform: translateZ(20px);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 20px;
+      }
+
+      .rating {
+        color: #ffc107;
+        font-size: 18px;
+        letter-spacing: 2px;
+      }
+
+      .date {
+        font-size: 13px;
+        color: #666;
+      }
+
+      /* Mobile adjustment */
+      @media (max-width: 768px) {
+        .reviews-grid {
+          grid-template-columns: 1fr;
+        }
+        .review-card {
+          transform: none !important; /* Вимикаємо 3D на мобільних для швидкодії */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div style="min-height: auto; padding: 0" class="header">
+      <div class="container">
+        <nav>
+          <a href="../index.html" class="logo" style="text-decoration: none"
+            >KSIBE</a
+          >
+          <button class="burger-btn" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="nav-content">
+            <ul>
+              <li>
+                <a href="../index.html" data-i18n="header.link1">Головна</a>
+              </li>
+              <li>
+                <a href="../index.html#portfolio" data-i18n="header.link2"
+                  >Портфоліо</a
+                >
+              </li>
+              <li><a href="#contact" data-i18n="header.link4">Контакти</a></li>
+            </ul>
+            <div class="lang-dropdown" id="langDropdown">
+              <button class="lang-dropdown__btn">
+                <span class="current-lang">UA</span>
+              </button>
+            </div>
+            <a class="header__btn" href="#contact"
+              ><p data-i18n="header.link5">Залишити заявку</p></a
+            >
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <main>
+      <div id="feedback-scene"></div>
+
+      <div class="feedback-page">
+        <div class="container">
+          <div class="section-header">
+            <h1 class="page-title" data-i18n="feedback.title">
+              Враження<br />Клієнтів
+            </h1>
+            <p class="page-subtitle">
+              Ми створюємо цифрові продукти, які змінюють бізнес. Ось що
+              говорять ті, хто вже зробив крок у майбутнє разом з KSIBE.
+            </p>
+          </div>
+
+          <div class="reviews-grid">
+            <div class="review-card" data-tilt>
+              <div class="card-content">
+                <div class="card-header">
+                  <div class="avatar">A</div>
+                  <div class="client-info">
+                    <h4>Артем Бондар</h4>
+                    <span>CEO, TechNova</span>
+                  </div>
+                </div>
+                <p class="review-text">
+                  "Команда перевершила мої очікування. Сайт літає, анімації
+                  плавні, як в Apple. Особливо вразив підхід до мобільної версії
+                  — все зручно і продумано до дрібниць."
+                </p>
+                <div class="card-footer">
+                  <div class="rating">★★★★★</div>
+                  <span class="date">12.11.2024</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card" data-tilt>
+              <div class="card-content">
+                <div class="card-header">
+                  <div class="avatar">S</div>
+                  <div class="client-info">
+                    <h4>Sarah Miller</h4>
+                    <span>Marketing, Berlin Estate</span>
+                  </div>
+                </div>
+                <p class="review-text">
+                  "We needed a premium look for our real estate agency. KSIBE
+                  delivered a masterpiece. The 'Glassmorphism' style fits our
+                  brand perfectly. Communication was clear and professional."
+                </p>
+                <div class="card-footer">
+                  <div class="rating">★★★★★</div>
+                  <span class="date">05.10.2024</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card" data-tilt>
+              <div class="card-content">
+                <div class="card-header">
+                  <div class="avatar">M</div>
+                  <div class="client-info">
+                    <h4>Максим Коваль</h4>
+                    <span>Founder, CryptoFlow</span>
+                  </div>
+                </div>
+                <p class="review-text">
+                  "Інтеграція Web3 та дизайн на висоті. Це не просто лендінг, це
+                  повноцінний інструмент для залучення інвесторів. Дякую за
+                  терпіння до моїх правок!"
+                </p>
+                <div class="card-footer">
+                  <div class="rating">★★★★★</div>
+                  <span class="date">28.09.2024</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card" data-tilt>
+              <div class="card-content">
+                <div class="card-header">
+                  <div class="avatar">O</div>
+                  <div class="client-info">
+                    <h4>Олена Дмитренко</h4>
+                    <span>HR Director, SoftServe Group</span>
+                  </div>
+                </div>
+                <p class="review-text">
+                  "Замовляли внутрішній корпоративний портал. Дизайн чистий,
+                  функціонал працює без збоїв. Рекомендую як надійних технічних
+                  партнерів."
+                </p>
+                <div class="card-footer">
+                  <div class="rating">★★★★★</div>
+                  <span class="date">15.08.2024</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card" data-tilt>
+              <div class="card-content">
+                <div class="card-header">
+                  <div class="avatar">J</div>
+                  <div class="client-info">
+                    <h4>John Doe</h4>
+                    <span>Startup Founder</span>
+                  </div>
+                </div>
+                <p class="review-text">
+                  "Fast, reliable, and incredibly creative. They took my vague
+                  idea and turned it into a visual stunner. The 3D elements are
+                  a game changer."
+                </p>
+                <div class="card-footer">
+                  <div class="rating">★★★★★</div>
+                  <span class="date">01.08.2024</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <section
+      id="contact"
+      class="contact"
+      style="position: relative; overflow: hidden; margin-top: 50px"
+    >
+      <div id="contact-3d-scene"></div>
+      <div class="container" style="position: relative; z-index: 10">
+        <div class="contact__wrapper">
+          <div class="contact__item">
+            <div class="contact__title">Є ідея?</div>
+            <div class="contact__descr">
+              Давайте створимо ваш наступний успішний кейс разом.
+            </div>
+            <div class="contact__itemContact">
+              <img class="contact__img" src="../img/ico/email.svg" alt="" /><a
+                class="contact__link"
+                href="mailto:team@ksibe.dev"
+                >team@ksibe.dev</a
+              >
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__mailTitle">Написати нам</div>
+            <form action="#" id="telegramForm">
+              <input type="text" placeholder="Ім'я" required />
+              <input type="email" placeholder="Email" required />
+              <textarea placeholder="Повідомлення" required></textarea>
+              <button type="submit">Відправити</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer__left"><p class="footer__logo">KSIBE</p></div>
+      <div class="footer__right">
+        <a class="footer__mail" href="mailto:team@ksibe.dev">team@ksibe.dev</a>
+      </div>
+    </footer>
+
+    <script src="/js/web-app.js"></script>
+    <script src="/js/lang.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 1. АНІМАЦІЯ ПОЯВИ (GSAP)
+        const tl = gsap.timeline();
+
+        tl.from(".page-title", {
+          duration: 1,
+          y: 50,
+          opacity: 0,
+          ease: "power4.out",
+        })
+          .from(
+            ".page-subtitle",
+            { duration: 1, y: 30, opacity: 0, ease: "power3.out" },
+            "-=0.5"
+          )
+          .from(
+            ".review-card",
+            {
+              duration: 0.8,
+              y: 100,
+              opacity: 0,
+              stagger: 0.1,
+              ease: "back.out(1.2)",
+            },
+            "-=0.5"
+          );
+
+        // 2. ЕФЕКТ НАХИЛУ КАРТОК (Vanilla Tilt Logic)
+        const cards = document.querySelectorAll(".review-card");
+
+        cards.forEach((card) => {
+          card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Змінні для CSS градієнта (підсвітка слідує за мишкою)
+            card.style.setProperty("--mouse-x", `${x}px`);
+            card.style.setProperty("--mouse-y", `${y}px`);
+
+            // Логіка 3D нахилу
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            // Обмежуємо кут нахилу (max +/- 10 deg)
+            const rotateX = ((y - centerY) / centerY) * -8;
+            const rotateY = ((x - centerX) / centerX) * 8;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+          });
+
+          card.addEventListener("mouseleave", () => {
+            // Повертаємо у вихідне положення
+            card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`;
+          });
+        });
+
+        // 3. THREE.JS BACKGROUND (Космічний пил)
+        const initThreeJS = () => {
+          const container = document.getElementById("feedback-scene");
+          if (!container) return;
+
+          const scene = new THREE.Scene();
+          // Легкий туман під колір вашого фону #030208
+          scene.fog = new THREE.FogExp2(0x030208, 0.002);
+
+          const camera = new THREE.PerspectiveCamera(
+            75,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            1000
+          );
+          camera.position.z = 30;
+
+          const renderer = new THREE.WebGLRenderer({
+            alpha: true,
+            antialias: true,
+          });
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          renderer.setPixelRatio(window.devicePixelRatio);
+          container.appendChild(renderer.domElement);
+
+          // Створюємо частинки
+          const geometry = new THREE.BufferGeometry();
+          const particlesCount = 1500;
+          const posArray = new Float32Array(particlesCount * 3);
+
+          for (let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 80; // Широкий розкид
+          }
+
+          geometry.setAttribute(
+            "position",
+            new THREE.BufferAttribute(posArray, 3)
+          );
+
+          // Матеріал частинок - вашого акцентного кольору #6b6bda
+          const material = new THREE.PointsMaterial({
+            size: 0.15,
+            color: 0x6b6bda,
+            transparent: true,
+            opacity: 0.8,
+            blending: THREE.AdditiveBlending,
+          });
+
+          const particlesMesh = new THREE.Points(geometry, material);
+          scene.add(particlesMesh);
+
+          // Анімація
+          let mouseX = 0;
+          let mouseY = 0;
+
+          // Паралакс від мишки
+          document.addEventListener("mousemove", (event) => {
+            mouseX = event.clientX / window.innerWidth - 0.5;
+            mouseY = event.clientY / window.innerHeight - 0.5;
+          });
+
+          const animate = () => {
+            requestAnimationFrame(animate);
+
+            // Постійне повільне обертання
+            particlesMesh.rotation.y += 0.001;
+            particlesMesh.rotation.x += 0.0005;
+
+            // Реакція на мишку (плавна)
+            particlesMesh.rotation.y += mouseX * 0.01;
+            particlesMesh.rotation.x += mouseY * 0.01;
+
+            renderer.render(scene, camera);
+          };
+
+          animate();
+
+          // Адаптивність
+          window.addEventListener("resize", () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+          });
+        };
+
+        initThreeJS();
+      });
+    </script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

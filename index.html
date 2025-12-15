@@ -74,10 +74,12 @@
 
           <div class="nav-content">
             <ul>
-              <li><a data-i18n="header.link1" href="#">Послуги</a></li>
-              <li><a data-i18n="header.link2" href="#">Портфоліо</a></li>
-              <li><a data-i18n="header.link3" href="#">Відгуки</a></li>
-              <li><a data-i18n="header.link4" href="#">Контакти</a></li>
+              <li><a data-i18n="header.link1" href="#product">Послуги</a></li>
+              <li>
+                <a data-i18n="header.link2" href="#portfolio">Портфоліо</a>
+              </li>
+              <!-- <li><a data-i18n="header.link3" href="#">Відгуки</a></li> -->
+              <li><a data-i18n="header.link4" href="#contact">Контакти</a></li>
             </ul>
             <div class="lang-dropdown" id="langDropdown">
               <button class="lang-dropdown__btn" aria-label="Select language">
@@ -228,7 +230,7 @@
         </div>
       </div>
     </section>
-    <section class="product">
+    <section id="product" class="product">
       <div class="container">
         <h2 data-i18n="product.title">РОЗРОБКА, ЯКА ПРИСКОРЮЄ ВАШ БІЗНЕС</h2>
         <div class="product__wrapper">
@@ -379,7 +381,7 @@
           </div>
         </div>
       </div>
-      <section class="portfolio">
+      <section id="portfolio" class="portfolio">
         <div class="container">
           <h2 class="portfolio__title" data-i18n="portfolio.titleSection">
             НАШІ РОБОТИ – РЕАЛЬНІ РЕЗУЛЬТАТИ
@@ -399,50 +401,59 @@
                 </p>
                 <a
                   data-i18n="portfolio.link"
-                  href="#"
+                  href="portfolio/head.html"
                   class="portfolio__link"
                 ></a>
               </div>
             </div>
 
-            <div class="portfolio__item" style="--card-bg: #1fa1a6">
+            <div class="portfolio__item" style="--card-bg: #141333">
               <div class="portfolio__image-box">
-                <img src="img/portfolio/babies.png" alt="portfolioImg" />
+                <img
+                  src="img/portfolio/pidvezu-portfolio/1.png"
+                  alt="portfolioImg"
+                />
               </div>
               <div class="portfolio__content">
-                <p class="portfolio__title">Babies Alliance</p>
-                <p data-i18n="portfolio.descr2" class="portfolio__descr">
-                  Платформа для відповідального батьківства
+                <p data-i18n="portfolio.title3" class="portfolio__title">
+                  Pidvezu.com
+                </p>
+                <p data-i18n="portfolio.descr3" class="portfolio__descr">
+                  Платформа
                 </p>
                 <a
                   data-i18n="portfolio.link"
-                  href="#"
+                  href="portfolio/pidvezu.html"
                   class="portfolio__link"
                 ></a>
               </div>
             </div>
 
-            <div class="portfolio__item" style="--card-bg: #1e1e1e">
+            <div class="portfolio__item" style="--card-bg: #11201b">
               <div class="portfolio__image-box">
-                <img src="img/portfolio/head.png" alt="portfolioImg" />
+                <img src="img/portfolio/wortly/2.png" alt="portfolioImg" />
               </div>
               <div class="portfolio__content">
-                <p class="portfolio__title" data-i18n="portfolio.title1">
-                  Head Barbershop
+                <p class="portfolio__title" data-i18n="portfolio.title4">
+                  Wortly
                 </p>
-                <p class="portfolio__descr" data-i18n="portfolio.descr1">
-                  Преміальний Барбершоп
+                <p class="portfolio__descr" data-i18n="portfolio.descr4">
+                  Платформа
                 </p>
                 <a
                   data-i18n="portfolio.link"
-                  href="#"
+                  href="portfolio/wortly.html"
                   class="portfolio__link"
                 ></a>
               </div>
             </div>
           </div>
           <div class="portfolio__footer">
-            <a class="portfolio__btn" href="#" data-i18n="portfolio.allCases">
+            <a
+              class="portfolio__btn"
+              href="portfolio/all.html"
+              data-i18n="portfolio.allCases"
+            >
               дивитися всі кейси
             </a>
           </div>

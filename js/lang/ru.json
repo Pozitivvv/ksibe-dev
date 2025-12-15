@@ -59,6 +59,10 @@
     "descr1": "Премиальний барбершоп",
     "title2": "Babies Alliance",
     "descr2": "Детский сад",
+    "title3": "Pidvezu",
+    "descr3": "Приложение для совместных поездок",
+    "title4": "Wortly",
+    "descr4": "Умное приложение для изучения слов",
     "color": "#030303",
     "link": "Кейс трансформации",
     "allCases": "Смотреть все кейсы"
@@ -405,9 +409,10 @@
     "feat6Desc": "Сверхбыстрый SPA-интерфейс для мгновенной загрузки страниц.",
 
     "nextCaseText": "Смотреть предыдущий кейс",
-    "nextCaseName": "Head Barbershop - Премиальный Барбершоп"
+    "nextCaseName": "Head Barbershop - сервис для салонов барбершопов"
   },
   "head": {
+    "pageTitle": "Head Barbershop - Кейс | KSIBE",
     "tagLp": "Лендинг",
     "tagAds": "Google Ads",
     "heroTitle": "Премиальный стиль для сети <span style=\"color: var(--accent-gold)\">Head Barbershop</span>",
@@ -452,7 +457,7 @@
     "feat6Desc": "Настройка рекламных кампаний по горячим запросам для быстрого привлечения клиентов.",
 
     "nextCaseText": "Смотреть предыдущий кейс",
-    "nextCaseName": "Pidvezu – сервис попутчиков"
+    "nextCaseName": "Wortly - умное приложение для изучения немецкого языка"
   },
   "wortly": {
     "title": "Wortly — приложение для изучения немецкого языка",
@@ -500,6 +505,20 @@
     "feat6Desc": "Подробная аналитика ошибок помогает выявить слабые места.",
 
     "nextCaseText": "Смотреть предыдущий кейс",
-    "nextCaseName": "Pidvezu — сервис попутчиков"
+    "nextCaseName": "Babies Alliance – Детский сад (корпоративный сайт)"
+  },
+  "allCase": {
+    "pageTitle": "Все кейсы | KSIBE",
+    "heroTitle": "Избранные <span style=\"color: #595aad;\">Работы</span>",
+    "heroDesc": "Мы объединяем дизайн, технологии и маркетинг, чтобы создавать продукты, которые меняют рынок.",
+    "tagSocial": "Social",
+    "tagEdTech": "EdTech",
+    "descWortly": "Приложение для изучения немецкого языка с AI-озвучкой",
+    "tagLogistics": "Logistics",
+    "descPidvezu": "Платформа поиска попутчиков + бот",
+    "tagBeauty": "Beauty",
+    "descHead": "Лендинг и Google Ads",
+    "tagCorporate": "Corporate",
+    "descBabies": "Корпоративный сайт с интеграцией CRM"
   }
 }
