@@ -478,5 +478,53 @@
 
     "nextCaseText": "Vorherigen Case ansehen",
     "nextCaseName": "Pidvezu – Mitfahrplattform"
+  },
+  "wortly": {
+    "title": "Wortly – App zum Deutschlernen",
+    "tagSocial": "Soziales Projekt",
+    "tagLang": "Deutsch lernen",
+    "heroTitle": "Lerne Deutsch effektiv mit <span style=\"color: var(--accent-blue)\">Wortly.one</span>",
+    "heroDesc": "Ein soziales Projekt des <strong>Ksibe</strong>-Teams. Eine kostenlose App mit allen wichtigen Tools — von Spaced Repetition bis hin zu echter Aussprache. Dein persönlicher Helfer beim Deutschlernen.",
+    "visitSite": "Wortly ausprobieren",
+
+    "widgetWords": "Vokabeln",
+    "widgetCount": "5000+ Wörter",
+    "widgetStreak": "Tägliche Serie",
+    "widgetDays": "Aktives Lernen",
+
+    "chartTitle": "Lernfortschritt",
+    "chartSub": "Wachstum des aktiven Wortschatzes",
+    "labelStart": "Start",
+    "labelMonth1": "Monat 1",
+    "labelMonth3": "Monat 3",
+    "labelYear": "Jahr",
+
+    "resMainTitle": "Methodik",
+    "resMainDesc": "Wissenschaftlich belegte Lerneffektivität",
+    "resVoiceTitle": "Aussprache",
+    "resVoiceDesc": "Echte Stimmen (iOS) / KI (Android)",
+    "resSyncTitle": "Synchronisation",
+    "resSyncDesc": "Alle Geräte perfekt synchron",
+
+    "stackTitle": "Tech-Stack",
+
+    "structTitle": "App<br />Funktionen",
+    "structDesc": "Alle wichtigen Tools für Sprachimmersion — direkt in deiner Tasche.",
+
+    "feat1Title": "Persönliches Wörterbuch",
+    "feat1Desc": "Eigene Wörter hinzufügen und nach Themen ordnen. Vollständige Cloud-Synchronisation.",
+    "feat2Title": "Interaktive Übungen",
+    "feat2Desc": "Karteikarten und Tests zur Festigung. Fortschritt in Echtzeit verfolgen.",
+    "feat3Title": "Wortaussprache",
+    "feat3Desc": "iOS: echte menschliche Stimmen. Android: hochwertige KI-Sprachsynthese.",
+    "feat4Title": "Intelligente Wiederholung",
+    "feat4Desc": "Ein Algorithmus für zeitversetzte Wiederholungen passt sich deinem Gedächtnis an.",
+    "feat5Title": "Thematische Module",
+    "feat5Desc": "Fertige Wortsets („Essen“, „Reisen“ usw.) sowie tägliche „Wörter des Tages“.",
+    "feat6Title": "Statistiken",
+    "feat6Desc": "Detaillierte Fehleranalysen helfen, Schwächen zu erkennen.",
+
+    "nextCaseText": "Vorherigen Case ansehen",
+    "nextCaseName": "Pidvezu – Mitfahrservice"
   }
 }

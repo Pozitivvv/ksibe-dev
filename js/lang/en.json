@@ -479,5 +479,53 @@
 
     "nextCaseText": "View previous case",
     "nextCaseName": "Pidvezu – Ride-Sharing Platform"
+  },
+  "wortly": {
+    "title": "Wortly – German Learning App",
+    "tagSocial": "Social Project",
+    "tagLang": "German Learning",
+    "heroTitle": "Learn German effectively with <span style=\"color: var(--accent-blue)\">Wortly.one</span>",
+    "heroDesc": "A social project by the <strong>Ksibe</strong> team. A free app with a complete set of tools — from spaced repetition to native pronunciation. Your personal assistant for mastering German.",
+    "visitSite": "Try Wortly",
+
+    "widgetWords": "Vocabulary",
+    "widgetCount": "5000+ Words",
+    "widgetStreak": "Daily Streak",
+    "widgetDays": "Active Learning",
+
+    "chartTitle": "Learning Progress",
+    "chartSub": "Growth of the user's active vocabulary",
+    "labelStart": "Start",
+    "labelMonth1": "Month 1",
+    "labelMonth3": "Month 3",
+    "labelYear": "Year",
+
+    "resMainTitle": "Methodology",
+    "resMainDesc": "Scientifically proven memorization efficiency",
+    "resVoiceTitle": "Voice",
+    "resVoiceDesc": "Real people (iOS) / AI (Android)",
+    "resSyncTitle": "Sync",
+    "resSyncDesc": "All devices in perfect sync",
+
+    "stackTitle": "Tech Stack",
+
+    "structTitle": "App<br />Features",
+    "structDesc": "All essential tools for language immersion — right in your pocket.",
+
+    "feat1Title": "Personal Dictionary",
+    "feat1Desc": "Add your own words and organize them by topics. Full cloud synchronization.",
+    "feat2Title": "Interactive Practice",
+    "feat2Desc": "Flashcards and tests for reinforcement. Track progress in real time.",
+    "feat3Title": "Word Pronunciation",
+    "feat3Desc": "iOS: Real human voices. Android: High-quality AI speech synthesis.",
+    "feat4Title": "Smart Repetition",
+    "feat4Desc": "A spaced repetition algorithm adapts to your memory level.",
+    "feat5Title": "Thematic Modules",
+    "feat5Desc": "Ready-made word sets ('Food', 'Travel', etc.) and daily 'Word of the Day'.",
+    "feat6Title": "Statistics",
+    "feat6Desc": "Detailed error analytics help identify weak points.",
+
+    "nextCaseText": "View previous case",
+    "nextCaseName": "Pidvezu – Ride-Sharing Service"
   }
 }

@@ -12,52 +12,99 @@
     <link rel="stylesheet" href="/css/ksibemin.css" />
     <link rel="stylesheet" href="css/portfoliomin.css" />
 
-    <title data-i18n="pidvezu.pageTitle">Babies Alliance – Кейс | KSIBE</title>
+    <title data-i18n="wortly.pageTitle">Wortly – Кейс | KSIBE</title>
   </head>
   <style>
     :root {
-      --bg-main: #141333; /* Основний фон */
-      --accent-blue: #4cc9f0; /* Неоновий блакитний */
-      --accent-green: #06d6a0; /* Зелений акцент */
-      --accent-purple: #7209b7; /* Фіолетовий (для градієнтів) */
-      --text-muted: #aab2cd; /* Світло-сірий текст */
-      --border-color: rgba(76, 201, 240, 0.15);
+      /* PALETTE: Deep Black & Vibrant Blue */
+      --bg-main: #050505; /* Майже чорний фон */
+      --accent-blue: #2563eb; /* Яскравий синій (як на кнопці) */
+      --accent-glow: #1a2236; /* Темно-синє світіння */
+
+      --text-white: #ffffff;
+      --text-muted: #8892b0; /* Холодний сірий */
+
+      --border-color: rgba(37, 99, 235, 0.2); /* Синя рамка */
     }
 
-    /* Перевизначення фону для цього кейсу */
     body {
       background-color: var(--bg-main);
+      /* Градієнт: світіння зверху по центру, як на скріншоті */
       background-image: radial-gradient(
         circle at 50% -10%,
-        #23245c 0%,
-        #141333 70%
+        #1e2a4a 0%,
+        var(--bg-main) 60%
       );
     }
 
-    /* Стилізація тегів */
-    .clean-tag.t-blue {
-      color: var(--accent-blue);
-      border-color: rgba(76, 201, 240, 0.3);
-      box-shadow: 0 0 15px rgba(76, 201, 240, 0.1) inset;
+    /* Hero Section */
+    .hero-minimal {
+      background: transparent; /* Фон вже заданий у body */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
     }
 
-    /* Стилізація віджетів */
+    /* Тег DE (як на фото) */
+    .clean-tag.t-blue {
+      color: #fff;
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      box-shadow: 0 0 15px rgba(37, 99, 235, 0.1);
+    }
+
+    /* Заголовок */
+    .hero-title span {
+      color: #fff !important; /* На фото заголовок білий */
+      text-shadow: 0 0 30px rgba(37, 99, 235, 0.5); /* Синє світіння тексту */
+    }
+
+    /* Кнопка (Синя заливка) */
+    .glass-btn {
+      background: var(--accent-blue);
+      border-color: var(--accent-blue);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+    }
+    .glass-btn:hover {
+      background: #1d4ed8; /* Трохи темніше при наведенні */
+      box-shadow: 0 0 30px rgba(37, 99, 235, 0.5);
+    }
+
+    /* Виджеты */
+    .w-maps,
+    .w-stats {
+      background: #0a0a0a;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
     .w-maps {
       border-left: 3px solid var(--accent-blue);
     }
     .w-stats {
-      border-right: 3px solid var(--accent-green);
+      border-right: 3px solid #fff;
     }
 
-    /* Графік */
+    /* График */
     .graph-path {
       stroke: var(--accent-blue);
+      stroke-width: 3px;
+      filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.4));
     }
+    .graph-dot {
+      stroke: var(--accent-blue);
+      fill: #000;
+      stroke-width: 2px;
+    }
+
+    /* Мітки на графіку */
     .val-box {
-      background: #4361ee;
+      background: #111;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
     }
-    .v-2 {
-      background: var(--accent-purple);
+    /* Активна мітка (остання) */
+    .v-4 {
+      background: var(--accent-blue);
+      border-color: var(--accent-blue);
+      font-weight: bold;
     }
   </style>
   <body>
@@ -158,28 +205,26 @@
       <div class="container-narrow">
         <div class="hero-minimal reveal-on-scroll">
           <div class="hero-tags">
-            <span class="clean-tag t-blue" data-i18n="pidvezu.tagWeb"
-              >Web Platform</span
+            <span class="clean-tag t-blue" data-i18n="wortly.tagSocial"
+              >Social Project</span
             >
-            <span class="clean-tag t-green" data-i18n="pidvezu.tagBot"
-              >Telegram Bot</span
+            <span class="clean-tag t-green" data-i18n="wortly.tagLang"
+              >German Learning</span
             >
           </div>
-          <h1 class="hero-title" data-i18n="pidvezu.heroTitle">
-            Знайдіть попутників легко з сервісом
-            <span style="color: var(--accent-blue)">Pidvezu</span>
+          <h1 class="hero-title" data-i18n="wortly.heroTitle">
+            Вивчай німецьку ефективно з
+            <span style="color: var(--accent-blue)">Wortly.one</span>
           </h1>
-          <p class="hero-desc" data-i18n="pidvezu.heroDesc">
-            Розробка платформи "з нуля": від архітектури бази даних до
-            <strong>React</strong>-фронтенду. Ми створили екосистему, де водії
-            та пасажири знаходять одне одного за хвилини. Результат —
-            <span style="color: var(--accent-green)"
-              >зручна економія часу та грошей.</span
-            >
+          <p class="hero-desc" data-i18n="wortly.heroDesc">
+            Соціальний проект від команди <strong>Pidvezu</strong>. Безкоштовний
+            додаток з повним набором інструментів: від інтервального повторення
+            до озвучки носіями мови. Ваш персональний помічник у підкоренні
+            німецької.
           </p>
           <div class="hero-btn-wrapper">
-            <a href="#" target="_blank" class="glass-btn">
-              <span data-i18n="pidvezu.visitSite">Visit Live Site</span>
+            <a href="https://wortly.one" target="_blank" class="glass-btn">
+              <span data-i18n="wortly.visitSite">Спробувати Wortly</span>
               <svg
                 width="14"
                 height="14"
@@ -214,8 +259,8 @@
                 <div class="img-placeholder main-img">
                   <img
                     class="fill-img"
-                    src="../img/portfolio/pidvezu-portfolio/1.png"
-                    alt="Desktop Preview"
+                    src="../img/portfolio/wortly/2.png"
+                    alt="Wortly Desktop"
                   />
                 </div>
               </div>
@@ -225,23 +270,23 @@
                 <div class="img-placeholder">
                   <img
                     class="fill-img"
-                    src="../img/portfolio/pidvezu-portfolio/2.png"
-                    alt="Mobile Preview"
+                    src="../img/portfolio/wortly/1.png"
+                    alt="Wortly Mobile"
                   />
                 </div>
               </div>
               <div class="widget w-maps">
-                <div class="w-icon">🗺️</div>
+                <div class="w-icon">📚</div>
                 <div class="w-text">
-                  <strong data-i18n="pidvezu.widgetRoute">Route</strong>
-                  <span data-i18n="pidvezu.widgetMaps">Google Maps API</span>
+                  <strong data-i18n="wortly.widgetWords">Vocabulary</strong>
+                  <span data-i18n="wortly.widgetCount">5000+ Words</span>
                 </div>
               </div>
               <div class="widget w-stats">
-                <div class="w-icon">💸</div>
+                <div class="w-icon">🔥</div>
                 <div class="w-text">
-                  <strong data-i18n="pidvezu.widgetSave">Economy</strong>
-                  <span data-i18n="pidvezu.widgetPercent">-40% Cost</span>
+                  <strong data-i18n="wortly.widgetStreak">Daily Streak</strong>
+                  <span data-i18n="wortly.widgetDays">Active Learning</span>
                 </div>
               </div>
             </div>
@@ -250,9 +295,9 @@
 
         <div class="chart-wrapper reveal-on-scroll">
           <div class="chart-info">
-            <h3 data-i18n="pidvezu.chartTitle">Ріст користувачів</h3>
-            <p data-i18n="pidvezu.chartSub">
-              Динаміка реєстрацій водіїв та пасажирів
+            <h3 data-i18n="wortly.chartTitle">Рівень володіння</h3>
+            <p data-i18n="wortly.chartSub">
+              Прогрес від нуля до B1 за 6 місяців
             </p>
           </div>
 
@@ -263,114 +308,90 @@
                   id="lineGradient"
                   x1="0%"
                   y1="0%"
-                  x2="100%"
-                  y2="0%"
+                  x2="0%"
+                  y2="100%"
                 >
                   <stop
                     offset="0%"
-                    style="stop-color: var(--text-muted); stop-opacity: 1"
-                  />
-                  <stop
-                    offset="50%"
-                    style="stop-color: var(--accent-blue); stop-opacity: 1"
+                    style="stop-color: var(--accent-blue); stop-opacity: 0.5"
                   />
                   <stop
                     offset="100%"
-                    style="stop-color: var(--accent-green); stop-opacity: 1"
+                    style="stop-color: transparent; stop-opacity: 0"
                   />
                 </linearGradient>
               </defs>
-              <path class="graph-path" d="M10,180 Q150,160 250,120 T490,30" />
 
-              <circle cx="10" cy="180" r="6" class="graph-dot d-1" />
-              <circle cx="150" cy="150" r="6" class="graph-dot d-2" />
-              <circle cx="320" cy="90" r="6" class="graph-dot d-3" />
-              <circle cx="490" cy="30" r="6" class="graph-dot d-4" />
+              <path class="graph-path" d="M10,180 Q140,170 240,120 T490,40" />
+
+              <circle cx="10" cy="180" r="6" class="graph-dot" />
+              <circle cx="140" cy="160" r="6" class="graph-dot" />
+              <circle cx="300" cy="95" r="6" class="graph-dot" />
+              <circle cx="490" cy="40" r="6" class="graph-dot" />
             </svg>
 
             <div class="chart-values">
-              <div class="val-box v-1" style="left: 2%; top: 60%">0</div>
-              <div class="val-box v-2" style="left: 30%; top: 75%">1.2k</div>
-              <div class="val-box v-3" style="left: 64%; top: 45%">5.8k</div>
-              <div class="val-box v-4" style="left: 98%; top: 15%">12k+</div>
+              <div class="val-box v-1" style="left: 0%; top: 72%">Start</div>
+
+              <div class="val-box v-2" style="left: 24%; top: 62%">A1</div>
+
+              <div class="val-box v-3" style="left: 55%; top: 32%">A2</div>
+
+              <div class="val-box v-4" style="left: 90%; top: 5%">B1</div>
             </div>
 
             <div class="chart-axis">
-              <div
-                class="axis-label"
-                style="left: 2%"
-                data-i18n="pidvezu.labelStart"
-              >
-                Beta
-              </div>
-              <div
-                class="axis-label"
-                style="left: 30%"
-                data-i18n="pidvezu.labelWeek"
-              >
-                Міс 1
-              </div>
-              <div
-                class="axis-label"
-                style="left: 64%"
-                data-i18n="pidvezu.labelMonth"
-              >
-                Міс 3
-              </div>
-              <div
-                class="axis-label"
-                style="left: 95%"
-                data-i18n="pidvezu.labelNow"
-              >
-                Зараз
-              </div>
+              <div class="axis-label" style="left: 2%">0</div>
+              <div class="axis-label" style="left: 28%">1 міс</div>
+              <div class="axis-label" style="left: 60%">3 міс</div>
+              <div class="axis-label" style="left: 95%">6 міс</div>
             </div>
           </div>
         </div>
 
         <div class="bento-grid reveal-on-scroll">
           <div class="bento-card b-wide accent-line-green">
-            <span class="b-label" data-i18n="pidvezu.resMainTitle"
-              >Масштабування</span
+            <span class="b-label" data-i18n="wortly.resMainTitle"
+              >Методика</span
             >
-            <div class="b-value b-value-big">50+ МІСТ</div>
+            <div class="b-value b-value-big">Spaced Repetition</div>
             <p
               style="
                 font-size: 14px;
                 color: var(--text-muted);
                 margin-top: 10px;
               "
-              data-i18n="pidvezu.resMainDesc"
+              data-i18n="wortly.resMainDesc"
             >
-              Покриття по всій країні вже на старті
+              Науково доведена ефективність запам'ятовування
             </p>
           </div>
           <div class="bento-card accent-line-blue">
-            <span class="b-label" data-i18n="pidvezu.resSpeedTitle"
-              >Швидкість</span
+            <span class="b-label" data-i18n="wortly.resVoiceTitle"
+              >Озвучка</span
             >
-            <div class="b-value">0.4s</div>
+            <div class="b-value">Native</div>
             <p
               style="
                 font-size: 12px;
                 margin-top: auto;
                 color: var(--accent-blue);
               "
-              data-i18n="pidvezu.resSpeedDesc"
+              data-i18n="wortly.resVoiceDesc"
             >
-              React SPA Optimization
+              Реальні люди (iOS) / AI (Android)
             </p>
           </div>
-          <div class="bento-card accent-line-yellow">
-            <span class="b-label" data-i18n="pidvezu.resSupportTitle"
-              >Підтримка</span
+          <div class="bento-card accent-line-green">
+            <span class="b-label" data-i18n="wortly.resSyncTitle"
+              >Синхронізація</span
             >
-            <div class="b-value">24/7</div>
+            <div class="b-value">Cloud</div>
             <p
               style="font-size: 12px; margin-top: auto"
-              data-i18n="pidvezu.resSupportDesc"
+              data-i18n="wortly.resSyncDesc"
             >
-              Розумний TG-бот
+              Всі пристрої в одному ритмі
             </p>
           </div>
         </div>
@@ -379,104 +400,98 @@
           class="features-container reveal-on-scroll"
           style="border: none; margin-bottom: 40px; padding-top: 0"
         >
-          <div class="f-title">
-            <h2 data-i18n="pidvezu.stackTitle">Стек</h2>
-          </div>
+          <div class="f-title"><h2 data-i18n="wortly.stackTitle">Стек</h2></div>
         </div>
 
         <div class="tech-grid-new reveal-on-scroll">
+          <div class="tech-card">
+            <img src="../img/stack/js.svg" alt="JS" class="t-icon" />
+            <span>JavaScript</span>
+          </div>
           <div class="tech-card">
             <img src="../img/stack/react.svg" alt="React" class="t-icon" />
             <span>React.js</span>
           </div>
           <div class="tech-card">
             <img src="../img/stack/php.svg" alt="PHP" class="t-icon" />
-            <span>PHP 8</span>
+            <span>PHP</span>
           </div>
           <div class="tech-card">
-            <img src="../img/stack/sql.svg" alt="SQL" class="t-icon" />
-            <span>MySQL</span>
+            <img src="../img/stack/sass.svg" alt="Sass" class="t-icon" />
+            <span>Sass</span>
           </div>
           <div class="tech-card">
-            <img
-              src="../img/stack/telegram.svg"
-              alt="Telegram"
-              class="t-icon"
-            />
-            <span>TG Bot API</span>
-          </div>
-          <div class="tech-card">
-            <img src="../img/stack/ads.svg" alt="G-Ads" class="t-icon" />
-            <span>Google Ads</span>
+            <img src="../img/stack/pwa.svg" alt="PWA" class="t-icon" />
+            <span>PWA</span>
           </div>
         </div>
 
         <div class="features-container reveal-on-scroll">
           <div class="f-title">
-            <h2 data-i18n="pidvezu.structTitle">Функціонал<br />Системи</h2>
-            <p class="f-sub" data-i18n="pidvezu.structDesc">
-              Комплексне рішення, що поєднує веб-інтерфейс, адмін-панель та
-              автоматизацію через месенджери.
+            <h2 data-i18n="wortly.structTitle">Можливості<br />Додатку</h2>
+            <p class="f-sub" data-i18n="wortly.structDesc">
+              Всі необхідні інструменти для занурення в мовне середовище в одній
+              кишені.
             </p>
           </div>
 
           <div class="features-list">
             <div class="feature-item">
-              <span class="f-icon">🚗</span>
-              <h4 data-i18n="pidvezu.feat1Title">Smart Search</h4>
-              <p data-i18n="pidvezu.feat1Desc">
-                Алгоритм підбору поїздок за датою, часом та маршрутом з
-                фільтрацією.
+              <span class="f-icon">📚</span>
+              <h4 data-i18n="wortly.feat1Title">Особистий Словник</h4>
+              <p data-i18n="wortly.feat1Desc">
+                Додавай свої слова, організовуй їх за темами. Повна хмарна
+                синхронізація.
               </p>
             </div>
             <div class="feature-item">
-              <span class="f-icon">🤖</span>
-              <h4 data-i18n="pidvezu.feat2Title">Telegram Bot</h4>
-              <p data-i18n="pidvezu.feat2Desc">
-                Бот для сповіщень про нові поїздки та швидкого зв'язку з
-                підтримкою.
+              <span class="f-icon">✏️</span>
+              <h4 data-i18n="wortly.feat2Title">Інтерактивна Практика</h4>
+              <p data-i18n="wortly.feat2Desc">
+                Флешкарти та тести для закріплення. Відслідковуй прогрес у
+                реальному часі.
               </p>
             </div>
             <div class="feature-item">
-              <span class="f-icon">🛡️</span>
-              <h4 data-i18n="pidvezu.feat3Title">Адмін-панель</h4>
-              <p data-i18n="pidvezu.feat3Desc">
-                Система модерації водіїв та аналітика поїздок у реальному часі.
+              <span class="f-icon">🔊</span>
+              <h4 data-i18n="wortly.feat3Title">Озвучування Слів</h4>
+              <p data-i18n="wortly.feat3Desc">
+                iOS: Голоси реальних людей. Android: Якісний AI синтез мовлення.
               </p>
             </div>
             <div class="feature-item">
-              <span class="f-icon">🤝</span>
-              <h4 data-i18n="pidvezu.feat4Title">Smart Trust Factor</h4>
-              <p data-i18n="pidvezu.feat4Desc">
-                Розумна система розрахунку рівня довіри до користувача на основі
-                успішних поїздок.
+              <span class="f-icon">🔄</span>
+              <h4 data-i18n="wortly.feat4Title">Розумне Повторення</h4>
+              <p data-i18n="wortly.feat4Desc">
+                Алгоритм інтервальних повторень адаптується під твій рівень
+                пам'яті.
               </p>
             </div>
             <div class="feature-item">
-              <span class="f-icon">🎫</span>
-              <h4 data-i18n="pidvezu.feat5Title">Зручне Бронювання</h4>
-              <p data-i18n="pidvezu.feat5Desc">
-                Миттєве бронювання місць з автоматичним оновленням статусів та
-                історією.
+              <span class="f-icon">🏷️</span>
+              <h4 data-i18n="wortly.feat5Title">Тематичні Модулі</h4>
+              <p data-i18n="wortly.feat5Desc">
+                Готові набори слів ("Їжа", "Подорожі" тощо) та щоденні "Слова
+                дня".
               </p>
             </div>
             <div class="feature-item">
-              <span class="f-icon">⚡</span>
-              <h4 data-i18n="pidvezu.feat6Title">React UI</h4>
-              <p data-i18n="pidvezu.feat6Desc">
-                Надшвидкий інтерфейс SPA для миттєвого завантаження сторінок.
+              <span class="f-icon">📊</span>
+              <h4 data-i18n="wortly.feat6Title">Статистика</h4>
+              <p data-i18n="wortly.feat6Desc">
+                Детальна аналітика помилок допомагає зрозуміти слабкі місця.
               </p>
             </div>
           </div>
         </div>
 
-        <a href="head.html" class="next-case-link reveal-on-scroll">
+        <a href="pidvezu.html" class="next-case-link reveal-on-scroll">
           <div class="nc-text">
-            <span class="nc-sub" data-i18n="pidvezu.nextCaseText"
+            <span class="nc-sub" data-i18n="wortly.nextCaseText"
               >Дивитись попередній кейс</span
             >
-            <span class="nc-name" data-i18n="pidvezu.nextCaseName"
-              >Head Barbershop - преміальный Барбершоп</span
+            <span class="nc-name" data-i18n="wortly.nextCaseName"
+              >Pidvezu - Сервіс попутників</span
             >
           </div>
           <div class="nc-btn">→</div>

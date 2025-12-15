@@ -7,10 +7,58 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/mainmin.css" />
-    <link rel="stylesheet" href="css/ksibemin.css" />
 
+    <link rel="stylesheet" href="css/mainmin.css" />
+    <link rel="stylesheet" href="css/navmin.css" />
+    <link rel="stylesheet" href="css/ksibemin.css" />
     <title data-i18n="header.titleMainPage">Ksibe</title>
+    <style>
+      .header nav {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        box-sizing: border-box;
+
+        /* Отступы по вашей формуле */
+        padding: 20px max(20px, calc(50vw - 600px + 20px));
+
+        /* Исходное состояние */
+        background: transparent;
+        border-bottom: 1px solid transparent;
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: background, backdrop-filter, padding, border-bottom;
+      }
+
+      .header nav.scrolled {
+        /* 1. БАЗА: Темное полупрозрачное стекло */
+        background-color: rgba(5, 5, 12, 0.75);
+
+        /* 2. СЕТКА: Рисуем линии поверх стекла */
+        /* Вертикальные и горизонтальные линии с прозрачностью */
+        background-image: linear-gradient(
+            rgba(255, 255, 255, 0.04) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+
+        /* Размер ячейки сетки */
+        background-size: 30px 30px;
+        /* Выравнивание сетки по центру */
+        background-position: center top;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(89, 90, 173, 0.6);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8),
+          0 0 15px rgba(89, 90, 173, 0.1); /* Легкое свечение акцента */
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+    </style>
   </head>
   <body>
     <div class="header">
@@ -623,5 +671,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/send.js"></script>
+    <script>
+      window.addEventListener("scroll", function () {
+        // Ищем именно тег NAV внутри header
+        const nav = document.querySelector(".header nav");
+
+        // Если прокрутили больше 20px
+        if (window.scrollY > 20) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+    </script>
   </body>
 </html>

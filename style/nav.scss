@@ -1,0 +1,60 @@
+/* --- СТИЛИ ДЛЯ НАВИГАЦИИ (СТЕКЛО) --- */
+
+.header nav {
+  /* 1. Фиксация меню сверху */
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+
+  /* 2. Центровка контента (имитация .container) */
+  /* Формула: отступ сбоку = (50% экрана - половина ширины контейнера) */
+  /* 1200px / 2 = 600px. Добавляем 20px базового отступа */
+  padding: 20px max(20px, calc(50vw - 600px + 20px));
+
+  /* 3. Начальное состояние (Прозрачное) */
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+
+  /* Анимация */
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: background, backdrop-filter, padding, border-bottom;
+}
+
+/* --- СОСТОЯНИЕ "СТЕКЛО" (При скролле) --- */
+.header nav.scrolled {
+  /* Градиент "Свет сверху" */
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(10, 10, 20, 0.85) 100%
+  );
+
+  /* Эффект линзы (размытие + насыщенность) */
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+
+  /* Стеклянные грани */
+  border-top: 1px solid rgba(255, 255, 255, 0.15); /* Блик сверху */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Тень снизу */
+
+  /* Тень глубины */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px rgba(255, 255, 255, 0.02);
+
+  /* Меню становится компактнее */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* ВАЖНО: Анимация логотипа при скролле 
+   (Добавьте это, если хотите чтобы лого уменьшалось)
+*/
+.header nav.scrolled .logo {
+  transform: scale(0.9);
+  transform-origin: left center;
+}
