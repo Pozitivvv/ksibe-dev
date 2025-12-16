@@ -9,7 +9,59 @@
   font-style: normal;
   font-display: swap;
 }
+/* --- CUSTOM SCROLLBAR (Весь сайт) --- */
 
+/* 1. Для Firefox (поддерживает только цвет и ширину) */
+html {
+  scrollbar-width: thin; /* Тонкий скроллбар */
+  scrollbar-color: #595aad #050505; /* Цвет ползунка | Цвет фона */
+}
+
+/* 2. Для Chrome, Edge, Safari, Opera (Webkit) */
+::-webkit-scrollbar {
+  width: 10px; /* Ширина скроллбара */
+}
+
+/* Фон скроллбара (дорожка) */
+::-webkit-scrollbar-track {
+  background: #050505; /* Цвет фона (как у body) */
+  border-left: 1px solid rgba(255, 255, 255, 0.05); /* Легкая линия разделитель */
+}
+
+/* Сам ползунок (ручка) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #4cc9f0 0%,
+    #595aad 100%
+  ); /* Ваш градиент */
+  border-radius: 10px; /* Скругление */
+  border: 2px solid #050505; /* Внутренний отступ (создает эффект парения) */
+}
+
+/* Ползунок при наведении */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #4cc9f0 0%, #7209b7 100%); /* Чуть ярче */
+}
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto; /* Вимикаємо стандартний CSS скрол, щоб Lenis керував усім */
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
 // Цвета
 $color-bg-dark: #141333;
 // Градиент фона (делаем чуть глубже для контраста с шарами)

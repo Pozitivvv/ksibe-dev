@@ -93,17 +93,14 @@ function loadLang(lang) {
 document.addEventListener("DOMContentLoaded", () => {
   const langDropdown = document.getElementById("langDropdown");
 
-  // Проверяем, существует ли элемент, чтобы избежать ошибок на страницах без хедера
+  // Проверяем, существует ли элемент
   if (langDropdown) {
-    // Открытие/Закрытие по клику на кнопку
     langDropdown.addEventListener("click", (e) => {
-      // closest ищет ближайшего родителя с классом кнопки (чтобы работало и при клике на иконку)
       if (e.target.closest(".lang-dropdown__btn")) {
         langDropdown.classList.toggle("is-open");
       }
     });
 
-    // Закрытие при клике ВНЕ меню
     document.addEventListener("click", (e) => {
       if (!langDropdown.contains(e.target)) {
         langDropdown.classList.remove("is-open");
@@ -111,7 +108,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 4. Загрузка сохраненного языка при старте (или 'uk' по умолчанию)
-  const savedLang = localStorage.getItem("lang") || "uk";
-  loadLang(savedLang);
+  // --- ЛОГИКА АВТОДЕТЕКТА ---
+
+  // 1. Список поддерживаемых языков (чтобы не пытаться загрузить 'fr' или 'es', которых нет)
+  const supportedLangs = ["uk", "en", "de", "ru"];
+
+  // 2. Проверяем, выбирал ли пользователь язык раньше
+  let langToUse = localStorage.getItem("lang");
+
+  // 3. Если в памяти ничего нет (первый визит), определяем язык браузера
+  if (!langToUse) {
+    // Получаем язык браузера (например, "en-US", "uk-UA", "ru")
+    const browserLang = navigator.language || navigator.userLanguage;
+
+    // Берем первые 2 буквы (en, uk, ru)
+    const shortLang = browserLang
+      ? browserLang.slice(0, 2).toLowerCase()
+      : "uk";
+
+    // Если этот язык у нас поддерживается — используем его, иначе — 'uk'
+    if (supportedLangs.includes(shortLang)) {
+      langToUse = shortLang;
+    } else {
+      langToUse = "uk"; // Язык по умолчанию, если браузер на китайском/испанском и т.д.
+    }
+  }
+
+  // 4. Запускаем загрузку
+  loadLang(langToUse);
 });
