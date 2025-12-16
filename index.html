@@ -64,7 +64,7 @@
     <div class="header">
       <div class="container">
         <nav>
-          <p class="logo">KSIBE</p>
+          <a href="index.html"><p class="logo">KSIBE</p></a>
 
           <button class="burger-btn" aria-label="Open menu">
             <span></span>
@@ -134,7 +134,11 @@
               </div>
             </div>
 
-            <a class="header__btn" data-i18n="header.link5" href="#contact">
+            <a
+              class="header__btn"
+              data-i18n="header.link5"
+              href="#contact__section"
+            >
               <p>Залишити заявку</p>
             </a>
 
@@ -241,7 +245,11 @@
               застосунок. Швидкий, зручний і може працювати офлайн. Ідеальний
               вибір, коли хочеться «як додаток, але без зайвих витрат».
             </p>
-            <a data-i18n="product.btn" href="catalog/web-app.html"></a>
+            <a
+              class="product__btn"
+              data-i18n="product.btn"
+              href="catalog/web-app.html"
+            ></a>
           </div>
 
           <div class="product__item">
@@ -448,7 +456,7 @@
               </div>
             </div>
           </div>
-          <div class="portfolio__footer">
+          <div style="margin-top: 80px" class="portfolio__footer">
             <a
               class="portfolio__btn"
               href="portfolio/all.html"
@@ -510,7 +518,7 @@
       <div id="contact-3d-scene"></div>
       <div class="container" style="position: relative; z-index: 10">
         <div class="contact__wrapper">
-          <div class="contact__item">
+          <div id="contact__section" class="contact__item">
             <div data-i18n="contact.titleSection" class="contact__title"></div>
             <div data-i18n="contact.descr" class="contact__descr"></div>
             <div class="contact__itemContact">

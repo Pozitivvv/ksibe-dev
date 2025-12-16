@@ -54,10 +54,10 @@
     "title1": "DIGITALE TRANSFORMATION",
     "discription1": "Wir unterstützen Unternehmen bei der Anpassung an das digitale Zeitalter: Automatisierung, Analytik, Innovation.",
 
-    "title2": "MARKENENTWICKLUNG",
+    "title2": "MARKENAUFBAU",
     "discription2": "Wir schaffen einen einzigartigen Stil, der Sie von der Konkurrenz abhebt.",
 
-    "title3": "KUNDENKOMMUNIKATION",
+    "title3": "KUNDENDIALOG",
     "discription3": "Wir entwickeln Websites, die nicht nur gut aussehen, sondern die Sprache Ihrer Kunden sprechen.",
 
     "title4": "WACHSTUM OHNE EXTRA-AUFWAND",
@@ -353,7 +353,7 @@
     "showcaseStatTitle": "Ausgebucht",
     "showcaseStatSub": "Volle Gruppen",
 
-    "chartTitle": "Anfragewachstum",
+    "chartTitle": "Mehr Anfragen",
     "chartSub": "Dynamik der Gruppenauslastung nach dem Launch",
     "chartLabel1": "Start",
     "chartLabel2": "Woche 2",
@@ -389,6 +389,7 @@
     "nextCaseName": "Pidvezu - Plattform für gemeinsame Fahrten"
   },
   "pidvezu": {
+    "city": "50+ Städte",
     "pageTitle": "Pidvezu – Case | KSIBE",
     "tagWeb": "Webplattform",
     "tagBot": "Telegram-Bot",
@@ -433,7 +434,7 @@
     "feat6Title": "React UI",
     "feat6Desc": "Extrem schnelle SPA-Oberfläche für sofortige Seitenladezeiten.",
 
-    "nextCaseText": "Vorherigen Case ansehen",
+    "nextCaseText": "Nächsten Case ansehen",
     "nextCaseName": "Head Barbershop - Dienstleistung für Barbershops"
   },
   "head": {
@@ -449,7 +450,7 @@
     "widgetConv": "Conversion",
     "widgetX3": "x3 Wachstum",
 
-    "chartTitle": "Buchungswachstum",
+    "chartTitle": "Steigende Buchungen",
     "chartSub": "Vergleich der alten Website mit der neuen Landingpage",
     "labelOld": "Alte Website",
     "labelLaunch": "Launch",
@@ -534,7 +535,7 @@
   },
   "allCase": {
     "pageTitle": "Alle Cases | KSIBE",
-    "heroTitle": "Ausgewählte <span style=\"color: #595aad;\">Projekte</span>",
+    "heroTitle": "Highlights <span style=\"color: #595aad;\">Projekte</span>",
     "heroDesc": "Wir verbinden Design, Technologie und Marketing, um Produkte zu entwickeln, die den Markt verändern.",
     "tagSocial": "Social",
     "tagEdTech": "EdTech",
@@ -545,5 +546,6 @@
     "descHead": "Landingpage & Google Ads",
     "tagCorporate": "Corporate",
     "descBabies": "Unternehmenswebsite mit CRM-Integration"
-  }
+  },
+  "visitSite": "Seite besuchen"
 }

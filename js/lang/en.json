@@ -391,6 +391,7 @@
   },
   "pidvezu": {
     "pageTitle": "Pidvezu - Case | KSIBE",
+    "city": "50+ cities",
     "tagWeb": "Web Platform",
     "tagBot": "Telegram Bot",
     "heroTitle": "Find travel companions easily with <span style=\"color: var(--accent-blue)\">Pidvezu</span>",
@@ -434,7 +435,7 @@
     "feat6Title": "React UI",
     "feat6Desc": "Ultra-fast SPA interface for instant page loading.",
 
-    "nextCaseText": "View previous case",
+    "nextCaseText": "View next case",
     "nextCaseName": "Head Barbershop - service for barbershops"
   },
   "head": {
@@ -546,5 +547,6 @@
     "descHead": "Landing Page & Google Ads",
     "tagCorporate": "Corporate",
     "descBabies": "Corporate website with CRM integration"
-  }
+  },
+  "visitSite": "Visit site"
 }

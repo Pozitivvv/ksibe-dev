@@ -364,7 +364,7 @@
   },
   "pidvezu": {
     "pageTitle": "Pidvezu – Кейс | KSIBE",
-
+    "city": "50+ городов",
     "tagWeb": "Веб-платформа",
     "tagBot": "Telegram-бот",
     "heroTitle": "Находите попутчиков легко с сервисом <span style=\"color: var(--accent-blue)\">Pidvezu</span>",
@@ -504,7 +504,7 @@
     "feat6Title": "Статистика",
     "feat6Desc": "Подробная аналитика ошибок помогает выявить слабые места.",
 
-    "nextCaseText": "Смотреть предыдущий кейс",
+    "nextCaseText": "Смотреть следующий кейс",
     "nextCaseName": "Babies Alliance – Детский сад (корпоративный сайт)"
   },
   "allCase": {
@@ -520,5 +520,6 @@
     "descHead": "Лендинг и Google Ads",
     "tagCorporate": "Corporate",
     "descBabies": "Корпоративный сайт с интеграцией CRM"
-  }
+  },
+  "visitSite": "Посетить сайт"
 }

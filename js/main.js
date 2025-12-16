@@ -14,6 +14,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if (body) body.classList.toggle("lock");
     });
   }
+  // 1. Ищем все ссылки внутри меню (включая кнопку "Залишити заявку")
+  const menuLinks = document.querySelectorAll(".nav-content a");
+
+  // 2. Проходимся по каждой ссылке
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      // 3. Принудительно убираем классы активности (закрываем меню)
+      if (burger) burger.classList.remove("active");
+      if (navContent) navContent.classList.remove("active");
+      if (body) body.classList.remove("lock");
+    });
+  });
 
   /* ========================================================================
      2. КНОПКА СКРОЛЛА ВВЕРХ

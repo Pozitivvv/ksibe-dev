@@ -67,36 +67,47 @@ body {
   overflow: hidden; /* Важно: обрезает размытые края шаров */
 
   /* --- Навигация --- */
+  /* Внутри .header */
   nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; /* Центрирует логотип и бургер по вертикали */
     padding: 20px 0;
     position: relative;
-    z-index: 100; /* Меню всегда поверх всего */
+    z-index: 100;
 
+    /* === ЛОГОТИП === */
     .logo {
       font-family: "Arkhip", sans-serif;
       font-size: 36px;
-      color: $color-accent-light; /* Чуть светлее для контраста */
+      color: $color-accent-light;
       margin: 0;
       flex-shrink: 0;
       position: relative;
       z-index: 102;
+      text-decoration: none; // На случай, если это тег <a>
+
+      /* 🔥 ИСПРАВЛЕНИЕ ЦЕНТРИРОВАНИЯ ЛОГОТИПА 🔥 */
+      line-height: 0.8; /* Убирает лишний отступ снизу у шрифта Arkhip */
+      display: inline-flex; /* Ведет себя как блок для выравнивания */
+      align-items: center; /* Центрирует текст внутри себя */
+      padding-top: 3px; /* Оптическая компенсация, если шрифт все равно кажется низким */
     }
 
-    /* Бургер (Скрыт на ПК) */
+    /* === БУРГЕР (КНОПКА МЕНЮ) === */
     .burger-btn {
-      display: none;
+      display: none; /* Скрыт на ПК */
       width: 30px;
       height: 20px;
       background: transparent;
       border: none;
       cursor: pointer;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 0;
       z-index: 102;
+
+      /* 🔥 ИСПРАВЛЕНИЕ ПОЛОЖЕНИЯ БУРГЕРА 🔥 */
+      padding: 0;
+      margin: 0; /* Убирает дефолтные отступы браузера */
+      -webkit-appearance: none; /* Убирает стили iOS */
 
       span {
         display: block;
@@ -118,20 +129,26 @@ body {
           transform: translateY(-9px) rotate(-45deg);
         }
       }
+
+      /* Показываем только на мобильных */
+      @media (max-width: 992px) {
+        display: flex; /* Важно: flex, чтобы span-ы распределились ровно */
+        flex-direction: column;
+        justify-content: space-between;
+      }
     }
 
-    /* Меню десктоп */
+    /* === НАЧИНКА МЕНЮ (DEKSTOP) === */
     .nav-content {
       display: flex;
       align-items: center;
       gap: 16px;
-      /* Внутри .header .nav-content */
 
+      /* === ЯЗЫКОВОЙ ПЕРЕКЛЮЧАТЕЛЬ === */
       .lang-dropdown {
-        z-index: 1000 !important;
-        position: relative;
-        margin: 0 24px; /* Отступы от соседних элементов */
         z-index: 101;
+        position: relative;
+        margin: 0 24px;
 
         &__btn {
           background: transparent;
@@ -145,7 +162,6 @@ body {
           cursor: pointer;
           transition: all 0.3s ease;
 
-          /* Текст текущего языка */
           .current-lang {
             font-family: "Inter", sans-serif;
             font-weight: 500;
@@ -153,7 +169,6 @@ body {
             color: #fff;
           }
 
-          /* Стрелочка */
           .lang-arrow {
             fill: white;
             stroke: rgba(255, 255, 255, 0.6);
@@ -166,15 +181,14 @@ body {
           }
         }
 
-        /* Выпадающее меню */
         &__menu {
-          z-index: 1000 !important;
+          z-index: 1000;
           position: absolute;
-          top: calc(100% + 10px); /* Отступ снизу */
-          right: 0; /* Выравнивание по правому краю кнопки */
+          top: calc(100% + 10px);
+          right: 0;
           width: 160px;
-          background: rgba(12, 9, 28, 0.9); /* Темный фон */
-          backdrop-filter: blur(15px); /* Эффект стекла */
+          background: rgba(12, 9, 28, 0.9);
+          backdrop-filter: blur(15px);
           border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 12px;
           padding: 8px;
@@ -182,7 +196,6 @@ body {
           flex-direction: column;
           gap: 4px;
 
-          /* Скрыто по умолчанию */
           opacity: 0;
           visibility: hidden;
           transform: translateY(-10px);
@@ -190,18 +203,15 @@ body {
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        /* Активное состояние (когда открыто) */
         &.is-open {
           .lang-dropdown__btn {
-            border-color: $color-accent-light; /* Подсветка кнопки */
+            border-color: $color-accent-light;
             background: rgba(255, 255, 255, 0.1);
           }
-
           .lang-arrow {
-            transform: rotate(180deg); /* Поворот стрелки */
+            transform: rotate(180deg);
             stroke: $color-accent-light;
           }
-
           .lang-dropdown__menu {
             opacity: 1;
             visibility: visible;
@@ -209,7 +219,6 @@ body {
           }
         }
 
-        /* Опции внутри меню */
         .lang-option {
           background: transparent;
           border: none;
@@ -247,12 +256,14 @@ body {
         }
       }
 
-      /* Скрываем на мобильном (так как там свое меню) */
+      /* Скрываем дропдаун на мобильном (если там он свой) */
       @media (max-width: 992px) {
         .lang-dropdown {
           display: none;
         }
       }
+
+      /* === СПИСОК ССЫЛОК (UL) === */
       ul {
         display: flex;
         gap: 24px;
@@ -274,6 +285,7 @@ body {
         }
       }
 
+      /* === МОБИЛЬНЫЙ ФУТЕР ВНУТРИ МЕНЮ === */
       .mobile-footer {
         display: none;
       }
@@ -496,6 +508,7 @@ body {
     nav {
       .burger-btn {
         display: flex;
+        margin-top: -4px;
       }
 
       .nav-content {
@@ -559,7 +572,6 @@ body {
           align-items: center;
           gap: 20px;
           width: 100%;
-          margin-top: auto;
 
           .mobile-email {
             color: $color-accent-light;
@@ -850,7 +862,8 @@ $transition-speed: 0.5s;
   // === КАРТОЧКА (ITEM) ===
   &__item {
     position: relative;
-    height: 340px;
+    // 1. Минимальная высота для ПК, чтобы карточки были одинаковыми
+    min-height: 340px;
     display: flex;
     flex-direction: column;
     padding: 35px;
@@ -863,11 +876,18 @@ $transition-speed: 0.5s;
 
     // 🔥 NEW: Настройка для мобильного
     @media (max-width: 768px) {
-      // Говорим браузеру: "Останавливай скролл так, чтобы центр карточки был по центру экрана"
+      // 2. ВЕРНУЛ min-height для мобильных.
+      // Если текста мало, карточка будет 300px в высоту, и кнопка будет прижата к низу.
+      // Если текста много, height: auto позволит ей растянуться.
+      min-height: 300px;
+      height: auto;
+
+      padding: 25px 20px;
       scroll-snap-align: center;
-      scroll-margin-top: 20px; // Отступ, чтобы не прилипало вплотную к верху
+      scroll-margin-top: 20px;
     }
 
+    /* ... псевдоэлемент ::before (без изменений) ... */
     &::before {
       content: "";
       position: absolute;
@@ -884,7 +904,7 @@ $transition-speed: 0.5s;
       pointer-events: none;
     }
 
-    // Срабатывает при наведении МЫШКОЙ или при классе ACTIVE (JS)
+    /* ... Hover эффекты (без изменений) ... */
     &:hover,
     &.active {
       border-color: transparent;
@@ -923,7 +943,16 @@ $transition-speed: 0.5s;
       font-size: 25px;
       font-weight: 600;
       margin-top: 0;
-      min-height: 60px;
+      min-height: 60px; // Высота заголовка для ПК
+
+      @media (max-width: 768px) {
+        // 3. ВЕРНУЛ min-height для заголовка на мобильном.
+        // Это добавит "воздуха" между заголовком и текстом, даже если заголовок короткий.
+        min-height: 50px;
+
+        font-size: 22px;
+        margin-bottom: 15px;
+      }
     }
 
     p {
@@ -932,7 +961,14 @@ $transition-speed: 0.5s;
       line-height: 1.6;
       color: rgba($white, 0.8);
       margin-bottom: 30px;
+      // 4. flex-grow: 1 заставляет текст занимать все свободное пространство
+      // Это ключевой момент для красивого распределения!
       flex-grow: 1;
+
+      @media (max-width: 768px) {
+        margin-bottom: 20px;
+        font-size: 15px;
+      }
     }
 
     a {
@@ -942,6 +978,7 @@ $transition-speed: 0.5s;
       font-weight: 600;
       color: $white;
       text-decoration: none;
+      // 5. margin-top: auto прижимает кнопку к самому низу карточки
       margin-top: auto;
 
       &::after {
@@ -964,7 +1001,7 @@ $transition-speed: 0.5s;
     border: 2px solid rgba($white, 0.5);
     color: $white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
     transition: all 0.3s ease;
@@ -2438,4 +2475,16 @@ footer {
   font-weight: bold;
 
   font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .header {
+    min-height: 90vh;
+  }
+  .skills {
+    padding: 0 0 60px 0;
+  }
+  .product__item {
+    min-height: 350px;
+  }
 }
