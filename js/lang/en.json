@@ -483,14 +483,14 @@
     "feat6Title": "Google Ads",
     "feat6Desc": "Launch of ad campaigns targeting high-intent queries for rapid customer acquisition.",
 
-    "nextCaseText": "View previous case",
+    "nextCaseText": "View next case",
     "nextCaseName": "Wortly – Smart service for learning German words"
   },
   "wortly": {
     "title": "Wortly – German Learning App",
     "tagSocial": "Social Project",
     "tagLang": "German Learning",
-    "heroTitle": "Learn German effectively with <span style=\"color: var(--accent-blue)\">Wortly.one</span>",
+    "heroTitle": "Learn German effectively with <span class=\"text-brand-gradient\">Wortly.one</span>",
     "heroDesc": "A social project by the <strong>Ksibe</strong> team. A free app with a complete set of tools — from spaced repetition to native pronunciation. Your personal assistant for mastering German.",
     "visitSite": "Try Wortly",
 

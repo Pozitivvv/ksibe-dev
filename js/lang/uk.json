@@ -486,14 +486,14 @@
     "feat6Title": "Google Ads",
     "feat6Desc": "Налаштування рекламних кампаній на 'гарячі' запити для швидкого залучення клієнтів.",
 
-    "nextCaseText": "Дивитись попередній кейс",
+    "nextCaseText": "Дивитись наступний кейс",
     "nextCaseName": "Wortly - розумний додаток для навчання немецької"
   },
   "wortly": {
     "title": "Wortly - Додаток для навчання німецької",
     "tagSocial": "Social Project",
     "tagLang": "German Learning",
-    "heroTitle": "Вивчай німецьку ефективно з <span style=\"color: var(--accent-blue)\">Wortly.one</span>",
+    "heroTitle": "Learn German effectively with <span class=\"text-brand-gradient\">Wortly.one</span>",
     "heroDesc": "Соціальний проект від команди <strong>Ksibe</strong>. Безкоштовний додаток з повним набором інструментів: від інтервального повторення до озвучки носіями мови. Ваш персональний помічник у підкоренні німецької.",
     "visitSite": "Спробувати Wortly",
 

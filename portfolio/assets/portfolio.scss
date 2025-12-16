@@ -1002,6 +1002,14 @@ div {
 .glass-btn:hover svg {
   transform: translate(3px, -3px); /* Стрелка улетает вверх-вправо */
 }
+.text-brand-gradient {
+  background: linear-gradient(135deg, #4cc9f0 0%, #4361ee 50%, #1fdb52 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  font-weight: 800; /* Делаем жирнее для читаемости */
+}
 
 /* Адаптив для кнопки */
 @media (max-width: 768px) {
@@ -1011,5 +1019,10 @@ div {
   /* Если на телефоне весь Hero по центру, оставьте center: */
   .hero-minimal {
     /* Если у вас на телефоне text-align: left, то раскомментируйте строку выше */
+  }
+}
+@media (max-width: 500px) {
+  .clean-tag {
+    text-align: center;
   }
 }

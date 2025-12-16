@@ -482,14 +482,14 @@
     "feat6Title": "Google Ads",
     "feat6Desc": "Einrichtung von Kampagnen für kaufbereite Suchanfragen zur schnellen Kundengewinnung.",
 
-    "nextCaseText": "Vorherigen Case ansehen",
+    "nextCaseText": "Nächsten Case ansehen",
     "nextCaseName": "Wortly – eine intelligente App zum Deutschlernen"
   },
   "wortly": {
     "title": "Wortly – App zum Deutschlernen",
     "tagSocial": "Soziales Projekt",
     "tagLang": "Deutsch lernen",
-    "heroTitle": "Lerne Deutsch effektiv mit <span style=\"color: var(--accent-blue)\">Wortly.one</span>",
+    "heroTitle": "Lerne Deutsch effektiv mit <span class=\"text-brand-gradient\">Wortly.one</span>",
     "heroDesc": "Ein soziales Projekt des <strong>Ksibe</strong>-Teams. Eine kostenlose App mit allen wichtigen Tools — von Spaced Repetition bis hin zu echter Aussprache. Dein persönlicher Helfer beim Deutschlernen.",
     "visitSite": "Wortly ausprobieren",
 
