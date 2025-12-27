@@ -9,6 +9,80 @@
   font-style: normal;
   font-display: swap;
 }
+/* --- PRELOADER STYLES --- */
+body.is-loading {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* Щоб можна було клікати крізь нього, коли він відкритий */
+}
+
+/* ШТОРКИ (Чорні панелі) */
+.pr-panel {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: #050505;
+  z-index: 1;
+  will-change: transform;
+}
+
+.pr-top {
+  top: 0;
+}
+.pr-bot {
+  bottom: 0;
+}
+
+/* КОНТЕЙНЕР ЛОГОТИПУ */
+.preloader__wrap {
+  position: relative;
+  z-index: 2; /* Вище шторок */
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader__svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* СТИЛІ ТЕКСТУ (SVG) */
+.svg-text {
+  font-family: "Unbounded", sans-serif;
+  font-weight: 800;
+  font-size: 100px;
+  letter-spacing: 4px;
+
+  /* === FIX ДЛЯ РІВНОГО КОНТУРУ === */
+  fill: #050505; /* Спочатку чорний (колір фону) */
+  stroke: #ffffff; /* Білий контур */
+  stroke-width: 4px;
+  paint-order: stroke fill; /* Спочатку малюємо лінію, потім заливаємо зверху */
+  stroke-linejoin: round; /* Заокруглюємо кути */
+  stroke-linecap: round;
+
+  stroke-dasharray: 800; /* Для анімації малювання */
+  stroke-dashoffset: 800; /* Ховаємо лінію */
+
+  opacity: 0;
+}
 /* --- CUSTOM SCROLLBAR (Весь сайт) --- */
 
 /* 1. Для Firefox (поддерживает только цвет и ширину) */

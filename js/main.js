@@ -1,4 +1,156 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // --- ПРЕМІАЛЬНИЙ ПРЕЛОАДЕР (SPLIT EFFECT) ---
+  // --- 1. ЛОГІКА ЗАВАНТАЖЕННЯ (ВХІД НА СТОРІНКУ) ---
+  const initApp = () => {
+    if (typeof gsap === "undefined") return;
+
+    // Перевіряємо: ми прийшли сюди через клік по посиланню?
+    const isInternalTransition =
+      sessionStorage.getItem("isInternalTransition") === "true";
+
+    // Одразу очищаємо мітку.
+    // Якщо користувач натисне F5 зараз, мітки вже не буде -> покажеться Логотип (як ви і хотіли).
+    sessionStorage.removeItem("isInternalTransition");
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        document.body.classList.remove("is-loading");
+      },
+    });
+
+    // === СЦЕНАРІЙ 1: ПОВНИЙ ВХІД (F5, Нова вкладка, Введення URL) ===
+    // Показуємо повну красу з логотипом
+    if (!isInternalTransition) {
+      // Скидаємо стилі, щоб все було видно
+      gsap.set(".pr-panel", { yPercent: 0, opacity: 1 });
+      gsap.set(".preloader__wrap", { opacity: 1, scale: 1, display: "flex" });
+      gsap.set(".svg-text", { opacity: 1, fill: "#050505", stroke: "#ffffff" });
+
+      tl
+        // 1. Малюємо контур
+        .to(".svg-text", {
+          strokeDashoffset: 0,
+          duration: 1.5,
+          ease: "power2.inOut",
+        })
+
+        // 2. Заливка білим
+        .to(".svg-text", {
+          fill: "#ffffff",
+          stroke: "#ffffff",
+          duration: 0.5,
+          ease: "power2.out",
+        })
+
+        // 3. Пауза
+        .to({}, { duration: 0.2 })
+
+        // 4. Політ крізь лого + Зникнення шторок
+        .to(".preloader__wrap", {
+          scale: 10,
+          opacity: 0,
+          duration: 1.0,
+          ease: "expo.in",
+        })
+        .to(
+          ".pr-panel",
+          {
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "<+=0.2"
+        ) // Зникають одночасно з польотом
+
+        .set(".preloader", { display: "none" });
+    }
+
+    // === СЦЕНАРІЙ 2: ВНУТРІШНІЙ ПЕРЕХІД (Клік по меню) ===
+    // Тільки шторки, без лого
+    else {
+      // Ховаємо логотип, він не потрібен
+      gsap.set(".preloader__wrap", { display: "none" });
+
+      // Переконуємось, що шторки закриті (чорні)
+      gsap.set(".pr-panel", { opacity: 1, yPercent: 0 });
+      gsap.set(".preloader", { display: "flex" }); // Показуємо блок
+
+      // Відкриваємо шторки
+      tl.to(".pr-top", { yPercent: -100, duration: 1.0, ease: "expo.inOut" })
+        .to(
+          ".pr-bot",
+          { yPercent: 100, duration: 1.0, ease: "expo.inOut" },
+          "<"
+        )
+        .set(".preloader", { display: "none" });
+    }
+  };
+
+  // --- 2. ОБРОБКА КЛІКІВ (ВИХІД ЗІ СТОРІНКИ) ---
+  const initPageLinks = () => {
+    const links = document.querySelectorAll("a");
+
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        const target = link.getAttribute("target");
+
+        // Ігноруємо якоря, телефони, нові вкладки
+        if (
+          !href ||
+          href.startsWith("#") ||
+          target === "_blank" ||
+          href.includes("mailto:") ||
+          href.includes("tel:")
+        ) {
+          return;
+        }
+
+        e.preventDefault();
+
+        // !!! ВАЖЛИВО: Ставимо мітку "Це внутрішній перехід" !!!
+        sessionStorage.setItem("isInternalTransition", "true");
+
+        // 1. Повертаємо прелоадер (тільки шторки)
+        const preloader = document.querySelector(".preloader");
+        preloader.style.display = "flex";
+
+        gsap.set(".pr-panel", { opacity: 1 }); // Шторки непрозорі
+        gsap.set(".preloader__wrap", { display: "none" }); // Лого приховане
+
+        // 2. ЗАКРИВАЄМО ШТОРКИ
+        const tl = gsap.timeline({
+          onComplete: () => {
+            window.location.href = href;
+          },
+        });
+
+        // Старт: шторки відкриті
+        tl.set(".pr-top", { yPercent: -100 })
+          .set(".pr-bot", { yPercent: 100 })
+
+          // Анімація закриття
+          .to(".pr-top", {
+            yPercent: 0,
+            duration: 0.7,
+            ease: "expo.inOut",
+          })
+          .to(
+            ".pr-bot",
+            {
+              yPercent: 0,
+              duration: 0.7,
+              ease: "expo.inOut",
+            },
+            "<"
+          );
+      });
+    });
+  };
+
+  // ЗАПУСК
+  initApp();
+  initPageLinks();
   // --- SMOOTH SCROLL (LENIS) ---
   const initSmoothScroll = () => {
     const lenis = new Lenis({
@@ -437,4 +589,72 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(refresh, 200);
     setTimeout(refresh, 1000);
   });
+  if (document.querySelector(".pwa-hero")) {
+    const heroTl = gsap.timeline({ delay: 0.2 }); // Небольшая задержка после прелоадера
+
+    heroTl
+      .from(".pwa-hero__text > *", {
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power3.out",
+        clearProps: "all",
+      })
+      .from(
+        ".pwa-hero__visual",
+        {
+          x: 30,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          clearProps: "all",
+        },
+        "-=0.8"
+      );
+  }
+
+  // 2. Benefits Grid (Карточки)
+  const benefitCards = document.querySelectorAll(".benefit-card");
+  if (benefitCards.length > 0) {
+    gsap.from(benefitCards, {
+      scrollTrigger: {
+        trigger: ".benefits-grid",
+        start: "top 85%", // Анимация начнется, когда верх сетки будет на 85% высоты экрана
+        toggleActions: "play none none none",
+      },
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.15, // Задержка между появлением карточек
+      ease: "power2.out",
+      clearProps: "all",
+    });
+  }
+
+  // 3. Info Section (Список внизу)
+  if (document.querySelector(".info-section")) {
+    gsap.from(".info-title", {
+      scrollTrigger: {
+        trigger: ".info-section",
+        start: "top 85%",
+      },
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+    });
+
+    gsap.from(".info-list li", {
+      scrollTrigger: {
+        trigger: ".info-list",
+        start: "top 90%",
+      },
+      x: -20,
+      opacity: 0,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "power2.out",
+    });
+  }
 });

@@ -60,7 +60,27 @@
       }
     </style>
   </head>
-  <body>
+  <body class="is-loading">
+    <div class="preloader">
+      <div class="pr-panel pr-top"></div>
+      <div class="pr-panel pr-bot"></div>
+
+      <div class="preloader__wrap">
+        <svg class="preloader__svg" viewBox="0 0 600 150">
+          <text
+            x="50%"
+            y="50%"
+            dy=".35em"
+            text-anchor="middle"
+            class="svg-text"
+          >
+            KSIBE
+          </text>
+        </svg>
+      </div>
+    </div>
+
+    <div id="canvas-container"></div>
     <div class="header">
       <div class="container">
         <nav>
