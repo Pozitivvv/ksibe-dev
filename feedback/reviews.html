@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
   <head>
     <meta charset="UTF-8" />
@@ -98,7 +98,9 @@
         transform-style: preserve-3d;
         transform: translateZ(0);
         will-change: transform;
-        transition: transform 0.1s ease-out, border-color 0.3s ease,
+        transition:
+          transform 0.1s ease-out,
+          border-color 0.3s ease,
           box-shadow 0.3s ease;
 
         cursor: default;
@@ -284,7 +286,7 @@
                 <p class="review-text">
                   "Команда перевершила мої очікування. Сайт літає, анімації
                   плавні, як в Apple. Особливо вразив підхід до мобільної версії
-                  — все зручно і продумано до дрібниць."
+                  - все зручно і продумано до дрібниць."
                 </p>
                 <div class="card-footer">
                   <div class="rating">★★★★★</div>
@@ -442,7 +444,7 @@
           .from(
             ".page-subtitle",
             { duration: 1, y: 30, opacity: 0, ease: "power3.out" },
-            "-=0.5"
+            "-=0.5",
           )
           .from(
             ".review-card",
@@ -453,7 +455,7 @@
               stagger: 0.1,
               ease: "back.out(1.2)",
             },
-            "-=0.5"
+            "-=0.5",
           );
 
         // 2. ЕФЕКТ НАХИЛУ КАРТОК (Vanilla Tilt Logic)
@@ -499,7 +501,7 @@
             75,
             window.innerWidth / window.innerHeight,
             0.1,
-            1000
+            1000,
           );
           camera.position.z = 30;
 
@@ -522,7 +524,7 @@
 
           geometry.setAttribute(
             "position",
-            new THREE.BufferAttribute(posArray, 3)
+            new THREE.BufferAttribute(posArray, 3),
           );
 
           // Матеріал частинок - вашого акцентного кольору #6b6bda

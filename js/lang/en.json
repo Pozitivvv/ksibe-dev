@@ -1,6 +1,10 @@
 {
   "header": {
-    "titleMainPage": "KSIBE is your partner in the world of digital transformation.",
+    "titleMainPage": "Ksibe - Custom Web Development & UI/UX Design Agency",
+    "metaDescription": "Transform your business with Ksibe. We provide high-end web development, mobile apps, and stunning UI/UX design tailored to your goals. Get a free consultation.",
+    "ogTitle": "Ksibe - We Build Digital Future",
+    "ogDescription": "Professional web development and design services. Click to see our portfolio.",
+
     "link1": "Services",
     "link2": "Portfolio",
     "link3": "Reviews",
@@ -14,7 +18,7 @@
   "skills": {
     "title": "REASONS WHY YOU CAN TRUST US WITH YOUR PROJECT",
     "title1": "A digital ecosystem, not just a website",
-    "subtitle1": "For us, every project is more than a website — it’s a tool designed to help your business grow. We make sure your site is not only visually appealing but truly effective.",
+    "subtitle1": "For us, every project is more than a website - it’s a tool designed to help your business grow. We make sure your site is not only visually appealing but truly effective.",
     "title2": "We understand your business and support its growth",
     "subtitle2": "Our task is not only to build a website, but to help you achieve your business goals. We analyze your audience and implement changes that bring real value.",
     "title3": "Innovative solutions instead of template-based projects",
@@ -29,22 +33,22 @@
     "discription1": "A modern web application that looks and feels like a mobile app. Fast, convenient, and can work offline. A perfect choice when you need “an app-like experience without extra cost.”",
 
     "product2": "Websites of any complexity",
-    "discription2": "From simple landing pages to complex multi-level websites. For a brand, small business, or company — we build with precision, speed, and focus on results.",
+    "discription2": "From simple landing pages to complex multi-level websites. For a brand, small business, or company - we build with precision, speed, and focus on results.",
 
     "product3": "Online Store / eCommerce",
     "discription3": "A convenient online store with cart, payments, and modern design. Built to sell effectively and stay stable even under high traffic.",
 
     "product4": "Corporate Website",
-    "discription4": "A stylish and solid website for your company. Showcases your brand, team, services — everything your clients need to see professionalism at first glance.",
+    "discription4": "A stylish and solid website for your company. Showcases your brand, team, services - everything your clients need to see professionalism at first glance.",
 
     "product5": "Client dashboards, CRM, internal systems",
     "discription5": "We create convenient tools for business operations: personal dashboards, management systems, service panels. Thoughtful and easy to use.",
 
     "product6": "Integrations & custom solutions",
-    "discription6": "We integrate payments, CRMs, automation, APIs — everything you need for smooth operations and growth. Flexible for your business tasks.",
+    "discription6": "We integrate payments, CRMs, automation, APIs - everything you need for smooth operations and growth. Flexible for your business tasks.",
 
     "product7": "Any other idea",
-    "discription7": "Even if your idea is something unusual — let’s discuss it. Whatever you have in mind, we’re ready to build it.",
+    "discription7": "Even if your idea is something unusual - let’s discuss it. Whatever you have in mind, we’re ready to build it.",
 
     "btn": "Learn more"
   },
@@ -67,7 +71,7 @@
     "discription5": "We ensure stable work of your website, ads, and services 24/7."
   },
   "portfolio": {
-    "titleSection": "Our work — real results",
+    "titleSection": "Our work - real results",
     "title1": "Head Barbershop",
     "descr1": "Premium barbershop",
     "title2": "Babies Alliance",
@@ -125,7 +129,7 @@
     "back": "Back to Home",
     "hero": {
       "title": "PWA / Web App",
-      "subtitle": "Transform your website into a full-fledged mobile app. Home-screen icon, offline mode, and push notifications — without App Store costs.",
+      "subtitle": "Transform your website into a full-fledged mobile app. Home-screen icon, offline mode, and push notifications - without App Store costs.",
       "btn": "Request a Consultation"
     },
     "phone": {
@@ -175,12 +179,12 @@
     "pageTitle": "Websites of Any Complexity – Website Development | KSIBE",
     "hero": {
       "title": "Websites of Any Complexity",
-      "subtitle": "From simple pages to well-structured multi-level websites. For brands, small businesses, or companies — we deliver clean, fast, and result-focused solutions."
+      "subtitle": "From simple pages to well-structured multi-level websites. For brands, small businesses, or companies - we deliver clean, fast, and result-focused solutions."
     },
     "cards": {
       "card1": {
         "title": "Responsive Design",
-        "text": "Your website will look perfect on any device — from smartphones to large monitors."
+        "text": "Your website will look perfect on any device - from smartphones to large monitors."
       },
       "card2": {
         "title": "High Performance",
@@ -248,7 +252,7 @@
   "corporate": {
     "pageTitle": "Corporate Website – Web Development | KSIBE",
     "heroTitle": "Corporate Website",
-    "heroSubtitle": "A stylish and solid website for your company. Showcases your brand, team, and services — ensuring clients see professionalism at first glance.",
+    "heroSubtitle": "A stylish and solid website for your company. Showcases your brand, team, and services - ensuring clients see professionalism at first glance.",
 
     "card1Title": "Brand Image & Trust",
     "card1Text": "Your website works for your reputation 24/7. Modern design communicates that your company keeps up with the times.",
@@ -310,7 +314,7 @@
   "custom": {
     "pageTitle": "Any Idea / Startups – Web Development | KSIBE",
     "heroTitle": "Turning Any Idea Into Reality",
-    "heroSubtitle": "Even if it is something unconventional — let’s discuss it. Whatever you imagine, we can build! From a startup MVP to complex ecosystems.",
+    "heroSubtitle": "Even if it is something unconventional - let’s discuss it. Whatever you imagine, we can build! From a startup MVP to complex ecosystems.",
 
     "card1Title": "MVP in One Month",
     "card1Text": "Rapid launch of a minimum viable product to validate your hypothesis without massive investments.",
@@ -345,7 +349,7 @@
     "tagMark": "Marketing",
     "visitSite": "Visit Site",
     "heroTitle": "How to turn a new kindergarten into the <span style='color: var(--accent-blue)'>most popular</span> one in the area",
-    "heroDesc": "A comprehensive launch for <strong>Babies Alliance</strong>. We built a trust-driven website and set up advertising that brought parents in. The result — <span style='color: var(--accent-green)'>fully booked groups in 2 months.</span>",
+    "heroDesc": "A comprehensive launch for <strong>Babies Alliance</strong>. We built a trust-driven website and set up advertising that brought parents in. The result - <span style='color: var(--accent-green)'>fully booked groups in 2 months.</span>",
 
     "showcaseDesktop": "Desktop Website View",
     "showcaseMobile": "Mobile View",
@@ -395,7 +399,7 @@
     "tagWeb": "Web Platform",
     "tagBot": "Telegram Bot",
     "heroTitle": "Find travel companions easily with <span style=\"color: var(--accent-blue)\">Pidvezu</span>",
-    "heroDesc": "Platform development from scratch: from database architecture to a <strong>React</strong> frontend. We built an ecosystem where drivers and passengers find each other in minutes. The result — <span style=\"color: var(--accent-green)\">convenient savings of time and money.</span>",
+    "heroDesc": "Platform development from scratch: from database architecture to a <strong>React</strong> frontend. We built an ecosystem where drivers and passengers find each other in minutes. The result - <span style=\"color: var(--accent-green)\">convenient savings of time and money.</span>",
     "visitSite": "Visit Live Site",
 
     "widgetRoute": "Route",
@@ -443,7 +447,7 @@
     "tagLp": "Landing Page",
     "tagAds": "Google Ads",
     "heroTitle": "A premium look for the <span style=\"color: var(--accent-gold)\">Head Barbershop</span> brand",
-    "heroDesc": "Redesign of an outdated website that was losing clients. We built a fast <strong>React</strong> landing page in dark tones, integrated it directly with the CRM, and launched advertising campaigns. The result — a steady flow of leads and <span style=\"color: var(--accent-gold)\">easy booking in just 2 clicks.</span>",
+    "heroDesc": "Redesign of an outdated website that was losing clients. We built a fast <strong>React</strong> landing page in dark tones, integrated it directly with the CRM, and launched advertising campaigns. The result - a steady flow of leads and <span style=\"color: var(--accent-gold)\">easy booking in just 2 clicks.</span>",
     "visitSite": "Visit Website",
 
     "widgetBook": "Booking",
@@ -491,7 +495,7 @@
     "tagSocial": "Social Project",
     "tagLang": "German Learning",
     "heroTitle": "Learn German effectively with <span class=\"text-brand-gradient\">Wortly.one</span>",
-    "heroDesc": "A social project by the <strong>Ksibe</strong> team. A free app with a complete set of tools — from spaced repetition to native pronunciation. Your personal assistant for mastering German.",
+    "heroDesc": "A social project by the <strong>Ksibe</strong> team. A free app with a complete set of tools - from spaced repetition to native pronunciation. Your personal assistant for mastering German.",
     "visitSite": "Try Wortly",
 
     "widgetWords": "Vocabulary",
@@ -516,7 +520,7 @@
     "stackTitle": "Tech Stack",
 
     "structTitle": "App<br />Features",
-    "structDesc": "All essential tools for language immersion — right in your pocket.",
+    "structDesc": "All essential tools for language immersion - right in your pocket.",
 
     "feat1Title": "Personal Dictionary",
     "feat1Desc": "Add your own words and organize them by topics. Full cloud synchronization.",
@@ -546,7 +550,103 @@
     "tagBeauty": "Beauty",
     "descHead": "Landing Page & Google Ads",
     "tagCorporate": "Corporate",
-    "descBabies": "Corporate website with CRM integration"
+    "descBabies": "Corporate website with CRM integration",
+    "tagEcom": "E-Commerce",
+    "descLavika": "Corporate website for a premium beauty salon",
+    "descVovka": "Custom landing page for a craft meat brand"
+  },
+  "vovka": {
+    "pageTitle": "Vovka Brus – Case Study | KSIBE",
+    "tagEcom": "Presentation Landing",
+    "tagBrand": "Brand Identity",
+    "heroTitle": "A new breath for the craft delicacies brand <span>Vovka Brus</span>",
+    "heroDesc": "A complete upgrade of the visual and technical parts: we migrated the project from an outdated <strong>Google Sites</strong> to a modern custom landing page. The result is <span style=\"color: var(--accent-orange); text-shadow: 0 0 15px rgba(229, 62, 62, 0.25); border-bottom: 1px dashed rgba(229, 62, 62, 0.3);\">increased reach and a premium presentation</span> of signature meat products and courses.",
+    "widgetCraft": "Craft",
+    "widgetMenu": "Meat & Cheeses",
+    "widgetReach": "Reach",
+    "widgetConversion": "+300% Audience",
+    "chartTitle": "Engagement Growth",
+    "resMainValue": "Custom UI",
+    "chartSub": "Audience reach dynamics after the transition to the new design",
+    "chartLabel1": "Old Website",
+    "chartLabel2": "New Release",
+    "chartLabel3": "Ads Setup",
+    "chartLabel4": "Sold Out",
+    "resMainTitle": "Brand Transformation",
+    "resMainDesc": "Moving away from template-based Google Sites for a premium image.",
+    "resSpeedTitle": "Informativeness",
+    "resSpeedDesc": "Clear showcase and courses",
+    "resSupportTitle": "Performance",
+    "resSupportDesc": "Optimized architecture",
+    "stackTitle": "Tech Stack",
+    "structTitle": "Project<br />Architecture",
+    "structDesc": "The site is divided into key funnels: community engagement for meat sales and presenting signature courses.",
+    "feat1Title": "Delicacy Showcase",
+    "feat1Desc": "Appetizing \"What do we cook for sale?\" blocks with high-quality visuals of sausages, jerky, and cheeses.",
+    "feat2Title": "Course Presentation",
+    "feat2Desc": "A structured block with educational materials, program details, and easy access to enrollment.",
+    "feat3Title": "Custom Design",
+    "feat3Desc": "Developing a unique style in Figma that reflects the craft nature and exclusivity of the product.",
+    "feat4Title": "Mobile First",
+    "feat4Desc": "Perfect adaptation for smartphones, which bring in 90% of traffic from the blogger's social networks.",
+    "feat5Title": "Modern Stack",
+    "feat5Desc": "Lightweight and fast code (HTML, SCSS, JS, React) instead of heavy site builders.",
+    "feat6Title": "Convenient Lead Gen",
+    "feat6Desc": "Intuitive calls to action (CTAs) for joining the order community and social networks.",
+    "nextCaseText": "View next case",
+    "nextCaseName": "Lavika - a premium beauty salon",
+    "chartLabel3": "YouTube Video",
+    "chartLabel4": "Craft Boom",
+    "chartVal1": "Google Sites",
+    "chartVal2": "Redesign",
+    "chartVal3": "YouTube Video",
+    "chartVal4": "Craft Boom"
+  },
+  "lavika": {
+    "pageTitle": "Lavika – Case | KSIBE",
+    "tagBeauty": "Beauty Landing",
+    "tagDigital": "Digitalization",
+    "heroTitle": "Digital embodiment of aesthetics for the premium salon <span>Lavika</span>",
+    "heroDesc": "Website development from scratch for a beauty salon in Irpin. We abandoned standard templates to create an elegant digital space: an <span style=\"color: var(--accent-orange); text-shadow: 0 0 15px rgba(217, 186, 192, 0.25); border-bottom: 1px dashed rgba(217, 186, 192, 0.3);\">interactive price list, presentation of masters, and convenient online booking</span> instead of chaos in Direct.",
+    "widgetEsthetics": "Aesthetics",
+    "widgetPremium": "Premium Salon",
+    "widgetBooking": "Booking",
+    "widget247": "24/7 Access",
+    "chartTitle": "Digitalization Stages",
+    "chartSub": "Sequential transition of the business into the digital space",
+    "chartVal1": "Instagram Only",
+    "chartVal2": "Website Release",
+    "chartVal3": "Google Maps",
+    "chartVal4": "Systematic Bookings",
+    "chartLabel1": "Offline Base",
+    "chartLabel2": "Launch",
+    "chartLabel3": "Indexing",
+    "chartLabel4": "Growth",
+    "resMainTitle": "Salon Image",
+    "resMainValue": "Premium Design",
+    "resMainDesc": "Creating a website from scratch that fully matches the status and high checks of the services.",
+    "resSpeedTitle": "Google PageSpeed",
+    "resSpeedDesc": "Fast media loading",
+    "resSupportTitle": "Convenience",
+    "resSupportValue": "In 2 clicks",
+    "resSupportDesc": "Access to contact and location",
+    "stackTitle": "Tech Stack",
+    "structTitle": "Business<br />Solutions",
+    "structDesc": "The site is designed to relieve the administrator's workload: all key information is presented in a structured and aesthetic way.",
+    "feat1Title": "Detailed Price List",
+    "feat1Desc": "A convenient service catalog divided into categories (nails, hair, lashes) with up-to-date prices.",
+    "feat2Title": "Team Presentation",
+    "feat2Desc": "A separate block for each master with their specialization, achievements, and work examples.",
+    "feat3Title": "Work Gallery",
+    "feat3Desc": "Visual confirmation of expertise through the integration of video examples and \"before/after\" photos.",
+    "feat4Title": "Mobile First",
+    "feat4Desc": "Perfect adaptation for smartphones, as 95% of the salon's target audience books services from a phone.",
+    "feat5Title": "Local SEO",
+    "feat5Desc": "Optimization for city search queries (Irpin) and integration of a real reviews widget from Google Maps.",
+    "feat6Title": "Convenient Communication",
+    "feat6Desc": "Quick transition to the client's preferred messenger (Viber, Telegram, Instagram) in 1 click.",
+    "nextCaseText": "View next case",
+    "nextCaseName": "Wortly - Language learning app"
   },
   "visitSite": "Visit site"
 }

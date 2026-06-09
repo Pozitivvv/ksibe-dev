@@ -25,24 +25,21 @@ window.selectLang = function (langCode, langLabel) {
 /* ==========================================
    2. Основная функция загрузки языка
    ========================================== */
+/* ==========================================
+   2. Основная функция загрузки языка (ОБНОВЛЕННАЯ)
+   ========================================== */
 function loadLang(lang) {
   // --- А. Логика Dropdown (Desktop) ---
   const langDropdown = document.getElementById("langDropdown");
 
-  // Проверяем, существует ли элемент, чтобы не было ошибки "Cannot read properties of null"
   if (langDropdown) {
-    const currentLangText = langDropdown.querySelector(".current-lang"); // Ваш класс в HTML
+    const currentLangText = langDropdown.querySelector(".current-lang");
     const langOptions = langDropdown.querySelectorAll(".lang-option");
 
     langOptions.forEach((btn) => {
       btn.classList.remove("active");
-
-      // Если это выбранный язык
       if (btn.dataset.value === lang) {
         btn.classList.add("active");
-
-        // Обновляем текст на главной кнопке (UA -> EN)
-        // Берем текст из тега <span> внутри кнопки (EN, UA, DE...)
         const spanLabel = btn.querySelector("span");
         if (currentLangText && spanLabel) {
           currentLangText.textContent = spanLabel.textContent;
@@ -52,7 +49,6 @@ function loadLang(lang) {
   }
 
   // --- Б. Логика кнопок (Mobile / Footer) ---
-  // Это для нижнего меню в мобилке, чтобы там тоже переключался класс active
   const simpleButtons = document.querySelectorAll(".lang-switch button");
   simpleButtons.forEach((btn) => {
     if (btn.getAttribute("data-lang") === lang) {
@@ -63,25 +59,78 @@ function loadLang(lang) {
   });
 
   // --- В. Загрузка JSON файла перевода ---
-  // Add a slash at the beginning to always start from root
   fetch("/js/lang/" + lang + ".json")
     .then((res) => res.json())
     .then((data) => {
-      // Перевод текстов
+      // 1. Перевод текстов в теле страницы
       document.querySelectorAll("[data-i18n]").forEach((el) => {
         const value = getNested(data, el.dataset.i18n);
         if (value) el.innerHTML = value;
       });
 
-      // Перевод плейсхолдеров (для инпутов)
+      // 2. Перевод плейсхолдеров
       document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
         const value = getNested(data, el.dataset.i18nPlaceholder);
         if (value) el.placeholder = value;
       });
 
-      // Сохраняем выбор пользователя
+      // --- НОВОЕ: SEO ОПТИМИЗАЦИЯ ---
+
+      // 3. Обновляем Title (Название вкладки)
+      // Берем ключ, который вы использовали в HTML: "header.titleMainPage"
+      // 3. Обновляем Title (Название вкладки)
+      const titleElement = document.querySelector("title");
+      let titleValue;
+
+      if (titleElement && titleElement.hasAttribute("data-i18n")) {
+        titleValue = getNested(data, titleElement.getAttribute("data-i18n"));
+      }
+
+      // Якщо ключа немає (або переклад не знайдено), беремо дефолтний від головної сторінки
+      if (!titleValue) {
+        titleValue = getNested(data, "header.titleMainPage");
+      }
+
+      if (titleValue) document.title = titleValue;
+
+      // 4. Обновляем Meta Description (Описание для Google)
+      // ВАЖНО: Добавьте ключ "header.metaDescription" в ваши JSON файлы!
+      const descValue = getNested(data, "header.metaDescription");
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && descValue) {
+        metaDesc.setAttribute("content", descValue);
+      }
+      // 1. Обновляем OG:Title (Заголовок для соцсетей)
+      const ogTitleValue = getNested(data, "header.ogTitle");
+      const ogTitleTag = document.querySelector('meta[property="og:title"]');
+      if (ogTitleTag && ogTitleValue) {
+        ogTitleTag.setAttribute("content", ogTitleValue);
+      }
+
+      // 2. Обновляем OG:Description (Описание для соцсетей)
+      const ogDescValue = getNested(data, "header.ogDescription");
+      const ogDescTag = document.querySelector(
+        'meta[property="og:description"]',
+      );
+      if (ogDescTag && ogDescValue) {
+        ogDescTag.setAttribute("content", ogDescValue);
+      }
+
+      // 5. Обновляем URL без перезагрузки страницы
+      // URL станет вида: yoursite.com/?lang=en
+      const newUrl =
+        window.location.protocol +
+        "//" +
+        window.location.host +
+        window.location.pathname +
+        "?lang=" +
+        lang;
+      window.history.pushState({ path: newUrl }, "", newUrl);
+
+      // --- КОНЕЦ НОВОГО ---
+
+      // Сохраняем выбор
       localStorage.setItem("lang", lang);
-      // Меняем атрибут языка у HTML тега
       document.documentElement.lang = lang;
     })
     .catch((err) => console.error("Language file error:", err));
@@ -108,32 +157,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- ЛОГИКА АВТОДЕТЕКТА ---
+  // --- ЛОГИКА АВТОДЕТЕКТА (С УЧЕТОМ URL) ---
 
-  // 1. Список поддерживаемых языков (чтобы не пытаться загрузить 'fr' или 'es', которых нет)
   const supportedLangs = ["uk", "en", "de", "ru"];
-
-  // 2. Проверяем, выбирал ли пользователь язык раньше
   let langToUse = localStorage.getItem("lang");
 
-  // 3. Если в памяти ничего нет (первый визит), определяем язык браузера
-  if (!langToUse) {
-    // Получаем язык браузера (например, "en-US", "uk-UA", "ru")
-    const browserLang = navigator.language || navigator.userLanguage;
+  // 1. Сначала проверяем URL (это самый высокий приоритет)
+  const urlParams = new URLSearchParams(window.location.search);
+  const langFromUrl = urlParams.get("lang");
 
-    // Берем первые 2 буквы (en, uk, ru)
+  if (langFromUrl && supportedLangs.includes(langFromUrl)) {
+    langToUse = langFromUrl;
+  }
+  // 2. Если в URL нет, и в памяти нет - берем язык браузера
+  else if (!langToUse) {
+    const browserLang = navigator.language || navigator.userLanguage;
     const shortLang = browserLang
       ? browserLang.slice(0, 2).toLowerCase()
       : "uk";
-
-    // Если этот язык у нас поддерживается — используем его, иначе — 'uk'
-    if (supportedLangs.includes(shortLang)) {
-      langToUse = shortLang;
-    } else {
-      langToUse = "uk"; // Язык по умолчанию, если браузер на китайском/испанском и т.д.
-    }
+    langToUse = supportedLangs.includes(shortLang) ? shortLang : "uk";
   }
 
-  // 4. Запускаем загрузку
   loadLang(langToUse);
 });

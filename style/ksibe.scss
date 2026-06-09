@@ -3,7 +3,8 @@
 
 @font-face {
   font-family: "Arkhip";
-  src: url("../fonts/Arkhip_font.otf") format("opentype"),
+  src:
+    url("../fonts/Arkhip_font.otf") format("opentype"),
     url("../fonts/Arkhip_font.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
@@ -464,7 +465,9 @@ body {
       right: 20px;
       opacity: 0;
       transform: translateX(40px);
-      transition: opacity 0.3s ease-out 0.5s, transform 0.3s ease-out 0.5s;
+      transition:
+        opacity 0.3s ease-out 0.5s,
+        transform 0.3s ease-out 0.5s;
       z-index: 2;
     }
 
@@ -606,7 +609,9 @@ body {
       text-decoration: none; /* важно для <a> */
       box-shadow: 0 10px 30px rgba($color-accent, 0.4);
 
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition:
+        transform 0.3s,
+        box-shadow 0.3s;
     }
 
     .hero-btn-desktop::before {
@@ -997,7 +1002,9 @@ $transition-speed: 0.5s;
     border-radius: 20px;
     background: transparent;
     overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease;
     box-sizing: border-box;
 
     // 🔥 NEW: Настройка для мобильного
@@ -1266,11 +1273,13 @@ $blob-color-2: rgba(46, 45, 95, 0.5);
   @keyframes neonPulse {
     0%,
     100% {
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.1),
+      text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.1),
         0 0 20px rgba($accent-color, 0.2);
     }
     50% {
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3),
+      text-shadow:
+        0 0 20px rgba(255, 255, 255, 0.3),
         0 0 40px rgba($accent-color, 0.5);
     }
   }
@@ -1859,7 +1868,7 @@ $text-placeholder: #8b8b8b;
     align-items: flex-start;
     gap: 60px;
 
-    // Адаптив: на планшете и ниже — в колонку
+    // Адаптив: на планшете и ниже - в колонку
     @media (max-width: 992px) {
       flex-direction: column;
       gap: 40px;
@@ -2048,7 +2057,9 @@ $text-placeholder: #8b8b8b;
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease; // Если нужно как в дизайне кнопок портфолио
+    transition:
+      background-color 0.3s ease,
+      transform 0.2s ease; // Если нужно как в дизайне кнопок портфолио
 
     &:hover {
       background-color: lighten($accent-btn, 5%);
@@ -2491,7 +2502,9 @@ footer {
   cursor: pointer;
   font-weight: 600;
   box-shadow: 0 4px 15px rgba(87, 91, 200, 0.4);
-  transition: transform 0.2s, background 0.2s;
+  transition:
+    transform 0.2s,
+    background 0.2s;
 }
 
 .modal-action-btn:hover {
@@ -2543,7 +2556,8 @@ footer {
    Добавляется через JS только при открытии
 */
 .checkmark.animate-start {
-  animation: fill 0.4s ease-in-out 0.4s forwards,
+  animation:
+    fill 0.4s ease-in-out 0.4s forwards,
     scale 0.3s ease-in-out 0.9s both;
 }
 
